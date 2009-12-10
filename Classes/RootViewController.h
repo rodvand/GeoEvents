@@ -9,14 +9,17 @@
 #import "MyCLController.h"
 #import "SearchViewViewController.h";
 
-@interface RootViewController : UITableViewController <MyCLControllerDelegate>{
-	IBOutlet UILabel *locationLabel;
+@interface RootViewController : UIViewController <MyCLControllerDelegate>{
+	IBOutlet UILabel * locationLabel;
+	IBOutlet UITextField * searchField;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
 }
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
+- (IBAction)search:(id)sender;
 
 @property (nonatomic, retain) SearchViewViewController * searchViewViewController;
+@property (nonatomic, retain) UITextField * searchField;
 
 @end

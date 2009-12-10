@@ -11,6 +11,7 @@
 
 @implementation RootViewController
 @synthesize searchViewViewController;
+@synthesize searchField;
 
 - (void)viewDidLoad {
 	self.title = @"Starting point";
@@ -29,6 +30,13 @@
 
 - (void)locationError:(NSError *)error {
     locationLabel.text = [error description];
+}
+
+- (IBAction)search:(id)sender {
+	UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Du trykket på søk!" delegate:nil cancelButtonTitle:@"Avbryt" otherButtonTitles:nil ];
+	[alert show];
+	[alert release];
+	NSLog(@"Searching for: %@", [searchField text]);
 }
 
 /*
