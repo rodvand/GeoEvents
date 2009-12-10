@@ -10,7 +10,9 @@
 
 
 @interface DetailedViewViewController : UIViewController {
-
+	NSMutableArray * events;
 }
+
+@property (nonatomic, retain) NSMutableArray * events;
 
 @end

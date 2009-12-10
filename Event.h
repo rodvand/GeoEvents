@@ -13,22 +13,22 @@
 	NSString * ident;
 	NSString * artist;
 	NSString * venue;
-	NSString * date;
+	NSString * startDate;
 	NSArray * tags;
 	NSString * eventUrl;
 	NSString * eventStatus;
-	NSString * latitude;
-	NSString * longitude;
+	NSString * lat;
+	NSString * lon;
 }
 
 @property (nonatomic, retain) NSString * ident;
 @property (nonatomic, retain) NSString * artist;
 @property (nonatomic, retain) NSString * venue;
-@property (nonatomic, retain) NSString * date;
+@property (nonatomic, retain) NSString * startDate;
 @property (nonatomic, retain) NSString * eventUrl;
 @property (nonatomic, retain) NSString * eventStatus;
-@property (nonatomic, retain) NSString * latitude;
-@property (nonatomic, retain) NSString * longitude;
+@property (nonatomic, retain) NSString * lat;
+@property (nonatomic, retain) NSString * lon;
 @property (nonatomic, retain) NSArray * tags;
 
 @end

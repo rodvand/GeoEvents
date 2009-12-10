@@ -14,6 +14,8 @@
 	IBOutlet UITextField * searchField;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
+	NSNumber * latitude;
+	NSNumber * longitude;
 }
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
@@ -21,5 +23,6 @@
 
 @property (nonatomic, retain) SearchViewViewController * searchViewViewController;
 @property (nonatomic, retain) UITextField * searchField;
-
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
 @end
