@@ -1,0 +1,333 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* GeoEvents_finalAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* GeoEvents_finalAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AA99E10D20A8200E81307 /* SettingsViewController.m */; };
+		5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3AA99F10D20A8200E81307 /* SettingsView.xib */; };
+		5BA1286A10CE6DD20024ADC6 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1286910CE6DD20024ADC6 /* SearchView.xib */; };
+		5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */; };
+		5BA1288510CE711A0024ADC6 /* DetailedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1288410CE711A0024ADC6 /* DetailedView.xib */; };
+		5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */; };
+		5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1D6DA10CE8BB0002BFF08 /* icon.png */; };
+		5BF286E210CDA142005EB7AB /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286DE10CDA142005EB7AB /* TBXML.m */; };
+		5BF286E310CDA142005EB7AB /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E010CDA142005EB7AB /* NSDataAdditions.m */; };
+		5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF286E410CDA153005EB7AB /* libz.dylib */; };
+		5BF286EA10CDA16B005EB7AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E910CDA16B005EB7AB /* Event.m */; };
+		5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF2871210CDDE14005EB7AB /* CoreLocation.framework */; };
+		5BF2871E10CDE5BC005EB7AB /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2871D10CDE5BC005EB7AB /* MyCLController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* GeoEvents_finalAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoEvents_finalAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* GeoEvents_finalAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoEvents_finalAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* GeoEvents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoEvents.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* GeoEvents_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoEvents_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5B3AA99D10D20A8200E81307 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5B3AA99E10D20A8200E81307 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5B3AA99F10D20A8200E81307 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsView.xib; path = Classes/SettingsView.xib; sourceTree = "<group>"; };
+		5BA1286910CE6DD20024ADC6 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
+		5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewViewController.h; path = ../SearchViewViewController.h; sourceTree = "<group>"; };
+		5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewViewController.m; path = ../SearchViewViewController.m; sourceTree = "<group>"; };
+		5BA1288410CE711A0024ADC6 /* DetailedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailedView.xib; sourceTree = "<group>"; };
+		5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewViewController.h; sourceTree = "<group>"; };
+		5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewViewController.m; sourceTree = "<group>"; };
+		5BE1D6DA10CE8BB0002BFF08 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../Poster/icon.png; sourceTree = SOURCE_ROOT; };
+		5BF286DE10CDA142005EB7AB /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
+		5BF286DF10CDA142005EB7AB /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		5BF286E010CDA142005EB7AB /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		5BF286E110CDA142005EB7AB /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		5BF286E410CDA153005EB7AB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5BF286E810CDA16B005EB7AB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
+		5BF286E910CDA16B005EB7AB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
+		5BF2871210CDDE14005EB7AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5BF2871C10CDE5BC005EB7AB /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCLController.h; path = ../MyCLController.h; sourceTree = "<group>"; };
+		5BF2871D10CDE5BC005EB7AB /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCLController.m; path = ../MyCLController.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */,
+				5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5B3AA99D10D20A8200E81307 /* SettingsViewController.h */,
+				5B3AA99E10D20A8200E81307 /* SettingsViewController.m */,
+				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
+				5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */,
+				5BF2871C10CDE5BC005EB7AB /* MyCLController.h */,
+				5BF2871D10CDE5BC005EB7AB /* MyCLController.m */,
+				5BF286E810CDA16B005EB7AB /* Event.h */,
+				5BF286E910CDA16B005EB7AB /* Event.m */,
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				1D3623240D0F684500981E51 /* GeoEvents_finalAppDelegate.h */,
+				1D3623250D0F684500981E51 /* GeoEvents_finalAppDelegate.m */,
+				5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */,
+				5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* GeoEvents.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				5BF286DB10CDA12F005EB7AB /* TBXML */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* GeoEvents_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B3AA99F10D20A8200E81307 /* SettingsView.xib */,
+				5BE1D6DA10CE8BB0002BFF08 /* icon.png */,
+				5BA1288410CE711A0024ADC6 /* DetailedView.xib */,
+				5BA1286910CE6DD20024ADC6 /* SearchView.xib */,
+				28F335F01007B36200424DE2 /* RootViewController.xib */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* GeoEvents-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5BF286E410CDA153005EB7AB /* libz.dylib */,
+				5BF2871210CDDE14005EB7AB /* CoreLocation.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5BF286DB10CDA12F005EB7AB /* TBXML */ = {
+			isa = PBXGroup;
+			children = (
+				5BF286DE10CDA142005EB7AB /* TBXML.m */,
+				5BF286DF10CDA142005EB7AB /* TBXML.h */,
+				5BF286E010CDA142005EB7AB /* NSDataAdditions.m */,
+				5BF286E110CDA142005EB7AB /* NSDataAdditions.h */,
+			);
+			name = TBXML;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* GeoEvents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GeoEvents" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeoEvents;
+			productName = GeoEvents_final;
+			productReference = 1D6058910D05DD3D006BFB54 /* GeoEvents.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Redwater software";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GeoEvents" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* GeoEvents */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+				5BA1286A10CE6DD20024ADC6 /* SearchView.xib in Resources */,
+				5BA1288510CE711A0024ADC6 /* DetailedView.xib in Resources */,
+				5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */,
+				5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* GeoEvents_finalAppDelegate.m in Sources */,
+				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
+				5BF286E210CDA142005EB7AB /* TBXML.m in Sources */,
+				5BF286E310CDA142005EB7AB /* NSDataAdditions.m in Sources */,
+				5BF286EA10CDA16B005EB7AB /* Event.m in Sources */,
+				5BF2871E10CDE5BC005EB7AB /* MyCLController.m in Sources */,
+				5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */,
+				5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */,
+				5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GeoEvents_Prefix.pch;
+				INFOPLIST_FILE = "GeoEvents-Info.plist";
+				PRODUCT_NAME = GeoEvents;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = GeoEvents_Prefix.pch;
+				INFOPLIST_FILE = "GeoEvents-Info.plist";
+				PRODUCT_NAME = GeoEvents;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos3.1.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "GeoEvents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "GeoEvents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

@@ -1,7 +1,7 @@
 TGeoEvents_final
 v7
 r0
-t282203646.922374
+t282222478.463322
 cCheck dependencies
 cProcessInfoPlistFile /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/Info.plist GeoEvents_final-Info.plist
 cCompileXIB /Users/martin/Dropbox/Geoevents/GeoEvents_final/MainWindow.xib
@@ -122,9 +122,9 @@ i<UIKit/UIKit.h>
 i"DetailedViewViewController.h"
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m
-c000000004B21CFC2000000000000199E
-t1260507074
-s6558
+c000000004B21E40A0000000000001999
+t1260512266
+s6553
 i"SearchViewViewController.h"
 i"GeoEvents_finalAppDelegate.h"
 i"Event.h"
@@ -161,34 +161,34 @@ i"RootViewController.h"
 i<CoreLocation/CoreLocation.h>
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.h
-c000000004B21DD2800000000000004A6
-t1260510504
-s1190
+c000000004B222759000000000000058F
+t1260529497
+s1423
 i"MyCLController.h"
 i"SearchViewViewController.h"
 i"SettingsViewController.h"
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m
-c000000004B21DE5A0000000000000AB3
-t1260510810
-s2739
+c000000004B2227B10000000000000A72
+t1260529585
+s2674
 i"RootViewController.h"
 i"GeoEvents_finalAppDelegate.h"
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsView.xib
-c000000004B21D4D30000000000005CB4
-t1260508371
+c000000004B2224940000000000005CB4
+t1260528788
 s23732
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.h
-c000000004B21D30200000000000000FE
-t1260507906
+c000000004B22249400000000000000FE
+t1260528788
 s254
 i<UIKit/UIKit.h>
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m
-c000000004B21D5050000000000000536
-t1260508421
+c000000004B2224940000000000000536
+t1260528788
 s1334
 i"SettingsViewController.h"
 
@@ -242,9 +242,9 @@ i"NSDataAdditions.h"
 i<zlib.h>
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/RootViewController.xib
-c000000004B21DE7C00000000000055A8
-t1260510844
-s21928
+c000000004B22280C000000000000713A
+t1260529676
+s28986
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/SearchView.xib
 c000000004B1E507A000000000000444E
@@ -271,11 +271,11 @@ i"TBXML.h"
 i"NSDataAdditions.h"
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app
-t1260510846
+t1260529678
 s374
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app.dSYM
-t1260510815
+t1260529588
 s102
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/DetailedView.nib
@@ -283,8 +283,8 @@ t1260509059
 s4962
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final
-t1260510815
-s69360
+t1260529588
+s70188
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/Info.plist
 t1260472130
@@ -303,15 +303,15 @@ t1260472130
 s8
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/RootViewController.nib
-t1260510846
-s2616
+t1260529678
+s4307
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/SearchView.nib
 t1260277885
 s1440
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/SettingsView.nib
-t1260508427
+t1260528878
 s3437
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/SettingsViewController.nib
@@ -323,7 +323,7 @@ t1260278887
 s21127
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/DetailedViewViewController.o
-t1260508851
+t1260528880
 s40980
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/Event.o
@@ -336,7 +336,7 @@ t1260508425
 s1589
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_finalAppDelegate.o
-t1260510702
+t1260529588
 s49412
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/MyCLController.o
@@ -348,15 +348,15 @@ t1260278654
 s16296
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/RootViewController.o
-t1260510815
-s49324
+t1260529588
+s52060
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SearchViewViewController.o
-t1260508851
-s57988
+t1260528880
+s57984
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SettingsViewController.o
-t1260508427
+t1260528880
 s30704
 
 N/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/TBXML.o
@@ -623,7 +623,7 @@ s922
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies282203646#282203646#0(0"0(0#1#0"4300885448#0"0#
+lSLF07#2@18"Check dependencies282222478#282222478#0(0"0(0#1#0"4300885448#0"0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/DetailedViewViewController.o "/Users/martin/iPhone dev/GeoEvents_final/Classes/DetailedViewViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
 s281965575.170121
@@ -639,8 +639,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@85"Compile /Users/martin/iPhone dev/GeoEvents_final/Classes/DetailedViewViewController.m281965575#281965575#0(0"0(0#0#77"/Users/martin/iPhone dev/GeoEvents_final/Classes/DetailedViewViewController.m4300885448#2115"    cd "/Users/martin/iPhone dev/GeoEvents_final"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap" -iquote "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap" "-F/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator" "-I/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/include" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources" -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-gzejbouipfknapcgfoobdstbxvyr/GeoEvents_final_Prefix.pch -c "/Users/martin/iPhone dev/GeoEvents_final/Classes/DetailedViewViewController.m" -o "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/DetailedViewViewController.o"0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/DetailedViewViewController.o /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/DetailedViewViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s282201651.729568
-e282201651.855209
+s282221680.335868
+e282221680.422688
 r1
 xCompileC
 xbuild/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/DetailedViewViewController.o
@@ -649,7 +649,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@92"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/DetailedViewViewController.m282201651#282201651#0(0"0(0#0#84"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/DetailedViewViewController.m4300885448#2170"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/DetailedViewViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/DetailedViewViewController.o0#
+lSLF07#2@92"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/DetailedViewViewController.m282221680#282221680#0(0"0(0#0#84"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/DetailedViewViewController.m4300885448#2170"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/DetailedViewViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/DetailedViewViewController.o0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/Event.o "/Users/martin/iPhone dev/GeoEvents_final/Classes/../Event.m" normal i386 objective-c com.apple.compilers.gcc.4_2
 s281964250.958437
@@ -704,8 +704,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@85"Compile /Users/martin/iPhone dev/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m281965574#281965575#0(0"0(0#0#77"/Users/martin/iPhone dev/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m4300885448#2115"    cd "/Users/martin/iPhone dev/GeoEvents_final"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap" -iquote "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap" "-F/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator" "-I/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/include" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources" -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-gzejbouipfknapcgfoobdstbxvyr/GeoEvents_final_Prefix.pch -c "/Users/martin/iPhone dev/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m" -o "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_finalAppDelegate.o"0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_finalAppDelegate.o /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s282203501.866488
-e282203502.504169
+s282222388.054740
+e282222388.153860
 r1
 xCompileC
 xbuild/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_finalAppDelegate.o
@@ -714,7 +714,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@92"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m282203501#282203502#0(0"0(0#0#84"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m4300885448#2170"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_finalAppDelegate.o0#
+lSLF07#2@92"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m282222388#282222388#0(0"0(0#0#84"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m4300885448#2170"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/GeoEvents_finalAppDelegate.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_finalAppDelegate.o0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/MyCLController.o "/Users/martin/iPhone dev/GeoEvents_final/Classes/../MyCLController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
 s281964251.034260
@@ -821,8 +821,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@77"Compile /Users/martin/iPhone dev/GeoEvents_final/Classes/RootViewController.m281965574#281965575#0(0"0(0#0#69"/Users/martin/iPhone dev/GeoEvents_final/Classes/RootViewController.m4300885448#2099"    cd "/Users/martin/iPhone dev/GeoEvents_final"    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap" -iquote "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap" "-F/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator" "-I/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/include" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386" "-I/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources" -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-gzejbouipfknapcgfoobdstbxvyr/GeoEvents_final_Prefix.pch -c "/Users/martin/iPhone dev/GeoEvents_final/Classes/RootViewController.m" -o "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/RootViewController.o"0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/RootViewController.o /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s282203614.934096
-e282203615.091194
+s282222388.055990
+e282222388.181011
 r1
 xCompileC
 xbuild/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/RootViewController.o
@@ -831,7 +831,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@84"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m282203614#282203615#0(0"0(0#0#76"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m4300885448#2154"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/RootViewController.o0#
+lSLF07#2@84"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m282222388#282222388#0(0"0(0#0#76"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m4300885448#2154"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/RootViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/RootViewController.o0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SearchViewViewController.o "/Users/martin/iPhone dev/GeoEvents_final/Classes/../SearchViewViewController.m" normal i386 objective-c com.apple.compilers.gcc.4_2
 s281970952.748552
@@ -850,8 +850,8 @@ CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.buil
 r0
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SearchViewViewController.o /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s282201651.709730
-e282201651.947231
+s282221680.334046
+e282221680.475388
 r1
 xCompileC
 xbuild/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SearchViewViewController.o
@@ -860,11 +860,11 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@93"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m282201651#282201651#0(0"0(0#0#85"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m4300885448#2169"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SearchViewViewController.o0#
+lSLF07#2@93"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m282221680#282221680#0(0"0(0#0#85"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m4300885448#2169"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/../SearchViewViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SearchViewViewController.o0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SettingsViewController.o /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m normal i386 objective-c com.apple.compilers.gcc.4_2
-s282201227.269453
-e282201227.512461
+s282221680.422799
+e282221680.501443
 r1
 xCompileC
 xbuild/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SettingsViewController.o
@@ -873,7 +873,7 @@ xnormal
 xi386
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@88"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m282201227#282201227#0(0"0(0#0#80"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m4300885448#2162"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SettingsViewController.o0#
+lSLF07#2@88"Compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m282221680#282221680#0(0"0(0#0#80"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m4300885448#2162"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=30000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-generated-files.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-own-target-headers.hmap -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-all-target-headers.hmap -iquote /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/GeoEvents_final-project-headers.hmap -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/include -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources/i386 -I/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/DerivedSources -include /var/folders/4l/4lgR-RJ7HzOTuS75KmGMUE+++TI/-Caches-/com.apple.Xcode.501/SharedPrecompiledHeaders/GeoEvents_final_Prefix-afuhyllvvichiocpxftenwultavl/GeoEvents_final_Prefix.pch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.m -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/SettingsViewController.o0#
 
 CCompileC build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/TBXML.o "/Users/martin/iPhone dev/GeoEvents_final/TBXML.m" normal i386 objective-c com.apple.compilers.gcc.4_2
 s281964250.702863
@@ -960,12 +960,12 @@ x/Users/martin/iPhone dev/GeoEvents_final/SearchView.xib
 lSLF07#2@25"CompileXIB SearchView.xib281970685#281970685#0(0"0(0#0#55"/Users/martin/iPhone dev/GeoEvents_final/SearchView.xib4300885448#502"    cd "/Users/martin/iPhone dev/GeoEvents_final"    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.1.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile "/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/SearchView.nib" "/Users/martin/iPhone dev/GeoEvents_final/SearchView.xib"0#
 
 CCompileXIB /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsView.xib
-s282201226.741837
-e282201227.143160
+s282221678.453465
+e282221678.801484
 r1
 xCompileXIB
 x/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsView.xib
-lSLF07#2@35"CompileXIB Classes/SettingsView.xib282201226#282201227#0(0"0(0#0#72"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsView.xib4300885448#529"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.1.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/SettingsView.nib /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsView.xib0#
+lSLF07#2@35"CompileXIB Classes/SettingsView.xib282221678#282221678#0(0"0(0#0#72"/Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsView.xib32088439405871216#529"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.1.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/SettingsView.nib /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsView.xib0#
 
 CCompileXIB /Users/martin/Dropbox/Geoevents/GeoEvents_final/Classes/SettingsViewController.xib
 r0
@@ -987,12 +987,12 @@ x/Users/martin/Dropbox/Geoevents/GeoEvents_final/MainWindow.xib
 lSLF07#2@25"CompileXIB MainWindow.xib282201715#282201716#0(0"0(0#0#62"/Users/martin/Dropbox/Geoevents/GeoEvents_final/MainWindow.xib4300885448#517"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.1.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/MainWindow.nib /Users/martin/Dropbox/Geoevents/GeoEvents_final/MainWindow.xib0#
 
 CCompileXIB /Users/martin/Dropbox/Geoevents/GeoEvents_final/RootViewController.xib
-s282203646.545668
-e282203646.917692
+s282222478.093502
+e282222478.459125
 r1
 xCompileXIB
 x/Users/martin/Dropbox/Geoevents/GeoEvents_final/RootViewController.xib
-lSLF07#2@33"CompileXIB RootViewController.xib282203646#282203646#0(0"0(0#0#70"/Users/martin/Dropbox/Geoevents/GeoEvents_final/RootViewController.xib4300885448#533"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.1.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/RootViewController.nib /Users/martin/Dropbox/Geoevents/GeoEvents_final/RootViewController.xib0#
+lSLF07#2@33"CompileXIB RootViewController.xib282222478#282222478#0(0"0(0#0#70"/Users/martin/Dropbox/Geoevents/GeoEvents_final/RootViewController.xib4300885448#533"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 3.1.2    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/RootViewController.nib /Users/martin/Dropbox/Geoevents/GeoEvents_final/RootViewController.xib0#
 
 CCompileXIB /Users/martin/Dropbox/Geoevents/GeoEvents_final/SearchView.xib
 r0
@@ -1019,13 +1019,13 @@ x/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_
 lSLF07#2@133"GenerateDSYMFile build/Debug-iphonesimulator/GeoEvents_final.app.dSYM build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final281970952#281970953#0(0"0(0#0#104"/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final4300885448#419"    cd "/Users/martin/iPhone dev/GeoEvents_final"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil "/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final" -o "/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app.dSYM"0#
 
 CGenerateDSYMFile /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app.dSYM /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final
-s282203615.131653
-e282203615.165100
+s282222388.209608
+e282222388.286310
 r1
 xGenerateDSYMFile
 x/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app.dSYM
 x/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final
-lSLF07#2@133"GenerateDSYMFile build/Debug-iphonesimulator/GeoEvents_final.app.dSYM build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final282203615#282203615#0(0"0(0#0#111"/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final4300885448#434"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app.dSYM0#
+lSLF07#2@133"GenerateDSYMFile build/Debug-iphonesimulator/GeoEvents_final.app.dSYM build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final282222388#282222388#0(0"0(0#0#111"/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final4300885448#434"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/usr/bin/dsymutil /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app.dSYM0#
 
 CLd "/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final" normal i386
 s281970952.937892
@@ -1038,14 +1038,14 @@ xi386
 lSLF07#2@109"Link /Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final281970952#281970953#0(0"0(0#0#0"4300885448#952"    cd "/Users/martin/iPhone dev/GeoEvents_final"    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk "-L/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator" "-F/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator" -filelist "/Users/martin/iPhone dev/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_final.LinkFileList" -mmacosx-version-min=10.5 -framework Foundation -framework UIKit -framework CoreGraphics -lz -framework CoreLocation -o "/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final"0#
 
 CLd /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final normal i386
-s282203615.091293
-e282203615.131537
+s282222388.181107
+e282222388.209510
 r1
 xLd
 x/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final
 xnormal
 xi386
-lSLF07#2@116"Link /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final282203615#282203615#0(0"0(0#0#0"4300885448#977"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -L/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -filelist /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_final.LinkFileList -mmacosx-version-min=10.5 -framework Foundation -framework UIKit -framework CoreGraphics -lz -framework CoreLocation -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final0#
+lSLF07#2@116"Link /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final282222388#282222388#0(0"0(0#0#0"4300885448#977"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv MACOSX_DEPLOYMENT_TARGET 10.5    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.2 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator3.1.2.sdk -L/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -F/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator -filelist /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/GeoEvents_final.build/Debug-iphonesimulator/GeoEvents_final.build/Objects-normal/i386/GeoEvents_final.LinkFileList -mmacosx-version-min=10.5 -framework Foundation -framework UIKit -framework CoreGraphics -lz -framework CoreLocation -o /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/GeoEvents_final0#
 
 CProcessInfoPlistFile "/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app/Info.plist" GeoEvents_final-Info.plist
 s281926505.835312
@@ -1113,10 +1113,10 @@ x/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_
 lSLF07#2@94"Touch /Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app281970953#281970953#0(0"0(0#0#0"4300885448#294"    cd "/Users/martin/iPhone dev/GeoEvents_final"    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c "/Users/martin/iPhone dev/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app"0#
 
 CTouch /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app
-s282203646.918880
-e282203646.922334
+s282222478.460378
+e282222478.463284
 r1
 xTouch
 x/Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app
-lSLF07#2@101"Touch /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app282203646#282203646#0(0"0(0#0#0"4300885448#304"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app0#
+lSLF07#2@101"Touch /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app282222478#282222478#0(0"0(0#0#0"4300885448#304"    cd /Users/martin/Dropbox/Geoevents/GeoEvents_final    setenv PATH "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"    /usr/bin/touch -c /Users/martin/Dropbox/Geoevents/GeoEvents_final/build/Debug-iphonesimulator/GeoEvents_final.app0#
 
