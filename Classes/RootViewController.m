@@ -16,13 +16,16 @@
 @synthesize longitude;
 @synthesize settingsViewController;
 @synthesize activity;
-@synthesize latitudeLabel, longitudeLabel, statusLabel;
+@synthesize latitudeLabel, longitudeLabel, statusLabel, searchButton;
 
 - (void)viewDidLoad {
 	self.title = @"GeoEvents";
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;
-	statusLabel.text = @"Acquiring GPS info ...";
+	statusLabel.text = @"Acquiring GPS info...";
+	// We disable textfield and searchButton until GPS info is aquired
+	searchField.enabled = NO;
+	searchButton.enabled = NO;
 	
 	[locationController.locationManager startUpdatingLocation];
 }
@@ -35,6 +38,8 @@
 	
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
+	searchField.enabled = YES;
+	searchButton.enabled = YES;
 	
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);

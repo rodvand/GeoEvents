@@ -16,6 +16,7 @@
 	IBOutlet UILabel * statusLabel;
 	IBOutlet UITextField * searchField;
 	IBOutlet UIActivityIndicatorView * activity;
+	IBOutlet UIButton * searchButton;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
 	SettingsViewController * settingsViewController;
@@ -36,4 +37,5 @@
 @property (nonatomic, retain) UILabel * latitudeLabel;
 @property (nonatomic, retain) UILabel * longitudeLabel;
 @property (nonatomic, retain) UILabel * statusLabel;
+@property (nonatomic, retain) UIButton * searchButton;
 @end
