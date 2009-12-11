@@ -7,13 +7,26 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
+#import "Event.h"
+#import "SettingsViewController.h"
+
 @interface GeoEvents_finalAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
+	UIBarButtonItem * settingsButton;
     UINavigationController *navigationController;
+	SettingsViewController * settingsViewController;
+	Event * selectedEvent;
+	NSNumber * lat;
+	NSNumber * lon;
 }
+- (IBAction)goToSettings:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-
+@property (nonatomic, retain) IBOutlet UIBarButtonItem * settingsButton;
+@property (nonatomic, retain) SettingsViewController * settingsViewController;
+@property (nonatomic, retain) Event * selectedEvent;
+@property (nonatomic, retain) NSNumber * lat;
+@property (nonatomic, retain) NSNumber * lon;
 @end
 

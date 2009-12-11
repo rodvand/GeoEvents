@@ -66,7 +66,7 @@
 }
 
 - (id)initWithURL:(NSURL*)aURL {
-	self = [self initWithXMLString:[NSString stringWithContentsOfURL:aURL encoding:NSASCIIStringEncoding error:nil]];
+	self = [self initWithXMLString:[NSString stringWithContentsOfURL:aURL encoding:NSUTF8StringEncoding error:nil]];
 	if (self != nil) {
 	}
 	return self;
@@ -77,9 +77,9 @@
 	if (self != nil) {
 		
 		// copy string to byte array
-		bytesLength = [aXMLString length];
+		bytesLength = [aXMLString lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
 		bytes = malloc(bytesLength+1);
-		[aXMLString getBytes:bytes maxLength:bytesLength usedLength:0 encoding:NSASCIIStringEncoding options:NSStringEncodingConversionAllowLossy range:NSMakeRange(0, bytesLength) remainingRange:nil];
+		[aXMLString getBytes:bytes maxLength:bytesLength usedLength:0 encoding:NSUTF8StringEncoding options:NSStringEncodingConversionAllowLossy range:NSMakeRange(0, bytesLength) remainingRange:nil];
 		
 		// set null terminator at end of byte array
 		bytes[bytesLength] = 0;
@@ -114,22 +114,22 @@
 
 - (NSString*) elementName:(TBXMLElement*)aXMLElement {
 	if (nil == aXMLElement->name) return @"";
-	return [NSString stringWithCString:&aXMLElement->name[0] encoding:NSASCIIStringEncoding];
+	return [NSString stringWithCString:&aXMLElement->name[0] encoding:NSUTF8StringEncoding];
 }
 
 - (NSString*) attributeName:(TBXMLAttribute*)aXMLAttribute {
 	if (nil == aXMLAttribute->name) return @"";
-	return [NSString stringWithCString:&aXMLAttribute->name[0] encoding:NSASCIIStringEncoding];
+	return [NSString stringWithCString:&aXMLAttribute->name[0] encoding:NSUTF8StringEncoding];
 }
 
 - (NSString*) attributeValue:(TBXMLAttribute*)aXMLAttribute {
 	if (nil == aXMLAttribute->value) return @"";
-	return [NSString stringWithCString:&aXMLAttribute->value[0] encoding:NSASCIIStringEncoding];
+	return [NSString stringWithCString:&aXMLAttribute->value[0] encoding:NSUTF8StringEncoding];
 }
 
 - (NSString*) textForElement:(TBXMLElement*)aXMLElement {
 	if (nil == aXMLElement->text) return @"";
-	return [NSString stringWithCString:&aXMLElement->text[0] encoding:NSASCIIStringEncoding];
+	return [NSString stringWithCString:&aXMLElement->text[0] encoding:NSUTF8StringEncoding];
 }
 
 - (NSString*) valueOfAttributeNamed:(NSString *)aName forElement:(TBXMLElement*)aXMLElement {
@@ -138,7 +138,7 @@
 	TBXMLAttribute * attribute = aXMLElement->firstAttribute;
 	while (attribute) {
 		if (strlen(attribute->name) == strlen(name) && memcmp(attribute->name,name,strlen(name)) == 0) {
-			value = [NSString stringWithCString:&attribute->value[0] encoding:NSASCIIStringEncoding];
+			value = [NSString stringWithCString:&attribute->value[0] encoding:NSUTF8StringEncoding];
 			break;
 		}
 		attribute = attribute->next;

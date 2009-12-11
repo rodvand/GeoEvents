@@ -14,14 +14,16 @@
 
 @synthesize window;
 @synthesize navigationController;
-
-
+@synthesize selectedEvent;
+@synthesize lat;
+@synthesize lon;
+@synthesize settingsViewController;
+@synthesize settingsButton;
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-
 	// Create a location manager instance to determine if location services are enabled. This manager instance will be
     // immediately released afterwards.
     CLLocationManager *manager = [[CLLocationManager alloc] init];
@@ -43,6 +45,17 @@
 	// Save data if appropriate
 }
 
+- (IBAction)goToSettings:(id)sender {
+	//Go to settings view
+	if(settingsViewController == nil) {
+		SettingsViewController * settings = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:[NSBundle mainBundle]];
+		self.settingsViewController = settings;
+		[settings release];
+	}
+	
+	[self.navigationController pushViewController:self.settingsViewController animated:YES];
+	
+}
 
 #pragma mark -
 #pragma mark Memory management

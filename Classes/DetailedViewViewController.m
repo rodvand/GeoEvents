@@ -7,19 +7,27 @@
 //
 
 #import "DetailedViewViewController.h"
-
+#import "Event.h"
+#import "GeoEvents_finalAppDelegate.h"
 
 @implementation DetailedViewViewController
-@synthesize events;
 
-/*
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	Event * event = appDelegate.selectedEvent;
+	self.title = event.artist;
+	NSLog(@"Artist: %@ - Venue: %@", event.artist, event.venue);
+	artistLabel.text = event.artist;
+	dateLabel.text = event.startDate;
+	venueLabel.text = event.venue;
+	attendanceLabel.text = event.attendance;
+	[event release];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-*/
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -7,33 +7,43 @@
 //
 
 #import "RootViewController.h"
-
+#import "GeoEvents_finalAppDelegate.h"
 
 @implementation RootViewController
 @synthesize searchViewViewController;
 @synthesize searchField;
 @synthesize latitude;
 @synthesize longitude;
+@synthesize settingsViewController;
+@synthesize activity;
 
 - (void)viewDidLoad {
 	self.title = @"Starting point";
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;
-	 
-    [locationController.locationManager startUpdatingLocation];
+	
+	/*UIActivityIndicatorView *waitView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+	activity = waitView;
+	[self.view addSubview: activity];
+	[activity startAnimating];
+    
+	[activity stopAnimating];
+	[waitView release];
+	*/
+	[locationController.locationManager startUpdatingLocation];
 }
 
 - (void)locationUpdate:(CLLocation *)location {
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
 	latitude = [NSNumber numberWithDouble:[location coordinate].latitude];
 	longitude = [NSNumber numberWithDouble:[location coordinate].longitude];
 	
+	appDelegate.lat = latitude;
+	appDelegate.lon = longitude;
+	
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);
-	
-	self.searchViewViewController.latitude = latitude;
-	self.searchViewViewController.longitude = longitude;
-	//[latitude release];
-	//[longitude release];
 }
 
 - (void)locationError:(NSError *)error {
@@ -42,13 +52,22 @@
 
 - (IBAction)search:(id)sender {
 	NSString * searchText = [searchField text];
-	
 	SearchViewViewController * searchView = [[SearchViewViewController alloc] initWithNibName:@"SearchView" bundle:[NSBundle mainBundle]];
 	self.searchViewViewController = searchView;
 	self.searchViewViewController.searchString = searchText;
-	[searchView release];
-	
 	[self.navigationController pushViewController:self.searchViewViewController animated:YES];
+	[searchView release];
+	[searchText release];
+}
+
+- (IBAction)goToSettings:(id)sender {
+	//Go to settings view
+	if(settingsViewController == nil) {
+		SettingsViewController * settings = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:[NSBundle mainBundle]];
+		self.settingsViewController = settings;
+		[self.navigationController pushViewController:self.settingsViewController animated:YES];
+		[settings release];
+	}
 }
 
 - (void)didReceiveMemoryWarning {

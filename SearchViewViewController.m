@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewViewController.h"
+#import "GeoEvents_finalAppDelegate.h"
 #import "Event.h"
 #import "TBXML.h"
 
@@ -24,25 +25,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
-	
+	//NSLog(@"In viewdidLoad");
 	if(self.searchString.length > 0) {
-		self.title = self.searchString;
+		self.title = [self.searchString capitalizedString];
 		locationBasedSearch = NO;
-		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=%@&api_key=%@", searchString, apiKey];
+		// We need to change our spaces to suit our url
+		NSString * searching = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=%@&api_key=%@", searching, apiKey];
 	} else {
 		self.title = @"GPS search";
 		locationBasedSearch = YES;
 		
 		//Sample data for GPS information (It's Glasgow!)
-		latitude = [NSNumber numberWithDouble:55.865627];
-		longitude = [NSNumber numberWithDouble:-4.257223];
+		//latitude = [NSNumber numberWithDouble:55.865627];
+		//longitude = [NSNumber numberWithDouble:-4.257223];
+		latitude = appDelegate.lat;
+		longitude = appDelegate.lon;
 		
 		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&lat=%f&long=%f&api_key=%@", [latitude doubleValue], [longitude doubleValue], apiKey];
 	}
 	[self loadXml:url];
-	NSLog(@"URL: %@", url);
 }
 
 
@@ -69,66 +75,85 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+	if(error) {
+		return 1;
+	}
+    return [events count];
 }
 
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+	
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
     
-    // Set up the cell...
-	[cell.textLabel setText:@"GO to detailed view"];
+    if(error) {
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		[cell.textLabel setText:@"Parsing error"];
+	} else {
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		}
+		// Set up the cell...
+		Event * event = [events objectAtIndex:indexPath.row];
+		[cell.textLabel setText:event.artist];
+		[cell.detailTextLabel setText:event.venue];
+	}
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Navigation logic
-	if(detailedViewController == nil) {
-		DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithNibName:@"DetailedView" bundle:[NSBundle mainBundle]];
-		self.detailedViewController = dView;
-		[dView release];
-	}
+	if(!error) {
+		//Navigation logic
+		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+		appDelegate.selectedEvent = [events objectAtIndex:indexPath.row];
 	
-	[self.navigationController pushViewController:detailedViewController animated:YES];
+		//if(detailedViewController == nil) {
+			DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithNibName:@"DetailedView" bundle:[NSBundle mainBundle]];
+			self.detailedViewController = dView;
+			//self.detailedViewController.events = self.events;
+	
+			[dView release];
+		//}
+	
+		[self.navigationController pushViewController:detailedViewController animated:YES];
+	}
 }
 
 - (void)loadXml:(NSString *)address {
-	
+	bool debug = NO;
+	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	
 	// We load our xml from the url provided
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:address]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
 	
-	//NSLog(@"We're in loadXML!");
 	if(rootXMLElement) {
-		//NSLog(@"We're inside the rootelement");
 		TBXMLElement * event_top = [tbXML childElementNamed:@"events" parentElement:rootXMLElement];
 		TBXMLElement * event = [tbXML childElementNamed:@"event" parentElement:event_top];
 		
 		while(event != nil) {
-			//NSLog(@"We have event!");
 			//Create our event object
 			Event * anEvent = [[Event alloc] init];
 			
 			//Add it to the array
 			[events addObject:anEvent];
+			
 			TBXMLElement * artists = [tbXML childElementNamed:@"artists" parentElement:event];
-			anEvent.artist = [tbXML textForElement:[tbXML childElementNamed:@"artist" parentElement:artists]];
+			anEvent.artist = [tbXML textForElement:[tbXML childElementNamed:@"headliner" parentElement:artists]];
 			
 			anEvent.ident = [tbXML textForElement:[tbXML childElementNamed:@"id" parentElement:event]];
 			anEvent.startDate = [tbXML textForElement:[tbXML childElementNamed:@"startDate" parentElement:event]];
 			anEvent.eventUrl = [tbXML textForElement:[tbXML childElementNamed:@"url" parentElement:event]];
 			anEvent.eventStatus = [tbXML textForElement:[tbXML childElementNamed:@"cancelled" parentElement:event]];
-			
+			anEvent.attendance = [tbXML textForElement:[tbXML childElementNamed:@"attendance" parentElement:event]];
 			TBXMLElement * venues = [tbXML childElementNamed:@"venue" parentElement:event];
 			
 			anEvent.venue = [tbXML textForElement:[tbXML childElementNamed:@"name" parentElement:venues]];
@@ -138,20 +163,26 @@
 				anEvent.lat = [tbXML textForElement:[tbXML childElementNamed:@"geo:lat" parentElement:geo]];
 				anEvent.lon = [tbXML textForElement:[tbXML childElementNamed:@"geo:long" parentElement:geo]];
 			}
-			NSLog(@"**********************************");
-			NSLog(@"Event id:%@", anEvent.ident);
-			NSLog(@"Start date: %@", anEvent.startDate);
-			NSLog(@"Artist: %@", anEvent.artist);
-			NSLog(@"Venue: %@", anEvent.venue);
-			NSLog(@"URL: %@", anEvent.eventUrl);
-			if(geo != nil) {
-				NSLog(@"Latitude: %@", anEvent.lat);
-				NSLog(@"Longitude: %@", anEvent.lon);
+			if(debug) {
+				NSLog(@"**********************************");
+				NSLog(@"Event id:%@", anEvent.ident);
+				NSLog(@"Start date: %@", anEvent.startDate);
+				NSLog(@"Artist: %@", anEvent.artist);
+				NSLog(@"Venue: %@", anEvent.venue);
+				NSLog(@"URL: %@", anEvent.eventUrl);
+				if(geo != nil) {
+					NSLog(@"Latitude: %@", anEvent.lat);
+					NSLog(@"Longitude: %@", anEvent.lon);
+				}
 			}
 			event = [tbXML nextSiblingNamed:@"event" searchFromElement:event];
 		}
-		
+	} else {
+		NSLog(@"Something went wrong with our parsing.");
+		error = YES;
 	}
+	[events retain];
+	[tbXML release];
 }
 
 - (void)dealloc {

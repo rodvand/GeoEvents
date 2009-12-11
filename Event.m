@@ -11,6 +11,6 @@
 
 @implementation Event
 
-@synthesize ident, artist, venue, startDate, eventUrl, eventStatus, lat, lon, tags;
+@synthesize ident, artist, venue, startDate, eventUrl, eventStatus, lat, lon, tags, attendance;
 
 @end

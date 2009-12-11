@@ -18,6 +18,7 @@
 	NSNumber * latitude;
 	NSNumber * longitude;
 	NSMutableArray * events;
+	bool error;
 }
 - (void) loadXml:(NSString *)address;
 @property (nonatomic, retain) DetailedViewViewController * detailedViewController;

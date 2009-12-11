@@ -7,22 +7,28 @@
 //
 
 #import "MyCLController.h"
-#import "SearchViewViewController.h";
+#import "SearchViewViewController.h"
+#import "SettingsViewController.h"
 
 @interface RootViewController : UIViewController <MyCLControllerDelegate>{
 	IBOutlet UILabel * locationLabel;
 	IBOutlet UITextField * searchField;
+	IBOutlet UIActivityIndicatorView * activity;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
+	SettingsViewController * settingsViewController;
 	NSNumber * latitude;
 	NSNumber * longitude;
 }
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (IBAction)search:(id)sender;
+- (IBAction)goToSettings:(id)sender;
 
 @property (nonatomic, retain) SearchViewViewController * searchViewViewController;
+@property (nonatomic, retain) SettingsViewController * settingsViewController;
 @property (nonatomic, retain) UITextField * searchField;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) UIActivityIndicatorView * activity;
 @end

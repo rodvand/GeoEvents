@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface DetailedViewViewController : UIViewController {
-	NSMutableArray * events;
+	IBOutlet UILabel * artistLabel;
+	IBOutlet UILabel * venueLabel;
+	IBOutlet UILabel * dateLabel;
+	IBOutlet UILabel * attendanceLabel;
 }
-
-@property (nonatomic, retain) NSMutableArray * events;
 
 @end
