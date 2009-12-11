@@ -1,6 +1,6 @@
 //
 //  SettingsViewController.h
-//  GeoEvents_final
+//  GeoEvents
 //
 //  Created by Martin Roedvand on 11/12/2009.
 //  Copyright 2009 Redwater software. All rights reserved.
