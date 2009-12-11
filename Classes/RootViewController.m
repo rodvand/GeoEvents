@@ -16,20 +16,14 @@
 @synthesize longitude;
 @synthesize settingsViewController;
 @synthesize activity;
+@synthesize latitudeLabel, longitudeLabel, statusLabel;
 
 - (void)viewDidLoad {
-	self.title = @"Starting point";
+	self.title = @"GeoEvents";
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;
+	statusLabel.text = @"Acquiring GPS info ...";
 	
-	/*UIActivityIndicatorView *waitView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
-	activity = waitView;
-	[self.view addSubview: activity];
-	[activity startAnimating];
-    
-	[activity stopAnimating];
-	[waitView release];
-	*/
 	[locationController.locationManager startUpdatingLocation];
 }
 
@@ -44,10 +38,13 @@
 	
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);
+	latitudeLabel.text = [latitude stringValue];
+	longitudeLabel.text = [longitude stringValue];
+	statusLabel.text = @"GPS info aquired";
 }
 
 - (void)locationError:(NSError *)error {
-    locationLabel.text = [error description];
+    //locationLabel.text = [error description];
 }
 
 - (IBAction)search:(id)sender {

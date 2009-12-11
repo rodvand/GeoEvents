@@ -11,7 +11,9 @@
 #import "SettingsViewController.h"
 
 @interface RootViewController : UIViewController <MyCLControllerDelegate>{
-	IBOutlet UILabel * locationLabel;
+	IBOutlet UILabel * latitudeLabel;
+	IBOutlet UILabel * longitudeLabel;
+	IBOutlet UILabel * statusLabel;
 	IBOutlet UITextField * searchField;
 	IBOutlet UIActivityIndicatorView * activity;
 	MyCLController *locationController;
@@ -31,4 +33,7 @@
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) UIActivityIndicatorView * activity;
+@property (nonatomic, retain) UILabel * latitudeLabel;
+@property (nonatomic, retain) UILabel * longitudeLabel;
+@property (nonatomic, retain) UILabel * statusLabel;
 @end
