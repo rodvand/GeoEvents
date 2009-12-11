@@ -93,7 +93,7 @@
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
-		[cell.textLabel setText:@"Parsing error"];
+		[cell.textLabel setText:@"No result"];
 	} else {
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
@@ -134,7 +134,7 @@
 	// We load our xml from the url provided
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:address]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
-	
+
 	if(rootXMLElement) {
 		TBXMLElement * event_top = [tbXML childElementNamed:@"events" parentElement:rootXMLElement];
 		TBXMLElement * event = [tbXML childElementNamed:@"event" parentElement:event_top];

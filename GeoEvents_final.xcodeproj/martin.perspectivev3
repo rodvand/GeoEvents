@@ -202,6 +202,47 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
+				<string>5BA8BC2210D0B9CE00D09FC4</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>SearchViewViewController.m</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>5BA8BC2310D0B9CE00D09FC4</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>SearchViewViewController.m</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>5B3AAA5B10D221A900E81307</string>
+						<key>history</key>
+						<array>
+							<string>5B3AA94310D2042900E81307</string>
+							<string>5B3AA94410D2042900E81307</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {1399, 779}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>8 90 1399 820 0 0 1680 1028 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
 				<string>5B3AA8FE10D1FD9800E81307</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>RootViewController.m</string>
@@ -216,7 +257,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5B3AAA4710D215E000E81307</string>
+						<string>5B3AAA5C10D221A900E81307</string>
 						<key>history</key>
 						<array>
 							<string>5B3AAA1E10D214FE00E81307</string>
@@ -257,7 +298,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5B3AAA4810D215E000E81307</string>
+						<string>5B3AAA5D10D221A900E81307</string>
 						<key>history</key>
 						<array>
 							<string>5B3AAA1A10D214E200E81307</string>
@@ -283,47 +324,6 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>5BA8BC2210D0B9CE00D09FC4</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>SearchViewViewController.m</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>5BA8BC2310D0B9CE00D09FC4</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>SearchViewViewController.m</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>5B3AAA4910D215E000E81307</string>
-						<key>history</key>
-						<array>
-							<string>5B3AA94310D2042900E81307</string>
-							<string>5B3AA94410D2042900E81307</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {1399, 779}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>8 90 1399 820 0 0 1680 1028 </string>
-			</dict>
-		</dict>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
 				<string>5B3AA96D10D2070B00E81307</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>Event.m</string>
@@ -338,7 +338,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5B3AAA4A10D215E000E81307</string>
+						<string>5B3AAA5E10D221A900E81307</string>
 						<key>history</key>
 						<array>
 							<string>5B3AA96F10D2070B00E81307</string>
@@ -379,7 +379,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>5B3AAA4B10D215E000E81307</string>
+						<string>5B3AAA5F10D221A900E81307</string>
 						<key>history</key>
 						<array>
 							<string>5B3AA98110D207CA00E81307</string>
@@ -529,7 +529,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>5B3AAA4610D215E000E81307</string>
+										<string>5B3AAA5A10D221A900E81307</string>
 										<key>history</key>
 										<array>
 											<string>5B3AAA0A10D212A700E81307</string>
@@ -857,9 +857,9 @@
 		<string>5B3AA8D510D1FC5A00E81307</string>
 		<string>5B3AA82B10D1EE5400E81307</string>
 		<string>5B3AA96D10D2070B00E81307</string>
-		<string>5BA8BC2210D0B9CE00D09FC4</string>
 		<string>5B3AAA2110D214FE00E81307</string>
 		<string>5B3AA8FE10D1FD9800E81307</string>
+		<string>5BA8BC2210D0B9CE00D09FC4</string>
 		<string>/Users/martin/Dropbox/Geoevents/GeoEvents_final/GeoEvents_final.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
