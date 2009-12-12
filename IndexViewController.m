@@ -56,6 +56,7 @@
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	NSMutableArray * theSearchHistory = appDelegate.searchHistory;
 	[theSearchHistory addObject:searchText];
+	appDelegate.searchString = searchText;
 	[self loadSearchView:NO];
 	
 }
@@ -102,13 +103,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	NSMutableArray * theSearchHistory = appDelegate.searchHistory;
-	
+
 	switch(section) {
 		case searchSection:
 			return NUM_HEADER_SECTION_ROWS;
 		case historySection:
 			if(theSearchHistory != nil) {
-				return [theSearchHistory count];
+				if([theSearchHistory count] > 3) {
+					return 3;
+				} else {
+					return [theSearchHistory count];
+				}
 			}
 		default:
 			return 1;
@@ -163,7 +168,7 @@
 			searchHistoryCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		searchHistoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		[searchHistoryCell.textLabel setText:[theSearchHistory objectAtIndex:indexPath.row]];
+		[searchHistoryCell.textLabel setText:[theSearchHistory objectAtIndex:[theSearchHistory count] - indexPath.row - 1]];
 		return searchHistoryCell;
 	}
 	
@@ -190,10 +195,12 @@
 	if(indexPath.section == searchSection) {
 		switch (indexPath.row) {
 			case searchSectionSearchRow:
-				[self search:@"String"];
+				[self search:@"London"];
 				break;
 			case searchSectionSearchByGpsRow:
-				[self searchByGps];
+				if(locationFound) {
+					[self searchByGps];
+				}
 				break;
 			
 		}

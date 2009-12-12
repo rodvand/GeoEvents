@@ -12,14 +12,13 @@
 
 @implementation GeoEvents_finalAppDelegate
 
-@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory, isUsingGps;
+@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory, isUsingGps, searchString;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	searchHistory = [[NSMutableArray alloc] initWithCapacity:5];
-	[searchHistory addObject:@"String"];
 	NSLog(@"Size: %d", [searchHistory count]);
 	// Create a location manager instance to determine if location services are enabled. This manager instance will be
     // immediately released afterwards.

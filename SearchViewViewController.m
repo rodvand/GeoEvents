@@ -23,6 +23,7 @@
 	
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	locationBasedSearch = appDelegate.isUsingGps;
+	searchString = appDelegate.searchString;
 	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
@@ -35,10 +36,6 @@
 		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=%@&api_key=%@", searching, apiKey];
 	} else {
 		self.title = @"GPS search";
-		
-		//Sample data for GPS information (It's Glasgow!)
-		//latitude = [NSNumber numberWithDouble:55.865627];
-		//longitude = [NSNumber numberWithDouble:-4.257223];
 		
 		latitude = appDelegate.lat;
 		longitude = appDelegate.lon;
