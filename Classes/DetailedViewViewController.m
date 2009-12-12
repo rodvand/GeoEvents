@@ -15,17 +15,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	//We create our link to the appDelegate
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
+	//Get our selected event from the delegate
 	Event * event = appDelegate.selectedEvent;
+	
 	self.title = event.artist;
-	NSLog(@"Artist: %@ - Venue: %@", event.artist, event.venue);
+	
+	//We fill all our labels
 	artistLabel.text = event.artist;
 	dateLabel.text = event.startDate;
 	venueLabel.text = event.venue;
 	attendanceLabel.text = event.attendance;
+	
 	[event release];
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 

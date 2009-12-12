@@ -17,6 +17,8 @@
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
 		5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AA99E10D20A8200E81307 /* SettingsViewController.m */; };
 		5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3AA99F10D20A8200E81307 /* SettingsView.xib */; };
+		5B45527510D352780087F585 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B45527310D352780087F585 /* IndexViewController.m */; };
+		5B45527610D352780087F585 /* IndexViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B45527410D352780087F585 /* IndexViewController.xib */; };
 		5BA1286A10CE6DD20024ADC6 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1286910CE6DD20024ADC6 /* SearchView.xib */; };
 		5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */; };
 		5BA1288510CE711A0024ADC6 /* DetailedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BA1288410CE711A0024ADC6 /* DetailedView.xib */; };
@@ -46,6 +48,9 @@
 		5B3AA99D10D20A8200E81307 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5B3AA99E10D20A8200E81307 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5B3AA99F10D20A8200E81307 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsView.xib; path = Classes/SettingsView.xib; sourceTree = "<group>"; };
+		5B45527210D352780087F585 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexViewController.h; path = ../IndexViewController.h; sourceTree = "<group>"; };
+		5B45527310D352780087F585 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexViewController.m; path = ../IndexViewController.m; sourceTree = "<group>"; };
+		5B45527410D352780087F585 /* IndexViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexViewController.xib; sourceTree = "<group>"; };
 		5BA1286910CE6DD20024ADC6 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewViewController.h; path = ../SearchViewViewController.h; sourceTree = "<group>"; };
 		5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewViewController.m; path = ../SearchViewViewController.m; sourceTree = "<group>"; };
@@ -85,6 +90,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5B45527210D352780087F585 /* IndexViewController.h */,
+				5B45527310D352780087F585 /* IndexViewController.m */,
 				5B3AA99D10D20A8200E81307 /* SettingsViewController.h */,
 				5B3AA99E10D20A8200E81307 /* SettingsViewController.m */,
 				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
@@ -136,6 +143,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B45527410D352780087F585 /* IndexViewController.xib */,
 				5B3AA99F10D20A8200E81307 /* SettingsView.xib */,
 				5BE1D6DA10CE8BB0002BFF08 /* icon.png */,
 				5BA1288410CE711A0024ADC6 /* DetailedView.xib */,
@@ -228,6 +236,7 @@
 				5BA1288510CE711A0024ADC6 /* DetailedView.xib in Resources */,
 				5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */,
 				5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */,
+				5B45527610D352780087F585 /* IndexViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +257,7 @@
 				5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */,
 				5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */,
 				5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */,
+				5B45527510D352780087F585 /* IndexViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

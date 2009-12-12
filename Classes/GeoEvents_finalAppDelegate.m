@@ -12,18 +12,13 @@
 
 @implementation GeoEvents_finalAppDelegate
 
-@synthesize window;
-@synthesize navigationController;
-@synthesize selectedEvent;
-@synthesize lat;
-@synthesize lon;
-@synthesize settingsViewController;
-@synthesize settingsButton;
+@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory;
+
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
+	
 	// Create a location manager instance to determine if location services are enabled. This manager instance will be
     // immediately released afterwards.
     CLLocationManager *manager = [[CLLocationManager alloc] init];

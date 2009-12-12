@@ -16,6 +16,7 @@
     UINavigationController *navigationController;
 	SettingsViewController * settingsViewController;
 	Event * selectedEvent;
+	NSMutableArray * searchHistory;
 	NSNumber * lat;
 	NSNumber * lon;
 }
@@ -28,5 +29,6 @@
 @property (nonatomic, retain) Event * selectedEvent;
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
+@property (nonatomic, retain) NSMutableArray * searchHistory;
 @end
 

@@ -10,13 +10,8 @@
 #import "GeoEvents_finalAppDelegate.h"
 
 @implementation RootViewController
-@synthesize searchViewViewController;
-@synthesize searchField;
-@synthesize latitude;
-@synthesize longitude;
-@synthesize settingsViewController;
-@synthesize activity;
-@synthesize latitudeLabel, longitudeLabel, statusLabel, searchButton;
+@synthesize searchViewViewController, searchField, latitude, longitude, settingsViewController, 
+			activity, latitudeLabel, longitudeLabel, statusLabel, searchButton;
 
 - (void)viewDidLoad {
 	self.title = @"GeoEvents";

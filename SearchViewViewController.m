@@ -12,16 +12,12 @@
 #import "TBXML.h"
 
 @implementation SearchViewViewController
-@synthesize detailedViewController;
-@synthesize searchString;
-@synthesize url;
-@synthesize apiKey;
-@synthesize latitude;
-@synthesize longitude;
-@synthesize events;
+@synthesize detailedViewController, searchString, url, apiKey, latitude, longitude, events;
 
-// Initial setup
-// API key, urls, and longitude/latitude
+/* 
+ Initial setup method
+ API key, urls, and longitude/latitude
+*/
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -29,10 +25,11 @@
 	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
-	//NSLog(@"In viewdidLoad");
+	
 	if(self.searchString.length > 0) {
 		self.title = [self.searchString capitalizedString];
 		locationBasedSearch = NO;
+		
 		// We need to change our spaces to suit our url
 		NSString * searching = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=%@&api_key=%@", searching, apiKey];
@@ -43,6 +40,7 @@
 		//Sample data for GPS information (It's Glasgow!)
 		//latitude = [NSNumber numberWithDouble:55.865627];
 		//longitude = [NSNumber numberWithDouble:-4.257223];
+		
 		latitude = appDelegate.lat;
 		longitude = appDelegate.lon;
 		
@@ -159,10 +157,12 @@
 			anEvent.venue = [tbXML textForElement:[tbXML childElementNamed:@"name" parentElement:venues]];
 			TBXMLElement * location = [tbXML childElementNamed:@"location" parentElement:venues];
 			TBXMLElement * geo = [tbXML childElementNamed:@"geo:point" parentElement:location];
+			
 			if(geo != nil) {
 				anEvent.lat = [tbXML textForElement:[tbXML childElementNamed:@"geo:lat" parentElement:geo]];
 				anEvent.lon = [tbXML textForElement:[tbXML childElementNamed:@"geo:long" parentElement:geo]];
 			}
+			
 			if(debug) {
 				NSLog(@"**********************************");
 				NSLog(@"Event id:%@", anEvent.ident);
