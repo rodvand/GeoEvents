@@ -11,7 +11,7 @@
 
 @implementation IndexViewController
 
-@synthesize searchViewViewController, searchField, latitude, longitude, activity, searchButton;
+@synthesize searchViewViewController, searchField, latitude, longitude, activity, locationFound;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -41,6 +41,9 @@
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
 	
+	locationFound = YES;
+	[self.tableView reloadData];
+	
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);
 }
@@ -53,11 +56,28 @@
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	NSMutableArray * theSearchHistory = appDelegate.searchHistory;
 	[theSearchHistory addObject:searchText];
-	NSLog(@"Searching");
+	[self loadSearchView:NO];
+	
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[self.tableView reloadData];
 }
 
 - (void)searchByGps {
-	NSLog(@"Searching by GPS");
+	[self loadSearchView:YES];
+}
+
+-(void)loadSearchView:(bool)isUsingGps {
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	appDelegate.isUsingGps = isUsingGps;
+	
+	SearchViewViewController * searchView = [[SearchViewViewController alloc] initWithNibName:@"SearchView" bundle:[NSBundle mainBundle]];
+	self.searchViewViewController = searchView;
+	[self.navigationController pushViewController:searchViewViewController animated:YES];
+	[searchView release];
+	
+	
 }
 
 - (void)didReceiveMemoryWarning {
@@ -120,8 +140,13 @@
 				if (gpsSearchCell == nil) {
 					gpsSearchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 				}
-				gpsSearchCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-				[gpsSearchCell.textLabel setText:@"Search using GPS"];
+				
+				if(locationFound) {
+					gpsSearchCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+					[gpsSearchCell.textLabel setText:@"Search using GPS"];
+				} else {
+					[gpsSearchCell.textLabel setText:@"Aquiring GPS data"];
+				}
 				return gpsSearchCell;
 			default:
 				NSAssert(NO, @"Unhandled value in searchSection cellForRowAtIndexPath");

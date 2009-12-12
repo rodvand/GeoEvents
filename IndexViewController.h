@@ -14,25 +14,25 @@
 @interface IndexViewController : UITableViewController <MyCLControllerDelegate>{
 	IBOutlet UITextField * searchField;
 	IBOutlet UIActivityIndicatorView * activity;
-	IBOutlet UIButton * searchButton;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
 	SettingsViewController * settingsViewController;
 	NSNumber * latitude;
 	NSNumber * longitude;
+	bool locationFound;
 }
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
 - (void)search:(NSString *)searchText;
 - (void)searchByGps;
+- (void)loadSearchView:(bool)isUsingGps;
 
 @property (nonatomic, retain) SearchViewViewController * searchViewViewController;
 @property (nonatomic, retain) UITextField * searchField;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) UIActivityIndicatorView * activity;
-@property (nonatomic, retain) UIButton * searchButton;
-
+@property bool locationFound;
 enum Sections {
 	searchSection = 0,
 	historySection,

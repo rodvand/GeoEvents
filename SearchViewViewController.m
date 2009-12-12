@@ -22,20 +22,19 @@
     [super viewDidLoad];
 	
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	locationBasedSearch = appDelegate.isUsingGps;
 	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
 	
-	if(self.searchString.length > 0) {
+	if(!locationBasedSearch) {
 		self.title = [self.searchString capitalizedString];
-		locationBasedSearch = NO;
 		
 		// We need to change our spaces to suit our url
 		NSString * searching = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=%@&api_key=%@", searching, apiKey];
 	} else {
 		self.title = @"GPS search";
-		locationBasedSearch = YES;
 		
 		//Sample data for GPS information (It's Glasgow!)
 		//latitude = [NSNumber numberWithDouble:55.865627];

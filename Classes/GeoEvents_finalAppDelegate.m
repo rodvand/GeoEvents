@@ -12,7 +12,7 @@
 
 @implementation GeoEvents_finalAppDelegate
 
-@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory;
+@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory, isUsingGps;
 
 #pragma mark -
 #pragma mark Application lifecycle

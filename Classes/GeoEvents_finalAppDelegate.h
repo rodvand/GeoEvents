@@ -19,6 +19,7 @@
 	NSMutableArray * searchHistory;
 	NSNumber * lat;
 	NSNumber * lon;
+	bool isUsingGps;
 }
 - (IBAction)goToSettings:(id)sender;
 
@@ -30,5 +31,6 @@
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
 @property (nonatomic, retain) NSMutableArray * searchHistory;
+@property bool isUsingGps;
 @end
 
