@@ -183,7 +183,7 @@
 		case searchSection:
 			return @"Search";
 		case historySection:
-			if(theSearchHistory != nil) {
+			if([theSearchHistory count] > 0) {
 				return @"Search history";
 			}
 		default:
