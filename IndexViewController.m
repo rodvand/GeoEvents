@@ -11,6 +11,8 @@
 
 @implementation IndexViewController
 
+@synthesize searchViewViewController, searchField, latitude, longitude, activity, searchButton;
+
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
     // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -25,39 +27,38 @@
     [super viewDidLoad];
 	self.title = @"GeoEvents";
 	
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	locationController = [[MyCLController alloc] init];
+	locationController.delegate = self;	
+	[locationController.locationManager startUpdatingLocation];
 }
 
+- (void)locationUpdate:(CLLocation *)location {
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
+	latitude = [NSNumber numberWithDouble:[location coordinate].latitude];
+	longitude = [NSNumber numberWithDouble:[location coordinate].longitude];
+	
+	appDelegate.lat = latitude;
+	appDelegate.lon = longitude;
+	
+	NSLog(@"Location: %f", [location coordinate].latitude);
+	NSLog(@"Location: %f", [longitude doubleValue]);
+}
 
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)locationError:(NSError *)error {
+    //locationLabel.text = [error description];
 }
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)search:(NSString *)searchText {
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	NSMutableArray * theSearchHistory = appDelegate.searchHistory;
+	[theSearchHistory addObject:searchText];
+	NSLog(@"Searching");
 }
-*/
+
+- (void)searchByGps {
+	NSLog(@"Searching by GPS");
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -86,7 +87,9 @@
 		case searchSection:
 			return NUM_HEADER_SECTION_ROWS;
 		case historySection:
-			return [theSearchHistory count];
+			if(theSearchHistory != nil) {
+				return [theSearchHistory count];
+			}
 		default:
 			return 1;
 	}
@@ -135,9 +138,11 @@
 			searchHistoryCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		searchHistoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		[searchHistoryCell.textLabel setText:[theSearchHistory objectAtIndex:indexPath]];
+		[searchHistoryCell.textLabel setText:[theSearchHistory objectAtIndex:indexPath.row]];
 		return searchHistoryCell;
 	}
+	
+	return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -157,10 +162,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-	// [self.navigationController pushViewController:anotherViewController];
-	// [anotherViewController release];
+	if(indexPath.section == searchSection) {
+		switch (indexPath.row) {
+			case searchSectionSearchRow:
+				[self search:@"String"];
+				break;
+			case searchSectionSearchByGpsRow:
+				[self searchByGps];
+				break;
+			
+		}
+	}
 }
 
 

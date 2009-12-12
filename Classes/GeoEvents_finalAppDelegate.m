@@ -18,7 +18,9 @@
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-	
+	searchHistory = [[NSMutableArray alloc] initWithCapacity:5];
+	[searchHistory addObject:@"String"];
+	NSLog(@"Size: %d", [searchHistory count]);
 	// Create a location manager instance to determine if location services are enabled. This manager instance will be
     // immediately released afterwards.
     CLLocationManager *manager = [[CLLocationManager alloc] init];
