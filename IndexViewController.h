@@ -9,16 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MyCLController.h"
 #import "SearchViewViewController.h"
-#import "SettingsViewController.h"
 
 @interface IndexViewController : UITableViewController <MyCLControllerDelegate>{
 	IBOutlet UITextField * searchField;
 	IBOutlet UIActivityIndicatorView * activity;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
-	SettingsViewController * settingsViewController;
 	NSNumber * latitude;
 	NSNumber * longitude;
+	int run;
 	bool locationFound;
 }
 - (void)locationUpdate:(CLLocation *)location;
@@ -33,6 +32,8 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) UIActivityIndicatorView * activity;
 @property bool locationFound;
+@property int run;
+
 enum Sections {
 	searchSection = 0,
 	historySection,

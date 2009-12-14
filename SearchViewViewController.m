@@ -108,13 +108,11 @@
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 		appDelegate.selectedEvent = [events objectAtIndex:indexPath.row];
 	
-		//if(detailedViewController == nil) {
-			DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithNibName:@"DetailedView" bundle:[NSBundle mainBundle]];
-			self.detailedViewController = dView;
-			//self.detailedViewController.events = self.events;
+		DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithNibName:@"DetailedView" bundle:[NSBundle mainBundle]];
+		self.detailedViewController = dView;
 	
-			[dView release];
-		//}
+		[dView release];
+		
 	
 		[self.navigationController pushViewController:detailedViewController animated:YES];
 	}
@@ -125,9 +123,12 @@
 	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	
+	UIApplication * appDelegate = [UIApplication sharedApplication];
+	appDelegate.networkActivityIndicatorVisible = YES;
 	// We load our xml from the url provided
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:address]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
+	
 
 	if(rootXMLElement) {
 		TBXMLElement * event_top = [tbXML childElementNamed:@"events" parentElement:rootXMLElement];
@@ -179,6 +180,7 @@
 	}
 	[events retain];
 	[tbXML release];
+	appDelegate.networkActivityIndicatorVisible = NO;
 }
 
 - (void)dealloc {

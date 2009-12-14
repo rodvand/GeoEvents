@@ -11,22 +11,13 @@
 
 @implementation IndexViewController
 
-@synthesize searchViewViewController, searchField, latitude, longitude, activity, locationFound;
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
+@synthesize searchViewViewController, searchField, latitude, longitude, activity, locationFound, run;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"GeoEvents";
-	
+	run = 0;
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;	
 	[locationController.locationManager startUpdatingLocation];
@@ -142,16 +133,42 @@
 			case searchSectionSearchByGpsRow:
 				;
 				UITableViewCell *gpsSearchCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+				//CGRect topBounds = [[UIScreen mainScreen] bounds];
+				//CGRect sectionBounds = [self.tableView rectForSection:searchSection];
+				CGRect mainBounds = [self.tableView rectForRowAtIndexPath:indexPath];
+				
+				CGRect indicatorBounds = CGRectMake((mainBounds.size.width / 8) * 7 - 12, 100, 24, 24);
+				UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithFrame:indicatorBounds];
+				indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+				indicator.hidesWhenStopped = YES;
+				
 				if (gpsSearchCell == nil) {
 					gpsSearchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 				}
 				
 				if(locationFound) {
+					[indicator stopAnimating];
+					[indicator removeFromSuperview];
+					[indicator setNeedsDisplay];
+					indicator.hidden = YES;
+					[self.view sendSubviewToBack:indicator];
 					gpsSearchCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 					[gpsSearchCell.textLabel setText:@"Search using GPS"];
 				} else {
+					/*
+					NSLog(@"mainBounds width: %f", mainBounds.size.width);
+					NSLog(@"mainBounds height: %f", mainBounds.size.height);
+					NSLog(@"mainBounds height calculated: %f", mainBounds.size.height / 2 - 12);
+					NSLog(@"mainBounds width calculated: %f", mainBounds.size.width / 3);
+					NSLog(@"topBounds height: %f", topBounds.size.height);
+					NSLog(@"sectionBounds height: %f", sectionBounds.size.height);
+					NSLog(@"Top - section - row: %f", topBounds.size.height - sectionBounds.size.height - mainBounds.size.height);
+					*/
+					[indicator startAnimating];
+					[self.view addSubview:indicator];
 					[gpsSearchCell.textLabel setText:@"Aquiring GPS data"];
 				}
+				
 				return gpsSearchCell;
 			default:
 				NSAssert(NO, @"Unhandled value in searchSection cellForRowAtIndexPath");

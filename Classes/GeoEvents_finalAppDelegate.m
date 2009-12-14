@@ -44,7 +44,7 @@
 - (IBAction)goToSettings:(id)sender {
 	//Go to settings view
 	if(settingsViewController == nil) {
-		SettingsViewController * settings = [[SettingsViewController alloc] initWithNibName:@"SettingsView" bundle:[NSBundle mainBundle]];
+		SettingsViewController * settings = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		self.settingsViewController = settings;
 		[settings release];
 	}
