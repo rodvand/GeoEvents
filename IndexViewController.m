@@ -13,7 +13,6 @@
 
 @synthesize searchViewViewController, searchField, latitude, longitude, activity, locationFound, run;
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"GeoEvents";
@@ -21,6 +20,10 @@
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;	
 	[locationController.locationManager startUpdatingLocation];
+}
+
+- (void)dealloc {
+    [super dealloc];
 }
 
 - (void)locationUpdate:(CLLocation *)location {
@@ -117,7 +120,6 @@
 	static NSString *CellIdentifier = @"Cell";
 	
 	if(indexPath.section == searchSection) {
-		//TODO: Do the cell initialisation
 		switch(indexPath.row) {
 			// Our cell where we fill in text and search
 			case searchSectionSearchRow:
@@ -219,14 +221,8 @@
 					[self searchByGps];
 				}
 				break;
-			
 		}
 	}
-}
-
-
-- (void)dealloc {
-    [super dealloc];
 }
 
 

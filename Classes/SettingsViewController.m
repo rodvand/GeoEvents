@@ -3,7 +3,7 @@
 //  GeoEvents_final
 //
 //  Created by Martin Roedvand on 11/12/2009.
-//  Copyright 2009 Redwater software. All rights reserved.
+//  Copyright 2009 Redwater Software. All rights reserved.
 //
 
 #import "SettingsViewController.h"
@@ -17,13 +17,10 @@
 	self.title = @"Settings";
 	return self;
 }
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	
-    self.title = @"Settings";
-    return self;
+
+- (void)dealloc {
+    [super dealloc];
 }
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -69,16 +66,9 @@
 		if(accountCell == nil) {
 			accountCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 		}
-		NSString * imgPath;
-		UIImage * image;
+		
 		switch(indexPath.row) {
 			case sLastfmRow:
-				imgPath = [[NSBundle mainBundle] pathForResource:@"lastfm" ofType:@"png"];
-				image = [UIImage imageWithContentsOfFile:imgPath];
-				if(image == nil) {
-					NSLog(@"Image == nil");
-				}
-				accountCell.imageView.image = image;
 				[accountCell.textLabel setText:@"Last.fm"];
 				break;
 			case sFacebookRow:
@@ -147,10 +137,5 @@
 	}
 	return nil;
 }
-
-- (void)dealloc {
-    [super dealloc];
-}
-
 
 @end
