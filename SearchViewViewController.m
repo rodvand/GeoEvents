@@ -87,7 +87,7 @@
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
-		[cell.textLabel setText:@"No result"];
+		[cell.textLabel setText:@"No results"];
 	} else {
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
@@ -154,6 +154,12 @@
 			anEvent.venue = [tbXML textForElement:[tbXML childElementNamed:@"name" parentElement:venues]];
 			TBXMLElement * location = [tbXML childElementNamed:@"location" parentElement:venues];
 			TBXMLElement * geo = [tbXML childElementNamed:@"geo:point" parentElement:location];
+			
+			NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+			[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+			NSDate *date = [dateFormatter dateFromString:anEvent.startDate];
+			
+			NSLog(@"Date from string: %@", anEvent.startDate);
 			
 			if(geo != nil) {
 				anEvent.lat = [tbXML textForElement:[tbXML childElementNamed:@"geo:lat" parentElement:geo]];

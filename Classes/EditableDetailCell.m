@@ -80,7 +80,7 @@
     
     //  Set the keyboard's return key label to 'Next'.
     //
-    [textField setReturnKeyType:UIReturnKeyNext];
+    [textField setReturnKeyType:UIReturnKeyGo];
     
     //  Make the clear button appear automatically.
     [textField setClearButtonMode:UITextFieldViewModeWhileEditing];

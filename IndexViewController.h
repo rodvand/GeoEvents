@@ -10,19 +10,19 @@
 #import "MyCLController.h"
 #import "SearchViewViewController.h"
 
-@interface IndexViewController : UITableViewController <MyCLControllerDelegate>{
-	IBOutlet UITextField * searchField;
-	IBOutlet UIActivityIndicatorView * activity;
+@interface IndexViewController : UITableViewController <MyCLControllerDelegate, UITextFieldDelegate> {
+	UITextField * searchField;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
 	NSNumber * latitude;
 	NSNumber * longitude;
 	int run;
 	bool locationFound;
+	
 }
 - (void)locationUpdate:(CLLocation *)location;
 - (void)locationError:(NSError *)error;
-- (void)search:(NSString *)searchText;
+- (void)search:(NSString *)searchText addToSearchHistory:(bool)addToSearch;
 - (void)searchByGps;
 - (void)loadSearchView:(bool)isUsingGps;
 
@@ -30,7 +30,6 @@
 @property (nonatomic, retain) UITextField * searchField;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) UIActivityIndicatorView * activity;
 @property bool locationFound;
 @property int run;
 
