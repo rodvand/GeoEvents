@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"GeoEvents";
+	
 	run = 0;
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;	
@@ -123,6 +124,7 @@
 {
 	static NSString *CellIdentifier = @"Cell";
 	static NSString *CellSearch = @"searchHistory";
+	static NSString *CellGPS = @"GPS";
 
 	
 	if(indexPath.section == searchSection) {
@@ -143,10 +145,10 @@
 			// Our cell where we search using the GPS information
 			case searchSectionSearchByGpsRow:
 				;
-				UITableViewCell *gpsSearchCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+				UITableViewCell *gpsSearchCell = [tableView dequeueReusableCellWithIdentifier:CellGPS];
 				
 				if (gpsSearchCell == nil) {
-					gpsSearchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+					gpsSearchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellGPS] autorelease];
 				}
 				
 				if(locationFound) {
@@ -223,7 +225,18 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	[textField resignFirstResponder];
-	[self search:[textField text] addToSearchHistory:YES];
+	if([textField text].length == 0) {
+		UIAlertView *charAlert = [[UIAlertView alloc]
+								  initWithTitle:@"Empty search"
+								  message:@"You're search is empty."
+								  delegate:nil
+								  cancelButtonTitle:@"OK, I'll fix that"
+								  otherButtonTitles:nil];
+		[charAlert show];
+		[charAlert release];
+	} else {
+		[self search:[textField text] addToSearchHistory:YES];
+	}
 	return NO;
 }
 

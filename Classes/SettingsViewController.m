@@ -64,7 +64,7 @@
 		UITableViewCell *accountCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		//Code for our different account cells
 		if(accountCell == nil) {
-			accountCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+			accountCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		
 		switch(indexPath.row) {

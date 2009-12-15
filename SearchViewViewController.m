@@ -20,7 +20,7 @@
 */
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+	UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	locationBasedSearch = appDelegate.isUsingGps;
 	searchString = appDelegate.searchString;
@@ -42,7 +42,9 @@
 		
 		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&lat=%f&long=%f&api_key=%@", [latitude doubleValue], [longitude doubleValue], apiKey];
 	}
+	appForNetDelegate.networkActivityIndicatorVisible = YES;
 	[self loadXml:url];
+	appForNetDelegate.networkActivityIndicatorVisible = NO;
 }
 
 
@@ -123,8 +125,7 @@
 	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	
-	UIApplication * appDelegate = [UIApplication sharedApplication];
-	appDelegate.networkActivityIndicatorVisible = YES;
+	
 	// We load our xml from the url provided
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:address]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
@@ -155,12 +156,6 @@
 			TBXMLElement * location = [tbXML childElementNamed:@"location" parentElement:venues];
 			TBXMLElement * geo = [tbXML childElementNamed:@"geo:point" parentElement:location];
 			
-			NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-			[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-			NSDate *date = [dateFormatter dateFromString:anEvent.startDate];
-			
-			NSLog(@"Date from string: %@", anEvent.startDate);
-			
 			if(geo != nil) {
 				anEvent.lat = [tbXML textForElement:[tbXML childElementNamed:@"geo:lat" parentElement:geo]];
 				anEvent.lon = [tbXML textForElement:[tbXML childElementNamed:@"geo:long" parentElement:geo]];
@@ -186,7 +181,6 @@
 	}
 	[events retain];
 	[tbXML release];
-	appDelegate.networkActivityIndicatorVisible = NO;
 }
 
 - (void)dealloc {
