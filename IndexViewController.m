@@ -67,7 +67,7 @@
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	appDelegate.isUsingGps = isUsingGps;
 	
-	SearchViewViewController * searchView = [[SearchViewViewController alloc] initWithNibName:@"SearchView" bundle:[NSBundle mainBundle]];
+	SearchViewViewController * searchView = [[SearchViewViewController alloc] initWithStyle:UITableViewStylePlain];
 	self.searchViewViewController = searchView;
 	[self.navigationController pushViewController:searchViewViewController animated:YES];
 	[searchView release];
