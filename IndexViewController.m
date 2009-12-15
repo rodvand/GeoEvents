@@ -41,6 +41,7 @@
 	
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);
+	[locationController.locationManager stopUpdatingLocation];
 }
 
 - (void)locationError:(NSError *)error {
@@ -121,21 +122,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	static NSString *CellIdentifier = @"Cell";
+	static NSString *CellSearch = @"searchHistory";
+
 	
 	if(indexPath.section == searchSection) {
 		switch(indexPath.row) {
 			// Our cell where we fill in text and search
 			case searchSectionSearchRow:
 				;
-				/*UITableViewCell *sectionSearchCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-				if (sectionSearchCell == nil) {
-					sectionSearchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-				}
-				sectionSearchCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-				[sectionSearchCell.textLabel setText:@"Search"];
-				 */
 				EditableDetailCell *sectionSearchCell = [[[EditableDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-				//sectionSearchCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+				
 				searchField = [sectionSearchCell textField];
 				[searchField setClearButtonMode:UITextFieldViewModeNever];
 				[searchField setReturnKeyType:UIReturnKeySearch];
@@ -148,43 +144,15 @@
 			case searchSectionSearchByGpsRow:
 				;
 				UITableViewCell *gpsSearchCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-				/*
-				CGRect topBounds = [[UIScreen mainScreen] bounds];
-				CGRect sectionBounds = [self.tableView rectForSection:searchSection];
-				CGRect mainBounds = [self.tableView rectForRowAtIndexPath:indexPath];
 				
-				CGRect indicatorBounds = CGRectMake((mainBounds.size.width / 8) * 7 - 12, 100, 24, 24);
-				UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]initWithFrame:indicatorBounds];
-				indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-				indicator.hidesWhenStopped = YES;
-				*/
 				if (gpsSearchCell == nil) {
 					gpsSearchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 				}
 				
 				if(locationFound) {
-					/*
-					[indicator stopAnimating];
-					[indicator removeFromSuperview];
-					[indicator setNeedsDisplay];
-					indicator.hidden = YES;
-					[self.view sendSubviewToBack:indicator];
-					 */
 					gpsSearchCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 					[gpsSearchCell.textLabel setText:@"Search using GPS"];
 				} else {
-					/*
-					NSLog(@"mainBounds width: %f", mainBounds.size.width);
-					NSLog(@"mainBounds height: %f", mainBounds.size.height);
-					NSLog(@"mainBounds height calculated: %f", mainBounds.size.height / 2 - 12);
-					NSLog(@"mainBounds width calculated: %f", mainBounds.size.width / 3);
-					NSLog(@"topBounds height: %f", topBounds.size.height);
-					NSLog(@"sectionBounds height: %f", sectionBounds.size.height);
-					NSLog(@"Top - section - row: %f", topBounds.size.height - sectionBounds.size.height - mainBounds.size.height);
-					
-					[indicator startAnimating];
-					[self.view addSubview:indicator];
-					 */
 					[gpsSearchCell.textLabel setText:@"Aquiring GPS data"];
 				}
 				
@@ -199,12 +167,13 @@
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 		NSMutableArray * theSearchHistory = appDelegate.searchHistory;
 		
-		UITableViewCell * searchHistoryCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		UITableViewCell * searchHistoryCell = [tableView dequeueReusableCellWithIdentifier:CellSearch];
 		if (searchHistoryCell == nil) {
 			searchHistoryCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		searchHistoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		[searchHistoryCell.textLabel setText:[theSearchHistory objectAtIndex:[theSearchHistory count] - indexPath.row - 1]];
+		
 		return searchHistoryCell;
 	}
 	
@@ -231,8 +200,7 @@
 	if(indexPath.section == searchSection) {
 		switch (indexPath.row) {
 			case searchSectionSearchRow:
-				[self search:@"London" addToSearchHistory:YES];
-				NSLog(@"Search string: %@", [searchField text]);
+				;
 				break;
 			case searchSectionSearchByGpsRow:
 				if(locationFound) {
