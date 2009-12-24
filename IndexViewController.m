@@ -29,6 +29,7 @@
 }
 
 - (void)locationUpdate:(CLLocation *)location {
+	bool simulator = YES;
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	
 	latitude = [NSNumber numberWithDouble:[location coordinate].latitude];
@@ -37,12 +38,14 @@
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
 	
-	locationFound = YES;
-	[self.tableView reloadData];
+	if(run == 5 || simulator) {
+		locationFound = YES;
+		[self.tableView reloadData];
+		[locationController.locationManager stopUpdatingLocation];
+	}
 	
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);
-	[locationController.locationManager stopUpdatingLocation];
 }
 
 - (void)locationError:(NSError *)error {
@@ -170,9 +173,11 @@
 		NSMutableArray * theSearchHistory = appDelegate.searchHistory;
 		
 		UITableViewCell * searchHistoryCell = [tableView dequeueReusableCellWithIdentifier:CellSearch];
+		
 		if (searchHistoryCell == nil) {
 			searchHistoryCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
+		
 		searchHistoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		[searchHistoryCell.textLabel setText:[theSearchHistory objectAtIndex:[theSearchHistory count] - indexPath.row - 1]];
 		
@@ -216,7 +221,7 @@
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 		NSMutableArray * theSearchHistory = appDelegate.searchHistory;
 		
-		[self search:[theSearchHistory objectAtIndex:indexPath.row] addToSearchHistory:NO];
+		[self search:[theSearchHistory objectAtIndex:[theSearchHistory count] - indexPath.row - 1] addToSearchHistory:NO];
 				
 	}
 }
