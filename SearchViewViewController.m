@@ -28,6 +28,8 @@
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
 	
+	// Create our last fm url
+	// [self createUrl:locationBased distance:range apiKey:api latitude:lat longitude:long location:place page:pageNo]
 	if(!locationBasedSearch) {
 		self.title = [self.searchString capitalizedString];
 		
@@ -98,7 +100,9 @@
 		// Set up the cell...
 		Event * event = [events objectAtIndex:indexPath.row];
 		[cell.textLabel setText:event.artist];
-		[cell.detailTextLabel setText:event.venue];
+		NSString * detailedText = [[NSString alloc] initWithFormat:@"%@, %@", event.venue, event.location];
+		[cell.detailTextLabel setText:detailedText];
+		[detailedText release];
 	}
     return cell;
 }
@@ -121,7 +125,7 @@
 }
 
 - (void)loadXml:(NSString *)address {
-	bool debug = NO;
+	bool debug = YES;
 	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	
@@ -154,6 +158,7 @@
 			
 			anEvent.venue = [tbXML textForElement:[tbXML childElementNamed:@"name" parentElement:venues]];
 			TBXMLElement * location = [tbXML childElementNamed:@"location" parentElement:venues];
+			anEvent.location = [tbXML textForElement:[tbXML childElementNamed:@"city" parentElement:location]];
 			TBXMLElement * geo = [tbXML childElementNamed:@"geo:point" parentElement:location];
 			
 			if(geo != nil) {
@@ -168,6 +173,7 @@
 				NSLog(@"Artist: %@", anEvent.artist);
 				NSLog(@"Venue: %@", anEvent.venue);
 				NSLog(@"URL: %@", anEvent.eventUrl);
+				NSLog(@"City: %@", anEvent.location);
 				if(geo != nil) {
 					NSLog(@"Latitude: %@", anEvent.lat);
 					NSLog(@"Longitude: %@", anEvent.lon);

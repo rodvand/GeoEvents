@@ -20,6 +20,7 @@
 	NSString * lat;
 	NSString * lon;
 	NSString * attendance;
+	NSString * location;
 }
 
 @property (nonatomic, retain) NSString * ident;
@@ -32,5 +33,6 @@
 @property (nonatomic, retain) NSString * lon;
 @property (nonatomic, retain) NSArray * tags;
 @property (nonatomic, retain) NSString * attendance;
+@property (nonatomic, retain) NSString * location;
 
 @end

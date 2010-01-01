@@ -21,6 +21,7 @@
 	bool error;
 }
 - (void) loadXml:(NSString *)address;
+//- (void) createUrl:(NSString *)location;
 @property (nonatomic, retain) DetailedViewViewController * detailedViewController;
 @property (nonatomic, retain) NSString *  searchString;
 @property (nonatomic, retain) NSString * url;
