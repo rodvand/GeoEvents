@@ -114,7 +114,7 @@
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 		appDelegate.selectedEvent = [events objectAtIndex:indexPath.row];
 	
-		DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithNibName:@"DetailedView" bundle:[NSBundle mainBundle]];
+		DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		self.detailedViewController = dView;
 	
 		[dView release];

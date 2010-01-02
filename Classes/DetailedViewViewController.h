@@ -8,11 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailedViewViewController : UIViewController {
-	IBOutlet UILabel * artistLabel;
-	IBOutlet UILabel * venueLabel;
-	IBOutlet UILabel * dateLabel;
-	IBOutlet UILabel * attendanceLabel;
+@interface DetailedViewViewController : UITableViewController {
+	
 }
 
+enum detailedSections {
+	eventSection = 0,
+	attendanceSection,
+	NUM_DETAILED_SECTIONS
+};
+
+enum detailedSectionEvent {
+	eventArtist = 0,
+	eventVenue,
+	eventTime,
+	NUM_EVENTS
+};
+
+enum detailedSectionAttendance {
+	attendanceNumber = 0,
+	attendanceButton,
+	NUM_ATTENDANCE
+};
 @end
