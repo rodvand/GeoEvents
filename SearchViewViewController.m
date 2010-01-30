@@ -12,40 +12,38 @@
 #import "TBXML.h"
 
 @implementation SearchViewViewController
-@synthesize detailedViewController, searchString, url, apiKey, latitude, longitude, events;
+@synthesize detailedViewController, searchString, url, apiKey, latitude, longitude, events, sections;
 
-/* 
- Initial setup method
- API key, urls, and longitude/latitude
-*/
 - (void)viewDidLoad {
+	/* 
+	 Initial setup method
+	 API key, urls, and longitude/latitude
+	 */
     [super viewDidLoad];
 	UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	locationBasedSearch = appDelegate.isUsingGps;
 	searchString = appDelegate.searchString;
 	
+	//Initialise our sections array
+	sections = [[NSMutableArray alloc] initWithCapacity:10];
+	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
 	
 	// Create our last fm url
-	// [self createUrl:locationBased distance:range apiKey:api latitude:lat longitude:long location:place page:pageNo]
-	if(!locationBasedSearch) {
-		self.title = [self.searchString capitalizedString];
-		
-		// We need to change our spaces to suit our url
-		NSString * searching = [searchString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&location=%@&api_key=%@", searching, apiKey];
-	} else {
-		self.title = @"GPS search";
-		
-		latitude = appDelegate.lat;
-		longitude = appDelegate.lon;
-		
-		url = [[NSString alloc]initWithFormat:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents&lat=%f&long=%f&api_key=%@", [latitude doubleValue], [longitude doubleValue], apiKey];
-	}
+	
+	latitude = appDelegate.lat;
+	longitude = appDelegate.lon;
+	
+	url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString];
+	
+	self.title = (latitude != nil && longitude != nil)? @"GPS search" : [searchString capitalizedString];
+	
 	appForNetDelegate.networkActivityIndicatorVisible = YES;
+	
 	[self loadXml:url];
+	
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
 }
 
@@ -76,7 +74,14 @@
 	if(error) {
 		return 1;
 	}
+	
     return [events count];
+}
+
+// Customize the title of each section
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	return @"Section";
+	
 }
 
 
@@ -119,13 +124,14 @@
 	
 		[dView release];
 		
-	
 		[self.navigationController pushViewController:detailedViewController animated:YES];
 	}
 }
 
+# pragma mark General methods
+
 - (void)loadXml:(NSString *)address {
-	bool debug = YES;
+	bool debug = NO;
 	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	
@@ -151,6 +157,8 @@
 			
 			anEvent.ident = [tbXML textForElement:[tbXML childElementNamed:@"id" parentElement:event]];
 			anEvent.startDate = [tbXML textForElement:[tbXML childElementNamed:@"startDate" parentElement:event]];
+			NSLog(@"St: %@", [self createDate:anEvent.startDate]);
+			//NSLog(@"1: %@, 2: %@, 3: %@", chunks[0], chunks[1], chunks[2]);
 			anEvent.eventUrl = [tbXML textForElement:[tbXML childElementNamed:@"url" parentElement:event]];
 			anEvent.eventStatus = [tbXML textForElement:[tbXML childElementNamed:@"cancelled" parentElement:event]];
 			anEvent.attendance = [tbXML textForElement:[tbXML childElementNamed:@"attendance" parentElement:event]];
@@ -178,6 +186,8 @@
 					NSLog(@"Latitude: %@", anEvent.lat);
 					NSLog(@"Longitude: %@", anEvent.lon);
 				}
+				
+				//NSLog(@"Section array count: %d", [sections count]);
 			}
 			event = [tbXML nextSiblingNamed:@"event" searchFromElement:event];
 		}
@@ -187,6 +197,46 @@
 	}
 	[events retain];
 	[tbXML release];
+}
+
+- (NSString*) createDate:(NSString*)rawDate {
+	/*
+	 Takes in the raw date from last.fm's API 
+	 and removes the time and return a readable 
+	 and simple date.
+	 Very basic atm.
+	 */
+	NSArray * chunks = [rawDate componentsSeparatedByString:@" "];
+	NSString * formattedDate = [[NSString alloc] initWithFormat:@"%@ %@ %@ %@", 
+								[chunks objectAtIndex:0], [chunks objectAtIndex:1], [chunks objectAtIndex:2],[chunks objectAtIndex:3]];
+	
+	return formattedDate;
+}
+
+- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lon searchString:(NSString*)searchQuery {
+	/*
+	 We create our URL here.
+	 URL output depends on if it's location based or purely based on search string.
+	 Require apiKey to work.
+	 TODO: Implement range and pagenumber.
+	 TODO: Clean String. Replace space and various other entitities with respective html entitities.
+	 */
+	
+	//Our base URL
+	NSMutableString * baseUrl = [[NSMutableString alloc] initWithString:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents"];
+	
+	
+	if(lat == nil && lon == nil) {
+		//The search is based on a string
+		//We replace space with %20
+		NSString * modifiedSearch = [searchQuery stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+		[baseUrl appendFormat:@"&location=%@&api_key=%@", modifiedSearch, api];
+		NSLog(@"Search based: %@", baseUrl);
+	} else {
+		[baseUrl appendFormat:@"&lat=%f&long=%f&api_key=%@", [lat doubleValue], [lon doubleValue], api];
+		NSLog(@"Location based: %@", baseUrl);
+	}
+	return baseUrl;
 }
 
 - (void)dealloc {

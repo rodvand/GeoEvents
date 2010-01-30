@@ -18,10 +18,14 @@
 	NSNumber * latitude;
 	NSNumber * longitude;
 	NSMutableArray * events;
+	NSMutableArray * sections;
+	int sectionCounter;
 	bool error;
 }
 - (void) loadXml:(NSString *)address;
-//- (void) createUrl:(NSString *)location;
+- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery;
+- (NSString*) createDate:(NSString*)rawDate;
+@property (nonatomic, retain) NSMutableArray * sections;
 @property (nonatomic, retain) DetailedViewViewController * detailedViewController;
 @property (nonatomic, retain) NSString *  searchString;
 @property (nonatomic, retain) NSString * url;
