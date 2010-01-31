@@ -22,6 +22,9 @@
 	//Get our selected event from the delegate
 	Event * event = appDelegate.selectedEvent;
 	
+	//Get our logged in status Last.fm/Facebook/Twitter/Etc
+	lastfmLoggedIn = appDelegate.lastfmstatus;
+	
 	self.title = event.artist;
 	
 	[event release];
@@ -56,7 +59,12 @@
 	}
 	
 	if(section == attendanceSection) {
-		return NUM_ATTENDANCE;
+		//If we're logged in to last.fm, enable adding attendance to event
+		if(lastfmLoggedIn) {
+			return NUM_ATTENDANCE;
+		} else {
+			return NUM_ATTENDANCE - 1;
+		}
 	}
     
 	return 0;
@@ -65,15 +73,78 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Set up the cell...
+    //We create our link to the appDelegate
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
+	//Get our selected event from the delegate
+	Event * event = appDelegate.selectedEvent;
+	
+    static NSString *CellIdentifier = @"Event";
+	static NSString *AttCellIdentifier = @"Attendance";
+	static NSString *AttBtnCellIdentifier = @"Attendance button";
+    if(indexPath.section == eventSection) {
+		UITableViewCell *eventCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (eventCell == nil) {
+			eventCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+		}
+		switch(indexPath.row) {
+			case eventArtist:
+				;
+				[eventCell.textLabel setText:@"Artist"];
+				[eventCell.detailTextLabel setText:event.artist];
+				
+				return eventCell;
+				break;
+			case eventVenue:
+				;
+				
+				[eventCell.textLabel setText:@"Venue"];
+				[eventCell.detailTextLabel setText:event.venue];
+				
+				return eventCell;
+				break;
+			case eventTime:
+				;
+				
+				[eventCell.textLabel setText:@"Time"];
+				[eventCell.detailTextLabel setText:event.startDate];
+				
+				return eventCell;
+				break;
+		}
+	} else if(indexPath.section == attendanceSection) {
+		
+		switch(indexPath.row) {
+			case attendanceNumber:
+				;
+				UITableViewCell * attendanceCell = [tableView dequeueReusableCellWithIdentifier:AttCellIdentifier];
+				if(attendanceCell == nil) {
+					attendanceCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:AttCellIdentifier] autorelease];
+				}
+				[attendanceCell.textLabel setText:@"Attendance"];
+				[attendanceCell.detailTextLabel setText:event.attendance];
+				
+				return attendanceCell;
+				break;
+				
+			case attendanceButton:
+				;
+				UITableViewCell * attendanceBtnCell = [tableView dequeueReusableCellWithIdentifier:AttBtnCellIdentifier];
+				if(attendanceBtnCell == nil) {
+					attendanceBtnCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AttBtnCellIdentifier] autorelease];
+				}
+				[attendanceBtnCell.textLabel setText:@"Mark me as attending"];
+				[attendanceBtnCell.textLabel setTextAlignment:UITextAlignmentCenter];
+				
+				return attendanceBtnCell;
+				break;
+		}
+	}
+	
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
+	}
 	
     return cell;
 }

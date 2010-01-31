@@ -157,7 +157,7 @@
 			
 			anEvent.ident = [tbXML textForElement:[tbXML childElementNamed:@"id" parentElement:event]];
 			anEvent.startDate = [tbXML textForElement:[tbXML childElementNamed:@"startDate" parentElement:event]];
-			NSLog(@"St: %@", [self createDate:anEvent.startDate]);
+			
 			//NSLog(@"1: %@, 2: %@, 3: %@", chunks[0], chunks[1], chunks[2]);
 			anEvent.eventUrl = [tbXML textForElement:[tbXML childElementNamed:@"url" parentElement:event]];
 			anEvent.eventStatus = [tbXML textForElement:[tbXML childElementNamed:@"cancelled" parentElement:event]];
@@ -176,6 +176,7 @@
 			
 			if(debug) {
 				NSLog(@"**********************************");
+				NSLog(@"St: %@", [self createDate:anEvent.startDate]);
 				NSLog(@"Event id:%@", anEvent.ident);
 				NSLog(@"Start date: %@", anEvent.startDate);
 				NSLog(@"Artist: %@", anEvent.artist);
@@ -187,7 +188,6 @@
 					NSLog(@"Longitude: %@", anEvent.lon);
 				}
 				
-				//NSLog(@"Section array count: %d", [sections count]);
 			}
 			event = [tbXML nextSiblingNamed:@"event" searchFromElement:event];
 		}
@@ -231,10 +231,8 @@
 		//We replace space with %20
 		NSString * modifiedSearch = [searchQuery stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 		[baseUrl appendFormat:@"&location=%@&api_key=%@", modifiedSearch, api];
-		NSLog(@"Search based: %@", baseUrl);
 	} else {
 		[baseUrl appendFormat:@"&lat=%f&long=%f&api_key=%@", [lat doubleValue], [lon doubleValue], api];
-		NSLog(@"Location based: %@", baseUrl);
 	}
 	return baseUrl;
 }

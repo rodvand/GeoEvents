@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailedViewViewController : UITableViewController {
-	
+	bool lastfmLoggedIn;
 }
 
 enum detailedSections {

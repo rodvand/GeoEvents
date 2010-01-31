@@ -12,21 +12,26 @@
 
 @implementation GeoEvents_finalAppDelegate
 
-@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory, isUsingGps, searchString;
+@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory, isUsingGps, searchString, lastfmstatus;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	searchHistory = [[NSMutableArray alloc] initWithCapacity:5];
-	NSLog(@"Size: %d", [searchHistory count]);
+	
+	//Set our last.fm status
+	//TODO: Implement real login
+	lastfmstatus = NO;
+	
 	// Create a location manager instance to determine if location services are enabled. This manager instance will be
     // immediately released afterwards.
     CLLocationManager *manager = [[CLLocationManager alloc] init];
 	
     if (manager.locationServicesEnabled == NO) {
         UIAlertView *servicesDisabledAlert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" 
-																message:@"You currently have all location services for this device disabled. If you proceed, you will be asked to confirm whether location services should be reenabled." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+																message:@"You currently have all location services for this device disabled. If you proceed, you will be asked to confirm whether location services should be reenabled." 
+																	   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [servicesDisabledAlert show];
         [servicesDisabledAlert release];
     }

@@ -21,6 +21,7 @@
 	NSNumber * lon;
 	bool isUsingGps;
 	NSString * searchString;
+	bool lastfmstatus;
 }
 - (IBAction)goToSettings:(id)sender;
 
@@ -34,5 +35,6 @@
 @property (nonatomic, retain) NSMutableArray * searchHistory;
 @property (nonatomic, retain) NSString * searchString;
 @property bool isUsingGps;
+@property bool lastfmstatus;
 @end
 
