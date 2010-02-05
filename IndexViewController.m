@@ -179,7 +179,7 @@
 		}
 		
 		searchHistoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		[searchHistoryCell.textLabel setText:[theSearchHistory objectAtIndex:[theSearchHistory count] - indexPath.row - 1]];
+		[searchHistoryCell.textLabel setText:[[theSearchHistory objectAtIndex:[theSearchHistory count] - indexPath.row - 1]capitalizedString]];
 		
 		return searchHistoryCell;
 	}
@@ -217,6 +217,8 @@
 		}
 	}
 	
+	//If we have anything in our searchHistory section, we allow the user to
+	//select one and send him to the search
 	if(indexPath.section == historySection) {
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 		NSMutableArray * theSearchHistory = appDelegate.searchHistory;

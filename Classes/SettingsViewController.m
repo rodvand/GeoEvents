@@ -7,9 +7,12 @@
 //
 
 #import "SettingsViewController.h"
+#import "AboutViewController.h"
 
 
 @implementation SettingsViewController
+
+@synthesize aboutView;
 
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:UITableViewStyleGrouped]) {
@@ -119,9 +122,6 @@
 		
 	}
 	
-	
-
-	
 	return nil;
 	
 }
@@ -136,6 +136,45 @@
 			return @"About this app";
 	}
 	return nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	switch(indexPath.section) {
+		case sAccountSettings:
+			switch(indexPath.row) {
+				case sFacebookRow:
+					
+					break;
+				case sLastfmRow:
+					
+					break;
+				case sTwitterRow:
+					
+					break;
+			}
+			break;
+		case sSearchSettings:
+			switch(indexPath.row) {
+				case sKilometersRangeRow:
+					
+					break;
+				case sNumberOfResultsRow:
+					
+					break;
+			}
+			break;
+		case sAboutSection:
+			switch(indexPath.row) {
+				case sAboutRow:
+					;
+					AboutViewController * aboutV = [[AboutViewController alloc] initWithStyle:UITableViewStyleGrouped];
+					aboutView = aboutV;
+					[self.navigationController pushViewController:aboutV animated:YES];
+					[aboutV release];
+					break;
+			}
+			break;
+	}
 }
 
 @end

@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "AboutViewController.h"
 /* Prefix-Letter: s */
 
 @interface SettingsViewController : UITableViewController {
-
+	AboutViewController * aboutView;
 }
+
+@property (nonatomic, retain) AboutViewController * aboutView; 
 
 enum sSections {
 	sAccountSettings = 0,
@@ -38,5 +40,7 @@ enum sAboutSection {
 	sAboutRow = 0,
 	sNUM_ABOUT_ROWS
 };
+
+
 
 @end

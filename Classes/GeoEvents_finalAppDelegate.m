@@ -18,7 +18,22 @@
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
+	
+	//get the documents directory:
+	NSArray *paths = NSSearchPathForDirectoriesInDomains
+	(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	
+	//make a file name to write the data to using the
+	//documents directory:
+	NSString *fullFileName = [NSString stringWithFormat:@"%@/arraySaveFile", documentsDirectory];
+	
 	searchHistory = [[NSMutableArray alloc] initWithCapacity:5];
+	
+	
+	NSLog(@"FULL FILE NAME: %@", fullFileName);
+	NSLog(@"COUNT: %@", [searchHistory count]);
+	
 	
 	//Set our last.fm status
 	//TODO: Implement real login
@@ -44,6 +59,19 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
+	
+	//get the documents directory:
+	NSArray *paths = NSSearchPathForDirectoriesInDomains
+	(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	
+	//make a file name to write the data to using the
+	//documents directory:
+	NSString *fullFileName = [NSString stringWithFormat:@"%@/arraySaveFile", documentsDirectory];
+	
+	[searchHistory writeToFile:fullFileName atomically:NO];
+	NSLog(@"Writing to file: %@", fullFileName);
+
 }
 
 - (IBAction)goToSettings:(id)sender {

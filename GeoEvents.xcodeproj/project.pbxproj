@@ -27,6 +27,7 @@
 		5BF286EA10CDA16B005EB7AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E910CDA16B005EB7AB /* Event.m */; };
 		5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF2871210CDDE14005EB7AB /* CoreLocation.framework */; };
 		5BF2871E10CDE5BC005EB7AB /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2871D10CDE5BC005EB7AB /* MyCLController.m */; };
+		8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FD41C111B9F3700A332CA /* AboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,8 @@
 		5BF2871210CDDE14005EB7AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5BF2871C10CDE5BC005EB7AB /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCLController.h; path = ../MyCLController.h; sourceTree = "<group>"; };
 		5BF2871D10CDE5BC005EB7AB /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCLController.m; path = ../MyCLController.m; sourceTree = "<group>"; };
+		8C4FD41B111B9F3700A332CA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		8C4FD41C111B9F3700A332CA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +87,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8C4FD41B111B9F3700A332CA /* AboutViewController.h */,
+				8C4FD41C111B9F3700A332CA /* AboutViewController.m */,
 				5B45541D10D3D1650087F585 /* EditableDetailCell.h */,
 				5B45541E10D3D1650087F585 /* EditableDetailCell.m */,
 				5B45527210D352780087F585 /* IndexViewController.h */,
@@ -246,6 +251,7 @@
 				5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */,
 				5B45527510D352780087F585 /* IndexViewController.m in Sources */,
 				5B45541F10D3D1650087F585 /* EditableDetailCell.m in Sources */,
+				8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
