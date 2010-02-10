@@ -11,14 +11,6 @@
 
 @implementation AboutViewController
 
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if (self = [super initWithStyle:style]) {
-    }
-    return self;
-}
-*/
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -70,18 +62,18 @@
 					[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
 					[cell.textLabel setTextAlignment:UITextAlignmentCenter];
 					cell.textLabel.numberOfLines = 6;
-					[cell.textLabel setText:@"GeoEvents is a part of my Bachelor with Honors degree, taken by the University of Stirling in Scotland.The complete source code can be found at the github address listed below."];
+					[cell.textLabel setText:@"GeoEvents is a part of my Bachelor with Honors degree, taken at the University of Stirling in Scotland.The complete source code can be found at the github address listed below."];
 					
 					return cell;
 				case tWebsiteRow:
 					;
 					UITableViewCell *webCell = [tableView dequeueReusableCellWithIdentifier:WebCellIdentifier];
 					if (webCell == nil) {
-						webCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:WebCellIdentifier] autorelease];
+						webCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:WebCellIdentifier] autorelease];
 					}
-					[webCell.textLabel setText:@"WWW"];
-					[webCell.detailTextLabel setText:@"github.com/rodvand/GeoEvents/"];
-					webCell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
+					[webCell.textLabel setText:@"Github project"];
+					[webCell.textLabel setTextAlignment:UITextAlignmentCenter];
+					webCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 					
 					return webCell;
 			}
