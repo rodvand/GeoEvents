@@ -12,17 +12,33 @@
 
 @implementation IndexViewController
 
-@synthesize searchViewViewController, searchField, latitude, longitude, locationFound, run;
+@synthesize searchViewViewController, searchField, latitude, longitude, locationFound, run, settingsViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"GeoEvents";
 	
+	//Add button to navigationBar
+	UIBarButtonItem * settingsBtn = [[UIBarButtonItem alloc]initWithTitle:@"Settings" 
+																	style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings:)];
+	
+	[self.navigationItem setRightBarButtonItem:settingsBtn animated:YES];
 	
 	run = 0;
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;	
 	[locationController.locationManager startUpdatingLocation];
+}
+
+- (void)goToSettings:(id)sender {
+	if(settingsViewController == nil) {
+		SettingsViewController * settings = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped]; 
+		self.settingsViewController = settings;
+		[settings release];
+	}
+	
+	[self.navigationController pushViewController:self.settingsViewController animated:YES];
+	
 }
 
 - (void)dealloc {

@@ -88,17 +88,6 @@
 	*/
 }
 
-- (IBAction)goToSettings:(id)sender {
-	if(settingsViewController == nil) {
-		SettingsViewController * settings = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped]; 
-		self.settingsViewController = settings;
-		[settings release];
-	}
-	
-	[self.navigationController pushViewController:self.settingsViewController animated:YES];
-	
-}
-
 #pragma mark -
 #pragma mark Memory management
 

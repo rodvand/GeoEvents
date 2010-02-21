@@ -23,7 +23,7 @@
 	NSString * searchString;
 	bool lastfmstatus;
 }
-- (IBAction)goToSettings:(id)sender;
+- (void)goToSettings:(id)sender;
 
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UINavigationController *navigationController;

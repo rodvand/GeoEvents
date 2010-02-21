@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "MyCLController.h"
 #import "SearchViewViewController.h"
+#import "SettingsViewController.h"
 
 @interface IndexViewController : UITableViewController <MyCLControllerDelegate, UITextFieldDelegate> {
 	UITextField * searchField;
 	MyCLController *locationController;
 	SearchViewViewController * searchViewViewController;
+	SettingsViewController * settingsViewController;
 	NSNumber * latitude;
 	NSNumber * longitude;
 	int run;
@@ -25,8 +27,9 @@
 - (void)search:(NSString *)searchText addToSearchHistory:(bool)addToSearch;
 - (void)searchByGps;
 - (void)loadSearchView:(bool)isUsingGps;
-
+- (void)goToSettings:(id)sender;
 @property (nonatomic, retain) SearchViewViewController * searchViewViewController;
+@property (nonatomic, retain) SettingsViewController * settingsViewController;
 @property (nonatomic, retain) UITextField * searchField;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
