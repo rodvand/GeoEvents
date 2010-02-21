@@ -12,7 +12,9 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AA99E10D20A8200E81307 /* SettingsViewController.m */; };
+		5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3AA99F10D20A8200E81307 /* SettingsView.xib */; };
 		5B45527510D352780087F585 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B45527310D352780087F585 /* IndexViewController.m */; };
 		5B45541F10D3D1650087F585 /* EditableDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B45541E10D3D1650087F585 /* EditableDetailCell.m */; };
 		5B85658C10D6020500C8E54D /* lastfm.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B85658B10D6020500C8E54D /* lastfm.png */; };
@@ -38,9 +40,11 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* GeoEvents_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoEvents_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5B3AA99D10D20A8200E81307 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5B3AA99E10D20A8200E81307 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5B3AA99F10D20A8200E81307 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsView.xib; path = Classes/SettingsView.xib; sourceTree = "<group>"; };
 		5B45527210D352780087F585 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexViewController.h; path = ../IndexViewController.h; sourceTree = "<group>"; };
 		5B45527310D352780087F585 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexViewController.m; path = ../IndexViewController.m; sourceTree = "<group>"; };
 		5B45541D10D3D1650087F585 /* EditableDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableDetailCell.h; sourceTree = "<group>"; };
@@ -139,7 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				5B85658B10D6020500C8E54D /* lastfm.png */,
+				5B3AA99F10D20A8200E81307 /* SettingsView.xib */,
 				5BE1D6DA10CE8BB0002BFF08 /* icon.png */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GeoEvents-Info.plist */,
 			);
 			name = Resources;
@@ -254,7 +260,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */,
+				5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */,
 				5B85658C10D6020500C8E54D /* lastfm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
