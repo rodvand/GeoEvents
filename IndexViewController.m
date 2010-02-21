@@ -23,6 +23,7 @@
 																	style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings:)];
 	
 	[self.navigationItem setRightBarButtonItem:settingsBtn animated:YES];
+	[settingsBtn release];
 	
 	run = 0;
 	locationController = [[MyCLController alloc] init];

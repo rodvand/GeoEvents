@@ -40,6 +40,11 @@
 	
 	self.title = (latitude != nil && longitude != nil)? @"GPS search" : [searchString capitalizedString];
 	
+	//Add a map it button
+	UIBarButtonItem * mapBtn = [[UIBarButtonItem alloc] initWithTitle:@"Map 'em!" style:UIBarButtonItemStylePlain target:self action:nil];
+	[self.navigationItem setRightBarButtonItem:mapBtn];
+	[mapBtn release];
+	
 	appForNetDelegate.networkActivityIndicatorVisible = YES;
 	
 	[self loadXml:url];
