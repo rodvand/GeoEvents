@@ -39,6 +39,9 @@
 		case tAbout:
 			return tNUM_ROWS;
 			break;
+		case tIcon:
+			return tNUM_ICON_ROWS;
+			break;
 	}
 	return 0;
 }
@@ -71,7 +74,7 @@
 					if (webCell == nil) {
 						webCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:WebCellIdentifier] autorelease];
 					}
-					[webCell.textLabel setText:@"Github project"];
+					[webCell.textLabel setText:@"Github project page"];
 					[webCell.textLabel setTextAlignment:UITextAlignmentCenter];
 					webCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 					

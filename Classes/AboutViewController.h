@@ -15,15 +15,19 @@
 
 enum {
 	tAbout = 0,
+	tIcon,
 	tNUM_SECTIONS
 };
 
 enum {
 	tAboutRow = 0,
 	tWebsiteRow,
-	tIconThanks,
-	tOtherThanks,
 	tNUM_ROWS
+};
+
+enum {
+	tIconThanks = 0,
+	tNUM_ICON_ROWS
 };
 
 @end

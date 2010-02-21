@@ -18,6 +18,7 @@
     [super viewDidLoad];
 	self.title = @"GeoEvents";
 	
+	
 	run = 0;
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;	

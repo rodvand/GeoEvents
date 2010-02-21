@@ -7,7 +7,7 @@
 //
 
 #import "GeoEvents_finalAppDelegate.h"
-#import "RootViewController.h"
+#import "IndexViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
 @implementation GeoEvents_finalAppDelegate
@@ -18,7 +18,7 @@
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-	
+	/*
 	//get the documents directory:
 	NSArray *paths = NSSearchPathForDirectoriesInDomains
 	(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -33,7 +33,7 @@
 	
 	NSLog(@"FULL FILE NAME: %@", fullFileName);
 	NSLog(@"COUNT: %@", [searchHistory count]);
-	
+	*/
 	
 	//Set our last.fm status
 	//TODO: Implement real login
@@ -51,15 +51,29 @@
         [servicesDisabledAlert release];
     }
     [manager release]; 
-	
+	/*
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
+	 */
+	
+	// Create the window
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+    // Create the navigation and view controllers
+    IndexViewController *rootViewController = [[IndexViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    [rootViewController release];
+	
+    // Configure and show the window
+    [window addSubview:[navigationController view]];
+    [window makeKeyAndVisible];
+
 }
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
-	
+	/*
 	//get the documents directory:
 	NSArray *paths = NSSearchPathForDirectoriesInDomains
 	(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -71,12 +85,12 @@
 	
 	[searchHistory writeToFile:fullFileName atomically:NO];
 	NSLog(@"Writing to file: %@", fullFileName);
-
+	*/
 }
 
 - (IBAction)goToSettings:(id)sender {
 	if(settingsViewController == nil) {
-		SettingsViewController * settings = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+		SettingsViewController * settings = [[SettingsViewController alloc] initWithStyle:UITableViewStyleGrouped]; 
 		self.settingsViewController = settings;
 		[settings release];
 	}

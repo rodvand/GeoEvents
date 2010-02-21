@@ -28,6 +28,8 @@
 		5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF2871210CDDE14005EB7AB /* CoreLocation.framework */; };
 		5BF2871E10CDE5BC005EB7AB /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2871D10CDE5BC005EB7AB /* MyCLController.m */; };
 		8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FD41C111B9F3700A332CA /* AboutViewController.m */; };
+		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
+		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,10 @@
 		5BF2871D10CDE5BC005EB7AB /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCLController.m; path = ../MyCLController.m; sourceTree = "<group>"; };
 		8C4FD41B111B9F3700A332CA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		8C4FD41C111B9F3700A332CA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		8CC1A9C011236DEA00BA6497 /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookViewController.h; path = ../FacebookViewController.h; sourceTree = "<group>"; };
+		8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookViewController.m; path = ../FacebookViewController.m; sourceTree = "<group>"; };
+		8CC1A9C311236E0100BA6497 /* LastfmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastfmViewController.h; sourceTree = "<group>"; };
+		8CC1A9C411236E0100BA6497 /* LastfmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,24 +93,18 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8C4FD41B111B9F3700A332CA /* AboutViewController.h */,
-				8C4FD41C111B9F3700A332CA /* AboutViewController.m */,
-				5B45541D10D3D1650087F585 /* EditableDetailCell.h */,
-				5B45541E10D3D1650087F585 /* EditableDetailCell.m */,
 				5B45527210D352780087F585 /* IndexViewController.h */,
 				5B45527310D352780087F585 /* IndexViewController.m */,
-				5B3AA99D10D20A8200E81307 /* SettingsViewController.h */,
-				5B3AA99E10D20A8200E81307 /* SettingsViewController.m */,
-				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
-				5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */,
+				8CC1A9DA11236E9800BA6497 /* Search */,
+				8CC1A9D011236E4300BA6497 /* Settings */,
+				5B45541D10D3D1650087F585 /* EditableDetailCell.h */,
+				5B45541E10D3D1650087F585 /* EditableDetailCell.m */,
 				5BF2871C10CDE5BC005EB7AB /* MyCLController.h */,
 				5BF2871D10CDE5BC005EB7AB /* MyCLController.m */,
 				5BF286E810CDA16B005EB7AB /* Event.h */,
 				5BF286E910CDA16B005EB7AB /* Event.m */,
 				1D3623240D0F684500981E51 /* GeoEvents_finalAppDelegate.h */,
 				1D3623250D0F684500981E51 /* GeoEvents_finalAppDelegate.m */,
-				5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */,
-				5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -172,6 +172,40 @@
 				5BF286E110CDA142005EB7AB /* NSDataAdditions.h */,
 			);
 			name = TBXML;
+			sourceTree = "<group>";
+		};
+		8CC1A9CF11236E2300BA6497 /* SocialMedia */ = {
+			isa = PBXGroup;
+			children = (
+				8CC1A9C311236E0100BA6497 /* LastfmViewController.h */,
+				8CC1A9C411236E0100BA6497 /* LastfmViewController.m */,
+				8CC1A9C011236DEA00BA6497 /* FacebookViewController.h */,
+				8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */,
+			);
+			name = SocialMedia;
+			sourceTree = "<group>";
+		};
+		8CC1A9D011236E4300BA6497 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8C4FD41B111B9F3700A332CA /* AboutViewController.h */,
+				5B3AA99D10D20A8200E81307 /* SettingsViewController.h */,
+				5B3AA99E10D20A8200E81307 /* SettingsViewController.m */,
+				8C4FD41C111B9F3700A332CA /* AboutViewController.m */,
+				8CC1A9CF11236E2300BA6497 /* SocialMedia */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		8CC1A9DA11236E9800BA6497 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
+				5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */,
+				5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */,
+				5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +286,8 @@
 				5B45527510D352780087F585 /* IndexViewController.m in Sources */,
 				5B45541F10D3D1650087F585 /* EditableDetailCell.m in Sources */,
 				8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */,
+				8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */,
+				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -121,6 +121,7 @@
 				if(attendanceCell == nil) {
 					attendanceCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:AttCellIdentifier] autorelease];
 				}
+				
 				[attendanceCell.textLabel setText:@"Attendance"];
 				[attendanceCell.detailTextLabel setText:event.attendance];
 				
@@ -150,6 +151,12 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	//We create our link to the appDelegate
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
+	//Get our selected event from the delegate
+	Event * event = appDelegate.selectedEvent;
+	
 	if(section == eventSection) {
 		return @"Event information";
 	}
