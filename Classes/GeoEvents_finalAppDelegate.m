@@ -12,32 +12,33 @@
 
 @implementation GeoEvents_finalAppDelegate
 
-@synthesize window, navigationController, selectedEvent, lat, lon, settingsViewController, settingsButton, searchHistory, isUsingGps, searchString, lastfmstatus;
+@synthesize window, 
+			navigationController,
+			selectedEvent,
+			lat,
+			lon,
+			settingsViewController,
+			settingsButton,
+			searchHistory,
+			isUsingGps,
+			searchString,
+			lastfmstatus;
 
 #pragma mark -
 #pragma mark Application lifecycle
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-	/*
-	//get the documents directory:
-	NSArray *paths = NSSearchPathForDirectoriesInDomains
-	(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	
-	//make a file name to write the data to using the
-	//documents directory:
-	NSString *fullFileName = [NSString stringWithFormat:@"%@/arraySaveFile", documentsDirectory];
-	
-	searchHistory = [[NSMutableArray alloc] initWithCapacity:5];
-	
-	
-	NSLog(@"FULL FILE NAME: %@", fullFileName);
-	NSLog(@"COUNT: %@", [searchHistory count]);
-	*/
 	
 	//Set our last.fm status
 	//TODO: Implement real login
 	lastfmstatus = NO;
+	NSString * strings[3];
+	strings[0] = @"Tokyo";
+	strings[1] = @"Oslo";
+	strings[2] = @"Glasgow";
+	NSArray * testArray = [NSArray arrayWithObjects:strings count:3];
+	//Initiate the searchHistory array
+	searchHistory = [[NSMutableArray alloc]initWithArray:testArray];
 	
 	// Create a location manager instance to determine if location services are enabled. This manager instance will be
     // immediately released afterwards.
@@ -51,10 +52,6 @@
         [servicesDisabledAlert release];
     }
     [manager release]; 
-	/*
-	[window addSubview:[navigationController view]];
-    [window makeKeyAndVisible];
-	 */
 	
 	// Create the window
     window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -73,19 +70,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
-	/*
-	//get the documents directory:
-	NSArray *paths = NSSearchPathForDirectoriesInDomains
-	(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
 	
-	//make a file name to write the data to using the
-	//documents directory:
-	NSString *fullFileName = [NSString stringWithFormat:@"%@/arraySaveFile", documentsDirectory];
-	
-	[searchHistory writeToFile:fullFileName atomically:NO];
-	NSLog(@"Writing to file: %@", fullFileName);
-	*/
 }
 
 #pragma mark -

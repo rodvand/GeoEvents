@@ -38,7 +38,7 @@
 	
 	url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString];
 	
-	self.title = (latitude != nil && longitude != nil)? @"GPS search" : [searchString capitalizedString];
+	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];
 	
 	//Add a map it button
 	UIBarButtonItem * mapBtn = [[UIBarButtonItem alloc] initWithTitle:@"Map 'em!" style:UIBarButtonItemStylePlain target:self action:nil];
@@ -230,8 +230,10 @@
 	//Our base URL
 	NSMutableString * baseUrl = [[NSMutableString alloc] initWithString:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents"];
 	
+	//Get the appDelegate
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	
-	if(lat == nil && lon == nil) {
+	if(!appDelegate.isUsingGps) {
 		//The search is based on a string
 		//We replace space with %20
 		NSString * modifiedSearch = [searchQuery stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
