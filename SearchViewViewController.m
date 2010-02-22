@@ -31,11 +31,10 @@
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
 	
-	// Create our last fm url
-	
 	latitude = appDelegate.lat;
 	longitude = appDelegate.lon;
 	
+	// Create our last fm url
 	url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString];
 	
 	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];

@@ -24,6 +24,7 @@
 	
 	[self.navigationItem setRightBarButtonItem:settingsBtn animated:YES];
 	[settingsBtn release];
+	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	
 	run = 0;
 	locationController = [[MyCLController alloc] init];
