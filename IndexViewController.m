@@ -73,7 +73,7 @@
 - (void)search:(NSString *)searchText addToSearchHistory:(bool)addToSearch {
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	NSMutableArray * theSearchHistory = appDelegate.searchHistory;
-	if(addToSearch) {
+	if(addToSearch && searchText != nil) {
 		[theSearchHistory addObject:searchText];
 	}
 	appDelegate.searchString = searchText;
