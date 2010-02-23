@@ -215,7 +215,11 @@
 			return @"Search";
 		case historySection:
 			if([theSearchHistory count] > 0) {
-				return @"Search history";
+				if(appDelegate.searchSuggestions) {
+					return @"Search suggestions";
+				} else {
+					return @"Search history";
+				}
 			}
 		default:
 			return nil;

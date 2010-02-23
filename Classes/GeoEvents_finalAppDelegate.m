@@ -22,7 +22,8 @@
 			searchHistory,
 			isUsingGps,
 			searchString,
-			lastfmstatus;
+			lastfmstatus,
+			searchSuggestions;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -44,6 +45,7 @@
 	// If we have stuff in our search file, we fill the array with these searches
 	NSArray * testArray;
 	if([savedSearches count] == 0) {
+		searchSuggestions = YES;
 		// Three working searches - must include events
 		NSString * strings[3];
 		strings[0] = @"Tokyo";
@@ -52,6 +54,7 @@
 		
 		testArray = [NSArray arrayWithObjects:strings count:3];
 	} else {
+		searchSuggestions = NO;
 		testArray = [[NSArray alloc] initWithArray:savedSearches];
 	}
 	//Set our last.fm status
@@ -69,8 +72,8 @@
 	
     if (manager.locationServicesEnabled == NO) {
         UIAlertView *servicesDisabledAlert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled" 
-																message:@"You currently have all location services for this device disabled. If you proceed, you will be asked to confirm whether location services should be reenabled." 
-																	   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+											message:@"You currently have all location services for this device disabled. If you proceed, you will be asked to confirm whether location services should be reenabled." 
+											delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [servicesDisabledAlert show];
         [servicesDisabledAlert release];
     }

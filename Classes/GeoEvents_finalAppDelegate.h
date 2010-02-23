@@ -23,6 +23,7 @@
 	bool isUsingGps;
 	NSString * searchString;
 	bool lastfmstatus;
+	bool searchSuggestions;
 }
 
 @property (nonatomic, retain) UIWindow *window;
@@ -36,5 +37,6 @@
 @property (nonatomic, retain) NSString * searchString;
 @property bool isUsingGps;
 @property bool lastfmstatus;
+@property bool searchSuggestions;
 @end
 
