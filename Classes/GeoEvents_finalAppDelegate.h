@@ -5,6 +5,7 @@
 //  Created by Martin Roedvand on 07/12/2009.
 //  Copyright __MyCompanyName__ 2009. All rights reserved.
 //
+#import "GlobalHeader.h"
 
 #import <CoreLocation/CoreLocation.h>
 #import "Event.h"

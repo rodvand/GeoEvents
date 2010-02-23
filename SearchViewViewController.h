@@ -5,6 +5,7 @@
 //  Created by Martin Roedvand on 08/12/2009.
 //  Copyright 2009 Redwater Software. All rights reserved.
 //
+#import "GlobalHeader.h"
 
 #import <UIKit/UIKit.h>
 #import "DetailedViewViewController.h"
