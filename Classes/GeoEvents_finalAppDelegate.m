@@ -29,14 +29,37 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	
+	//get the documents directory:
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	
+	//make a file name to write the data to using the
+	//documents directory:
+	NSString *fullFileName = [NSString stringWithFormat:@"%@/searchHistory", documentsDirectory];
+	
+	NSArray * savedSearches = [[NSArray alloc]initWithContentsOfFile:fullFileName];
+	NSLog(@"Number of entries in file: %d", [savedSearches count]);
+	
+	// If we have nothing in our search file, we populate it with some searches
+	// If we have stuff in our search file, we fill the array with these searches
+	NSArray * testArray;
+	if([savedSearches count] == 0) {
+		// Three working searches - must include events
+		NSString * strings[3];
+		strings[0] = @"Tokyo";
+		strings[1] = @"Oslo";
+		strings[2] = @"Glasgow";
+		
+		testArray = [NSArray arrayWithObjects:strings count:3];
+	} else {
+		testArray = [[NSArray alloc] initWithArray:savedSearches];
+	}
 	//Set our last.fm status
 	//TODO: Implement real login
 	lastfmstatus = NO;
-	NSString * strings[3];
-	strings[0] = @"Tokyo";
-	strings[1] = @"Oslo";
-	strings[2] = @"Glasgow";
-	NSArray * testArray = [NSArray arrayWithObjects:strings count:3];
+	
+	NSLog(@"Full file name: %@", fullFileName);
+	
 	//Initiate the searchHistory array
 	searchHistory = [[NSMutableArray alloc]initWithArray:testArray];
 	
@@ -70,7 +93,17 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Save data if appropriate
+	// Write the searchArray to file.
+	NSLog(@"Number of searches in array: %d", [searchHistory count]);
+	//get the documents directory:
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
 	
+	//make a file name to write the data to using the
+	//documents directory:
+	NSString *fullFileName = [NSString stringWithFormat:@"%@/searchHistory", documentsDirectory];
+	
+	[searchHistory writeToFile:fullFileName atomically:NO];
 }
 
 #pragma mark -

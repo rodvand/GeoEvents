@@ -10,6 +10,7 @@
 #import "GeoEvents_finalAppDelegate.h"
 #import "Event.h"
 #import "TBXML.h"
+#import "JSON.h"
 
 @implementation SearchViewViewController
 @synthesize detailedViewController, searchString, url, apiKey, latitude, longitude, events, sections;
@@ -45,7 +46,7 @@
 	[mapBtn release];
 	
 	appForNetDelegate.networkActivityIndicatorVisible = YES;
-	
+
 	[self loadXml:url];
 	
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
