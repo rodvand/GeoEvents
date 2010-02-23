@@ -57,10 +57,14 @@
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
 	
+	//The indexPath for the GPS cell
+	NSArray * rows = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:searchSection inSection:searchSectionSearchByGpsRow]];
+	
 	if(run == 5 || simulator) {
 		locationFound = YES;
-		[self.tableView reloadData];
+		
 		[locationController.locationManager stopUpdatingLocation];
+		[self.tableView reloadData];
 	}
 	
 	NSLog(@"Location: %f", [location coordinate].latitude);
@@ -83,7 +87,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 }
 
 - (void)searchByGps {
@@ -165,6 +169,7 @@
 				return sectionSearchCell; 
 				
 			// Our cell where we search using the GPS information
+			
 			case searchSectionSearchByGpsRow:
 				;
 				UITableViewCell *gpsSearchCell = [tableView dequeueReusableCellWithIdentifier:CellGPS];
@@ -181,7 +186,9 @@
 				}
 				
 				return gpsSearchCell;
+			 
 			default:
+				return nil;
 				NSAssert(NO, @"Unhandled value in searchSection cellForRowAtIndexPath");
 		}
 	}
@@ -215,7 +222,7 @@
 			return @"Search";
 		case historySection:
 			if([theSearchHistory count] > 0) {
-				if(appDelegate.searchSuggestions) {
+				if(appDelegate.searchSuggestions || [theSearchHistory count] == 3) {
 					return @"Search suggestions";
 				} else {
 					return @"Search history";
