@@ -27,6 +27,8 @@
 		5BF286EA10CDA16B005EB7AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E910CDA16B005EB7AB /* Event.m */; };
 		5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF2871210CDDE14005EB7AB /* CoreLocation.framework */; };
 		5BF2871E10CDE5BC005EB7AB /* MyCLController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF2871D10CDE5BC005EB7AB /* MyCLController.m */; };
+		8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A61A11135BA180039EC54 /* MapViewController.m */; };
+		8C2A61B71135BBB10039EC54 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A61B61135BBB10039EC54 /* MapKit.framework */; };
 		8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FD41C111B9F3700A332CA /* AboutViewController.m */; };
 		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
 		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
@@ -65,6 +67,9 @@
 		5BF2871210CDDE14005EB7AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5BF2871C10CDE5BC005EB7AB /* MyCLController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCLController.h; path = ../MyCLController.h; sourceTree = "<group>"; };
 		5BF2871D10CDE5BC005EB7AB /* MyCLController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCLController.m; path = ../MyCLController.m; sourceTree = "<group>"; };
+		8C2A61A01135BA180039EC54 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		8C2A61A11135BA180039EC54 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		8C2A61B61135BBB10039EC54 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8C4FD41B111B9F3700A332CA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		8C4FD41C111B9F3700A332CA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8CACF7E511342354007D6247 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */,
 				5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */,
+				8C2A61B71135BBB10039EC54 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +162,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C2A61B61135BBB10039EC54 /* MapKit.framework */,
 				5BF286E410CDA153005EB7AB /* libz.dylib */,
 				5BF2871210CDDE14005EB7AB /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -202,6 +209,8 @@
 		8CC1A9DA11236E9800BA6497 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				8C2A61A01135BA180039EC54 /* MapViewController.h */,
+				8C2A61A11135BA180039EC54 /* MapViewController.m */,
 				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
 				5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */,
 				5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */,
@@ -290,6 +299,7 @@
 				8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */,
 				8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */,
 				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
+				8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +337,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

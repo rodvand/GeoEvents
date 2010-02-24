@@ -9,9 +9,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DetailedViewViewController.h"
+#import "MapViewController.h"
 
 @interface SearchViewViewController : UITableViewController {
 	DetailedViewViewController * detailedViewController;
+	MapViewController * mapViewController;
 	NSString * searchString;
 	bool locationBasedSearch;
 	NSString * url;
@@ -23,11 +25,13 @@
 	int sectionCounter;
 	bool error;
 }
+- (void) loadMap;
 - (void) loadXml:(NSString *)address;
 - (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery;
 - (NSString*) createDate:(NSString*)rawDate;
 @property (nonatomic, retain) NSMutableArray * sections;
 @property (nonatomic, retain) DetailedViewViewController * detailedViewController;
+@property (nonatomic, retain) MapViewController * mapViewController;
 @property (nonatomic, retain) NSString *  searchString;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * apiKey;

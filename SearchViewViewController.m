@@ -10,9 +10,18 @@
 #import "GeoEvents_finalAppDelegate.h"
 #import "Event.h"
 #import "TBXML.h"
+#import "MapViewController.h"
 
 @implementation SearchViewViewController
-@synthesize detailedViewController, searchString, url, apiKey, latitude, longitude, events, sections;
+@synthesize detailedViewController,
+			mapViewController,
+			searchString,
+			url,
+			apiKey,
+			latitude,
+			longitude,
+			events,
+			sections;
 
 - (void)viewDidLoad {
 	/* 
@@ -40,7 +49,7 @@
 	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];
 	
 	//Add a map it button
-	UIBarButtonItem * mapBtn = [[UIBarButtonItem alloc] initWithTitle:@"Map 'em!" style:UIBarButtonItemStylePlain target:self action:nil];
+	UIBarButtonItem * mapBtn = [[UIBarButtonItem alloc] initWithTitle:@"Map 'em!" style:UIBarButtonItemStylePlain target:self action:@selector(loadMap)];
 	[self.navigationItem setRightBarButtonItem:mapBtn];
 	[mapBtn release];
 	
@@ -65,6 +74,16 @@
 	self.searchString = nil;
 }
 
+- (void)loadMap {
+	//Load the mapview
+	MapViewController * mapView = [[MapViewController alloc] init];
+	self.mapViewController = mapView;
+	[mapView release];
+	
+	[self.navigationController pushViewController:mapViewController animated:YES];
+	NSLog(@"Her!");
+	
+}
 
 #pragma mark Table view methods
 

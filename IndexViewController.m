@@ -58,7 +58,7 @@
 	appDelegate.lon = longitude;
 	
 	//The indexPath for the GPS cell
-	NSArray * rows = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:searchSection inSection:searchSectionSearchByGpsRow]];
+	//NSArray * rows = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:searchSection inSection:searchSectionSearchByGpsRow]];
 	
 	if(run == 5 || simulator) {
 		locationFound = YES;
