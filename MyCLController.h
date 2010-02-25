@@ -15,7 +15,7 @@
 - (void)locationError:(NSError *)error;
 @end
 
-@interface MyCLController : NSObject <CLLocationManagerDelegate> {
+@interface MyCLController : NSObject  {
     CLLocationManager *locationManager;
     id delegate;
 }
