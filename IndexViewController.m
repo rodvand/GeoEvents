@@ -56,14 +56,7 @@
 	
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
-	/*
-<<<<<<< HEAD
-	//The indexPath for the GPS cell
-	//NSArray * rows = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:searchSection inSection:searchSectionSearchByGpsRow]];
-	
-=======
->>>>>>> 1a2e96f... Defined an accuracy for the location manager
-	 */
+
 	if(run == 5 || simulator) {
 		locationFound = YES;
 		[self.tableView reloadData];
@@ -81,6 +74,9 @@
 - (void)search:(NSString *)searchText addToSearchHistory:(bool)addToSearch {
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	NSMutableArray * theSearchHistory = appDelegate.searchHistory;
+	//We now have a search history
+	appDelegate.searchSuggestions = NO;
+	
 	if(addToSearch && searchText != nil) {
 		[theSearchHistory addObject:searchText];
 	}

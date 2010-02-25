@@ -18,6 +18,7 @@
     if (self != nil) {
         self.locationManager = [[[CLLocationManager alloc] init] autorelease];
         self.locationManager.delegate = self; // send loc updates to myself
+		self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
     }
     return self;
 }
