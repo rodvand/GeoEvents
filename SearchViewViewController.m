@@ -77,6 +77,7 @@
 - (void)loadMap {
 	//Load the mapview
 	MapViewController * mapView = [[MapViewController alloc] init];
+    mapView.events = events;
 	self.mapViewController = mapView;
 	[mapView release];
 	
@@ -156,7 +157,7 @@
 - (void)loadXml:(NSString *)address {
 	bool debug = NO;
 	error = NO;
-	events = [[NSMutableArray alloc] initWithCapacity:10];
+	self.events = [[NSMutableArray alloc] initWithCapacity:10];
 	
 	
 	// We load our xml from the url provided
@@ -218,7 +219,9 @@
 		NSLog(@"Something went wrong with our parsing.");
 		error = YES;
 	}
-	[events retain];
+    
+    // NOTE: no need to retain events here if you use the setter (self.events= or [self setEvents:])
+	//[events retain];
 	[tbXML release];
 }
 

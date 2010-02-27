@@ -13,6 +13,7 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		4D8721F31139308000B3CB20 /* MapMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D8721F21139308000B3CB20 /* MapMarker.m */; };
 		5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3AA99E10D20A8200E81307 /* SettingsViewController.m */; };
 		5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B3AA99F10D20A8200E81307 /* SettingsView.xib */; };
 		5B45527510D352780087F585 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B45527310D352780087F585 /* IndexViewController.m */; };
@@ -20,7 +21,6 @@
 		5B85658C10D6020500C8E54D /* lastfm.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B85658B10D6020500C8E54D /* lastfm.png */; };
 		5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */; };
 		5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */; };
-		5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1D6DA10CE8BB0002BFF08 /* icon.png */; };
 		5BF286E210CDA142005EB7AB /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286DE10CDA142005EB7AB /* TBXML.m */; };
 		5BF286E310CDA142005EB7AB /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E010CDA142005EB7AB /* NSDataAdditions.m */; };
 		5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF286E410CDA153005EB7AB /* libz.dylib */; };
@@ -44,6 +44,8 @@
 		28A0AAE50D9B0CCF005BE974 /* GeoEvents_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoEvents_Prefix.pch; sourceTree = "<group>"; };
 		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4D8721F11139308000B3CB20 /* MapMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapMarker.h; sourceTree = "<group>"; };
+		4D8721F21139308000B3CB20 /* MapMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapMarker.m; sourceTree = "<group>"; };
 		5B3AA99D10D20A8200E81307 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5B3AA99E10D20A8200E81307 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5B3AA99F10D20A8200E81307 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SettingsView.xib; path = Classes/SettingsView.xib; sourceTree = "<group>"; };
@@ -56,7 +58,6 @@
 		5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewViewController.m; path = ../SearchViewViewController.m; sourceTree = "<group>"; };
 		5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewViewController.h; sourceTree = "<group>"; };
 		5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewViewController.m; sourceTree = "<group>"; };
-		5BE1D6DA10CE8BB0002BFF08 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../Poster/icon.png; sourceTree = SOURCE_ROOT; };
 		5BF286DE10CDA142005EB7AB /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		5BF286DF10CDA142005EB7AB /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		5BF286E010CDA142005EB7AB /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 			children = (
 				5B85658B10D6020500C8E54D /* lastfm.png */,
 				5B3AA99F10D20A8200E81307 /* SettingsView.xib */,
-				5BE1D6DA10CE8BB0002BFF08 /* icon.png */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GeoEvents-Info.plist */,
 			);
@@ -209,6 +209,8 @@
 		8CC1A9DA11236E9800BA6497 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4D8721F11139308000B3CB20 /* MapMarker.h */,
+				4D8721F21139308000B3CB20 /* MapMarker.m */,
 				8C2A61A01135BA180039EC54 /* MapViewController.h */,
 				8C2A61A11135BA180039EC54 /* MapViewController.m */,
 				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
@@ -272,7 +274,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */,
 				5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */,
 				5B85658C10D6020500C8E54D /* lastfm.png in Resources */,
 			);
@@ -300,6 +301,7 @@
 				8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */,
 				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
 				8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */,
+				4D8721F31139308000B3CB20 /* MapMarker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +344,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos3.1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -356,7 +358,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.2;
+				SDKROOT = iphoneos3.1;
 			};
 			name = Release;
 		};

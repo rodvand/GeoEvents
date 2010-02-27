@@ -15,6 +15,7 @@
 @synthesize window, 
 			navigationController,
 			selectedEvent,
+            location,
 			lat,
 			lon,
 			settingsViewController,
@@ -113,6 +114,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
+    [location release];
 	[navigationController release];
 	[window release];
 	[super dealloc];

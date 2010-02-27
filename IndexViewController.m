@@ -50,10 +50,11 @@
 - (void)locationUpdate:(CLLocation *)location {
 	bool simulator = YES;
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-	
+    
 	latitude = [NSNumber numberWithDouble:[location coordinate].latitude];
 	longitude = [NSNumber numberWithDouble:[location coordinate].longitude];
 	
+	appDelegate.location = location;
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
 

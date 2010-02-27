@@ -152,10 +152,10 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	//We create our link to the appDelegate
-	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	//GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	
 	//Get our selected event from the delegate
-	Event * event = appDelegate.selectedEvent;
+	//Event * event = appDelegate.selectedEvent;
 	
 	if(section == eventSection) {
 		return @"Event information";

@@ -18,6 +18,7 @@
 	SettingsViewController * settingsViewController;
 	Event * selectedEvent;
 	NSMutableArray * searchHistory;
+    CLLocation * location;
 	NSNumber * lat;
 	NSNumber * lon;
 	bool isUsingGps;
@@ -31,6 +32,7 @@
 @property (nonatomic, retain) UIBarButtonItem * settingsButton;
 @property (nonatomic, retain) SettingsViewController * settingsViewController;
 @property (nonatomic, retain) Event * selectedEvent;
+@property (nonatomic, retain) CLLocation * location;
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
 @property (nonatomic, retain) NSMutableArray * searchHistory;

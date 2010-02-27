@@ -9,8 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController {
+@interface MapViewController : UIViewController <MKMapViewDelegate> {
 	MKMapView * mapView;
+    NSArray * events;
 }
+
+@property (nonatomic, retain) MKMapView * mapView;
+@property (nonatomic, retain) NSArray * events;
+
+-(void)loadEvents;
 
 @end
