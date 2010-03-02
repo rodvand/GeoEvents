@@ -130,15 +130,14 @@
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		}
 		
-		if(eventCounter < [events count]) {
 			// Set up the cell...
-			Event * event = [events objectAtIndex:eventCounter];
+			Event * event = [self getEvent:indexPath];
 			[cell.textLabel setText:event.artist];
 			NSString * detailedText = [[NSString alloc] initWithFormat:@"%@, %@", event.venue, event.location];
 			[cell.detailTextLabel setText:detailedText];
 			[detailedText release];
 			eventCounter++;
-		}
+		
 	}
     return cell;
 }
