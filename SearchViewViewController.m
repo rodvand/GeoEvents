@@ -21,7 +21,8 @@
 			latitude,
 			longitude,
 			events,
-			sections;
+			sections,
+			aDates;
 
 - (void)viewDidLoad {
 	/* 
@@ -103,6 +104,12 @@
 
 // Customize the title of each section
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	for(NSMutableArray * teArray in aDates) {
+		NSString * d = [teArray objectAtIndex:0];
+		NSNumber * n = [teArray objectAtIndex:1];
+		NSLog(@"Date: %@. Number of entries: %i", d, [n intValue]);
+	}
+	//NSArray * testArray = [aDates allKeys];
 	return @"Section";
 	
 }
@@ -157,7 +164,7 @@
 	bool debug = NO;
 	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
-	
+	aDates = [[NSMutableArray alloc] init];
 	
 	// We load our xml from the url provided
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:address]];
@@ -181,7 +188,8 @@
 			anEvent.ident = [tbXML textForElement:[tbXML childElementNamed:@"id" parentElement:event]];
 			anEvent.startDate = [tbXML textForElement:[tbXML childElementNamed:@"startDate" parentElement:event]];
 			
-			//NSLog(@"1: %@, 2: %@, 3: %@", chunks[0], chunks[1], chunks[2]);
+			[self addDate:[self createDate:anEvent.startDate]];
+			
 			anEvent.eventUrl = [tbXML textForElement:[tbXML childElementNamed:@"url" parentElement:event]];
 			anEvent.eventStatus = [tbXML textForElement:[tbXML childElementNamed:@"cancelled" parentElement:event]];
 			anEvent.attendance = [tbXML textForElement:[tbXML childElementNamed:@"attendance" parentElement:event]];
@@ -218,10 +226,64 @@
 		NSLog(@"Something went wrong with our parsing.");
 		error = YES;
 	}
+	
 	[events retain];
 	[tbXML release];
 }
 
+- (void) addDate:(NSString *)dateString {
+	/*
+	 Take the date,
+	 check if it is already present in the array/dictionary,
+	 if not add it. If already present increment the counter in
+	 our dictionary.
+	 */
+	NSLog(@"Formatted string: %@", dateString);
+	
+	if([aDates count] == 0) {
+		/*
+		 If we have no elements in the array,
+		 we know this is the first run of it,
+		 and we can safely add the object to the array.
+		 We set the initial value to 1
+		 */
+		NSNumber * startValue = [NSNumber numberWithInt:1];
+		NSMutableArray * startArray = [NSMutableArray arrayWithCapacity:2];
+		//We keep the string date at index 0 and the number of occurences at index 1
+		[startArray insertObject:dateString atIndex:0];
+		[startArray insertObject:startValue atIndex:1];
+		
+		[aDates addObject:startArray];
+		
+	} else {
+		/*
+		 There are elements in the array,
+		 let us check if our string matches any.
+		 */
+		bool exists = NO;
+		for (NSMutableArray * mArray in aDates) {
+			NSString * date = [mArray objectAtIndex:0];
+			NSNumber * number = [mArray objectAtIndex:1];
+			
+			//Compare our original date with the one we find in the array
+			if([date isEqualToString:dateString]) {
+				int tempValue = [number intValue];
+				tempValue++;
+				[mArray insertObject:[NSNumber numberWithInt:tempValue] atIndex:1];
+				exists = YES;
+			}
+			
+		}
+		if(!exists) {
+			NSMutableArray * newArray = [NSMutableArray arrayWithCapacity:2];
+			[newArray insertObject:dateString atIndex:0];
+			[newArray insertObject:[NSNumber numberWithInt:1] atIndex:1];
+			[aDates addObject:newArray];
+		}
+	}
+	
+	
+}
 - (NSString*) createDate:(NSString*)rawDate {
 	/*
 	 Takes in the raw date from last.fm's API 

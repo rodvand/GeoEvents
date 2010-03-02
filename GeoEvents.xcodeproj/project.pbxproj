@@ -32,6 +32,7 @@
 		8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FD41C111B9F3700A332CA /* AboutViewController.m */; };
 		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
 		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
+		8CFA5454113722B8001F7974 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CFA5453113722B8001F7974 /* Default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookViewController.m; path = ../FacebookViewController.m; sourceTree = "<group>"; };
 		8CC1A9C311236E0100BA6497 /* LastfmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastfmViewController.h; sourceTree = "<group>"; };
 		8CC1A9C411236E0100BA6497 /* LastfmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmViewController.m; sourceTree = "<group>"; };
+		8CFA5453113722B8001F7974 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
 				5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */,
 				5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */,
+				8CFA5453113722B8001F7974 /* Default.png */,
 				5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */,
 			);
 			name = Search;
@@ -275,6 +278,7 @@
 				5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */,
 				5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */,
 				5B85658C10D6020500C8E54D /* lastfm.png in Resources */,
+				8CFA5454113722B8001F7974 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,7 @@
 	NSNumber * longitude;
 	NSMutableArray * events;
 	NSMutableArray * sections;
+	NSMutableArray * aDates;
 	int sectionCounter;
 	bool error;
 }
@@ -29,6 +30,8 @@
 - (void) loadXml:(NSString *)address;
 - (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery;
 - (NSString*) createDate:(NSString*)rawDate;
+- (void) addDate:(NSString*)dateString;
+@property (nonatomic, retain) NSMutableArray * aDates;
 @property (nonatomic, retain) NSMutableArray * sections;
 @property (nonatomic, retain) DetailedViewViewController * detailedViewController;
 @property (nonatomic, retain) MapViewController * mapViewController;
