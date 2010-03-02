@@ -159,13 +159,14 @@
 		[dView release];
 		
 		[self.navigationController pushViewController:detailedViewController animated:YES];
+		[event retain];
 	}
 }
 
 # pragma mark General methods
 
 - (void)loadXml:(NSString *)address {
-	bool debug = YES;
+	bool debug = NO;
 	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	aDates = [[NSMutableArray alloc] init];
