@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "DetailedViewViewController.h"
 #import "MapViewController.h"
+#import "Event.h"
 
 @interface SearchViewViewController : UITableViewController {
 	DetailedViewViewController * detailedViewController;
@@ -31,7 +32,8 @@
 - (void) loadXml:(NSString *)address;
 - (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery;
 - (NSString*) createDate:(NSString*)rawDate;
-- (void) addDate:(NSString*)dateString;
+- (void) addDate:(Event*)event;
+- (Event*) getEvent:(NSIndexPath *)indexPath;
 @property (nonatomic, retain) NSMutableArray * aDates;
 @property (nonatomic, retain) NSMutableArray * sections;
 @property (nonatomic, retain) DetailedViewViewController * detailedViewController;

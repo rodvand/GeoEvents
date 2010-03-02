@@ -21,6 +21,8 @@
 	NSString * lon;
 	NSString * attendance;
 	NSString * location;
+	NSNumber * section;
+	NSNumber * row;
 }
 
 @property (nonatomic, retain) NSString * ident;
@@ -34,5 +36,6 @@
 @property (nonatomic, retain) NSArray * tags;
 @property (nonatomic, retain) NSString * attendance;
 @property (nonatomic, retain) NSString * location;
-
+@property (nonatomic, retain) NSNumber * section;
+@property (nonatomic, retain) NSNumber * row;
 @end

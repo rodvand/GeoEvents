@@ -129,14 +129,15 @@
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		}
+		
 		if(eventCounter < [events count]) {
-		// Set up the cell...
-		Event * event = [events objectAtIndex:eventCounter];
-		eventCounter++;
-		[cell.textLabel setText:event.artist];
-		NSString * detailedText = [[NSString alloc] initWithFormat:@"%@, %@", event.venue, event.location];
-		[cell.detailTextLabel setText:detailedText];
-		[detailedText release];
+			// Set up the cell...
+			Event * event = [events objectAtIndex:eventCounter];
+			[cell.textLabel setText:event.artist];
+			NSString * detailedText = [[NSString alloc] initWithFormat:@"%@, %@", event.venue, event.location];
+			[cell.detailTextLabel setText:detailedText];
+			[detailedText release];
+			eventCounter++;
 		}
 	}
     return cell;
@@ -144,10 +145,13 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	Event * event = [self getEvent:indexPath];
+	if (event == nil) { error = YES; }
 	if(!error) {
 		//Navigation logic
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-		appDelegate.selectedEvent = [events objectAtIndex:indexPath.row];
+		
+		appDelegate.selectedEvent = event;
 	
 		DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];
 		self.detailedViewController = dView;
@@ -161,7 +165,7 @@
 # pragma mark General methods
 
 - (void)loadXml:(NSString *)address {
-	bool debug = NO;
+	bool debug = YES;
 	error = NO;
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	aDates = [[NSMutableArray alloc] init];
@@ -188,7 +192,7 @@
 			anEvent.ident = [tbXML textForElement:[tbXML childElementNamed:@"id" parentElement:event]];
 			anEvent.startDate = [tbXML textForElement:[tbXML childElementNamed:@"startDate" parentElement:event]];
 			
-			[self addDate:[self createDate:anEvent.startDate]];
+			[self addDate:anEvent];
 			
 			anEvent.eventUrl = [tbXML textForElement:[tbXML childElementNamed:@"url" parentElement:event]];
 			anEvent.eventStatus = [tbXML textForElement:[tbXML childElementNamed:@"cancelled" parentElement:event]];
@@ -214,6 +218,8 @@
 				NSLog(@"Venue: %@", anEvent.venue);
 				NSLog(@"URL: %@", anEvent.eventUrl);
 				NSLog(@"City: %@", anEvent.location);
+				NSLog(@"Section: %@", [anEvent.section stringValue]);
+				NSLog(@"Row: %@", [anEvent.row stringValue]);
 				if(geo != nil) {
 					NSLog(@"Latitude: %@", anEvent.lat);
 					NSLog(@"Longitude: %@", anEvent.lon);
@@ -230,8 +236,20 @@
 	[events retain];
 	[tbXML release];
 }
+- (Event*) getEvent:(NSIndexPath*)indexPath {
+	/*
+	 Find the event with this specific indexPath. (Section and row)
+	 */
+	for(Event * ev in events) {
+		if(indexPath.section == [ev.section intValue] && indexPath.row == [ev.row intValue]) {
+			return ev;
+		}
+	}
+	return nil;
+}
 
-- (void) addDate:(NSString *)dateString {
+- (void) addDate:(Event *)event {
+	NSString * dateString = [self createDate:event.startDate];
 	/*
 	 Take the date,
 	 check if it is already present in the array/dictionary,
@@ -245,10 +263,14 @@
 		 we know this is the first run of it,
 		 and we can safely add the object to the array.
 		 We set the initial value to 1
+		 0 - String date
+		 1 - Number of entries
 		 */
 		NSNumber * startValue = [NSNumber numberWithInt:1];
 		NSMutableArray * startArray = [NSMutableArray arrayWithCapacity:2];
-		//We keep the string date at index 0 and the number of occurences at index 1
+		
+		event.section = [NSNumber numberWithInt:0];
+		event.row = [NSNumber numberWithInt:0];
 		[startArray insertObject:dateString atIndex:0];
 		[startArray insertObject:startValue atIndex:1];
 		
@@ -260,18 +282,23 @@
 		 let us check if our string matches any.
 		 */
 		bool exists = NO;
+		int section = 0;
+		
 		for (NSMutableArray * mArray in aDates) {
 			NSString * date = [mArray objectAtIndex:0];
 			NSNumber * number = [mArray objectAtIndex:1];
 			
 			//Compare our original date with the one we find in the array
 			if([date isEqualToString:dateString]) {
+				event.section = [NSNumber numberWithInt:section];
+				event.row = number;
 				int tempValue = [number intValue];
 				tempValue++;
 				[mArray insertObject:[NSNumber numberWithInt:tempValue] atIndex:1];
 				exists = YES;
 			}
 			
+			section++;
 		}
 		
 		/*
@@ -279,9 +306,14 @@
 		 we use a bool to decide if it already exist in the array
 		 */
 		if(!exists) {
+			int rowInt = 0;
+			//Set the path
+			event.section = [NSNumber numberWithInt:section];
+			event.row = [NSNumber numberWithInt:rowInt];
 			NSMutableArray * newArray = [NSMutableArray arrayWithCapacity:2];
 			[newArray insertObject:dateString atIndex:0];
 			[newArray insertObject:[NSNumber numberWithInt:1] atIndex:1];
+			[newArray insertObject:[NSNumber numberWithInt:section] atIndex:2];
 			[aDates addObject:newArray];
 		}
 	}
