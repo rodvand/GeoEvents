@@ -24,6 +24,7 @@
 	NSMutableArray * sections;
 	NSMutableArray * aDates;
 	int sectionCounter;
+	int eventCounter;
 	bool error;
 }
 - (void) loadMap;

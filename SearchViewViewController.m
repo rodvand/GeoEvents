@@ -29,6 +29,7 @@
 	 Initial setup method
 	 API key, urls, and longitude/latitude
 	 */
+	eventCounter = 0;
     [super viewDidLoad];
 	UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
@@ -89,7 +90,7 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return [aDates count];
 }
 
 
@@ -98,19 +99,14 @@
 	if(error) {
 		return 1;
 	}
-	
-    return [events count];
+	NSArray * sectArray = [aDates objectAtIndex:section];
+    return [[sectArray objectAtIndex:1]intValue];
 }
 
 // Customize the title of each section
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	for(NSMutableArray * teArray in aDates) {
-		NSString * d = [teArray objectAtIndex:0];
-		NSNumber * n = [teArray objectAtIndex:1];
-		NSLog(@"Date: %@. Number of entries: %i", d, [n intValue]);
-	}
-	//NSArray * testArray = [aDates allKeys];
-	return @"Section";
+	NSArray * sectArray = [aDates objectAtIndex:section];
+	return [sectArray objectAtIndex:0];
 	
 }
 
@@ -128,16 +124,20 @@
 		}
 		[cell.textLabel setText:@"No results"];
 	} else {
+		
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		}
+		if(eventCounter < [events count]) {
 		// Set up the cell...
-		Event * event = [events objectAtIndex:indexPath.row];
+		Event * event = [events objectAtIndex:eventCounter];
+		eventCounter++;
 		[cell.textLabel setText:event.artist];
 		NSString * detailedText = [[NSString alloc] initWithFormat:@"%@, %@", event.venue, event.location];
 		[cell.detailTextLabel setText:detailedText];
 		[detailedText release];
+		}
 	}
     return cell;
 }
@@ -238,7 +238,6 @@
 	 if not add it. If already present increment the counter in
 	 our dictionary.
 	 */
-	NSLog(@"Formatted string: %@", dateString);
 	
 	if([aDates count] == 0) {
 		/*
@@ -274,6 +273,11 @@
 			}
 			
 		}
+		
+		/*
+		 As we're not allowed to edit the array while we enumerate it,
+		 we use a bool to decide if it already exist in the array
+		 */
 		if(!exists) {
 			NSMutableArray * newArray = [NSMutableArray arrayWithCapacity:2];
 			[newArray insertObject:dateString atIndex:0];
