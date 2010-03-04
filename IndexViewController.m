@@ -251,8 +251,10 @@
 		}
 	}
 	
-	//If we have anything in our searchHistory section, we allow the user to
-	//select one and send him to the search
+	/*
+	 If we have anything in our searchHistory section, we allow the user to
+	 select one and send him to the search
+	 */
 	if(indexPath.section == historySection) {
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 		NSMutableArray * theSearchHistory = appDelegate.searchHistory;
@@ -269,7 +271,7 @@
 	if([textField text].length == 0) {
 		UIAlertView *charAlert = [[UIAlertView alloc]
 								  initWithTitle:@"Empty search"
-								  message:@"You're search is empty."
+								  message:@"Your search is empty."
 								  delegate:nil
 								  cancelButtonTitle:@"OK, I'll fix that"
 								  otherButtonTitles:nil];

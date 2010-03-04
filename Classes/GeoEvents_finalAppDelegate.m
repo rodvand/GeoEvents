@@ -3,7 +3,7 @@
 //  GeoEvents_final
 //
 //  Created by Martin Roedvand on 07/12/2009.
-//  Copyright __MyCompanyName__ 2009. All rights reserved.
+//  Copyright Redwater Software 2009. All rights reserved.
 //
 
 #import "GeoEvents_finalAppDelegate.h"
@@ -30,19 +30,22 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	
-	//get the documents directory:
+	//Get the documents directory:
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	
-	//make a file name to write the data to using the
-	//documents directory:
+	/*
+	 Make a file name to write the data to using the
+	 documents directory.
+	 */
 	NSString *fullFileName = [NSString stringWithFormat:@"%@/searchHistory", documentsDirectory];
 	
 	NSArray * savedSearches = [[NSArray alloc]initWithContentsOfFile:fullFileName];
-	NSLog(@"Number of entries in file: %d", [savedSearches count]);
 	
-	// If we have nothing in our search file, we populate it with some searches
-	// If we have stuff in our search file, we fill the array with these searches
+	/*
+	 If we have nothing in our search file, we populate it with some searches
+	 If we have stuff in our search file, we fill the array with these searches
+	 */
 	NSArray * testArray;
 	if([savedSearches count] == 0) {
 		searchSuggestions = YES;
@@ -61,13 +64,13 @@
 	//TODO: Implement real login
 	lastfmstatus = NO;
 	
-	NSLog(@"Full file name: %@", fullFileName);
-	
 	//Initiate the searchHistory array
 	searchHistory = [[NSMutableArray alloc]initWithArray:testArray];
 	
-	// Create a location manager instance to determine if location services are enabled. This manager instance will be
-    // immediately released afterwards.
+	/*
+	 Create a location manager instance to determine if location services are enabled. This manager instance will be
+     immediately released afterwards.
+	 */
     CLLocationManager *manager = [[CLLocationManager alloc] init];
 	
     if (manager.locationServicesEnabled == NO) {
@@ -95,15 +98,14 @@
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	// Save data if appropriate
-	// Write the searchArray to file.
-	NSLog(@"Number of searches in array: %d", [searchHistory count]);
-	//get the documents directory:
+	/*
+	 Save data if appropriate
+	 Write the searchArray to file.
+	 */
+	
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	
-	//make a file name to write the data to using the
-	//documents directory:
 	NSString *fullFileName = [NSString stringWithFormat:@"%@/searchHistory", documentsDirectory];
 	
 	[searchHistory writeToFile:fullFileName atomically:NO];
