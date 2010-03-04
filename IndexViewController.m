@@ -57,15 +57,15 @@
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
 
-	if(run == 5 || simulator) {
+	if(run == 5 || simulator && !locationFound) {
 		locationFound = YES;
 		NSArray * indexPathArray = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]];
 		[self.tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationBottom];
-		[locationController.locationManager stopUpdatingLocation];
 	}
 	
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);
+	[locationController.locationManager stopUpdatingLocation];
 }
 
 - (void)locationError:(NSError *)error {
@@ -131,8 +131,14 @@
 
 	switch(section) {
 		case searchSection:
-			return (locationFound == YES) ? NUM_HEADER_SECTION_ROWS : 1;
-			//return NUM_HEADER_SECTION_ROWS;
+			
+			 if(locationFound) {
+				return NUM_HEADER_SECTION_ROWS;
+			} else {
+				return 1;
+			}
+			 
+			 
 		case historySection:
 			if(theSearchHistory != nil) {
 				if([theSearchHistory count] > 3) {
