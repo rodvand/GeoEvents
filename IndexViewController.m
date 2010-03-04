@@ -59,7 +59,8 @@
 
 	if(run == 5 || simulator) {
 		locationFound = YES;
-		[self.tableView reloadData];
+		NSArray * indexPathArray = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]];
+		[self.tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationBottom];
 		[locationController.locationManager stopUpdatingLocation];
 	}
 	
@@ -130,7 +131,8 @@
 
 	switch(section) {
 		case searchSection:
-			return NUM_HEADER_SECTION_ROWS;
+			return (locationFound == YES) ? NUM_HEADER_SECTION_ROWS : 1;
+			//return NUM_HEADER_SECTION_ROWS;
 		case historySection:
 			if(theSearchHistory != nil) {
 				if([theSearchHistory count] > 3) {
