@@ -30,6 +30,9 @@
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;	
 	[locationController.locationManager startUpdatingLocation];
+
+	//UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	
 }
 
 - (void)goToSettings:(id)sender {
@@ -131,7 +134,6 @@
 
 	switch(section) {
 		case searchSection:
-			
 			 if(locationFound) {
 				return NUM_HEADER_SECTION_ROWS;
 			} else {

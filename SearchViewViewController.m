@@ -29,7 +29,7 @@
 	 Initial setup method
 	 API key, urls, and longitude/latitude
 	 */
-	eventCounter = 0;
+	more = YES;
     [super viewDidLoad];
 	UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
@@ -39,6 +39,10 @@
 	//Initialise our sections array
 	sections = [[NSMutableArray alloc] initWithCapacity:10];
 	
+	//Our events array and dates array
+	events = [[NSMutableArray alloc] initWithCapacity:10];
+	aDates = [[NSMutableArray alloc] init];
+	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
 	
@@ -46,7 +50,7 @@
 	longitude = appDelegate.lon;
 	
 	// Create our last fm url
-	url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString];
+	url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:nil];
 	
 	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];
 	
@@ -90,12 +94,19 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [aDates count];
+	if(more) {
+		return [aDates count]+1;
+	} else {
+		return [aDates count];
+	}
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	if(section == [aDates count]) {
+		return 1;
+	}
 	if(error) {
 		return 1;
 	}
@@ -105,9 +116,12 @@
 
 // Customize the title of each section
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	NSArray * sectArray = [aDates objectAtIndex:section];
-	return [sectArray objectAtIndex:0];
+	if(section != [aDates count]) {
+		NSArray * sectArray = [aDates objectAtIndex:section];
+		return [sectArray objectAtIndex:0];
+	}
 	
+	return nil;
 }
 
 
@@ -115,7 +129,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
     static NSString *CellIdentifier = @"Cell";
-    
+    static NSString *MoreCellIdentifier = @"More";
+	
+	UITableViewCell *moreCell = [tableView dequeueReusableCellWithIdentifier:MoreCellIdentifier];
+	//If we have more data that can be fetched
+	if(more && indexPath.section == [aDates count]) {
+		if (moreCell == nil) {
+			moreCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MoreCellIdentifier] autorelease];
+		}
+		[moreCell.textLabel setText:@"Load more data..."];
+		return moreCell;
+		
+	}
+	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if(error) {
@@ -166,8 +192,6 @@
 - (void)loadXml:(NSString *)address {
 	bool debug = NO;
 	error = NO;
-	events = [[NSMutableArray alloc] initWithCapacity:10];
-	aDates = [[NSMutableArray alloc] init];
 	
 	// We load our xml from the url provided
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:address]];
@@ -333,7 +357,7 @@
 	return formattedDate;
 }
 
-- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lon searchString:(NSString*)searchQuery {
+- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lon searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber{
 	/*
 	 We create our URL here.
 	 URL output depends on if it's location based or purely based on search string.
@@ -347,6 +371,10 @@
 	
 	//Get the appDelegate
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
+	if(pageNumber != nil) {
+		[baseUrl appendFormat:@"&page=%d", [pageNumber intValue]];
+	}
 	
 	if(!appDelegate.isUsingGps) {
 		//The search is based on a string

@@ -27,10 +27,11 @@
 	int sectionCounter;
 	int eventCounter;
 	bool error;
+	bool more; // if there is more pages to be fetched
 }
 - (void) loadMap;
 - (void) loadXml:(NSString *)address;
-- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery;
+- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber;
 - (NSString*) createDate:(NSString*)rawDate;
 - (void) addDate:(Event*)event;
 - (Event*) getEvent:(NSIndexPath *)indexPath;
