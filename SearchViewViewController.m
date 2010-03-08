@@ -22,14 +22,15 @@
 			longitude,
 			events,
 			sections,
-			aDates;
+			aDates,
+			currentPage;
 
 - (void)viewDidLoad {
 	/* 
 	 Initial setup method
 	 API key, urls, and longitude/latitude
 	 */
-	more = YES;
+	
     [super viewDidLoad];
 	UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
@@ -43,14 +44,16 @@
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	aDates = [[NSMutableArray alloc] init];
 	
+	/*
+	 TODO: Check how many pages we have. Then say if we have more.
+	 */
+	more = YES;
+	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
 	
 	latitude = appDelegate.lat;
 	longitude = appDelegate.lon;
-	
-	// Create our last fm url
-	url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:nil];
 	
 	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];
 	
@@ -60,8 +63,8 @@
 	[mapBtn release];
 	
 	appForNetDelegate.networkActivityIndicatorVisible = YES;
-
-	[self loadXml:url];
+	currentPage = [NSNumber numberWithInt:1];
+	[self loadXml:NO];
 	
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
 }
@@ -169,32 +172,56 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Event * event = [self getEvent:indexPath];
-	if (event == nil) { error = YES; }
-	if(!error) {
-		//Navigation logic
-		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	if(more && indexPath.section == [aDates count]) {
+		/*
+		 We've pressed "Load more...",
+		 let's load more data. Call
+		 the loadXml with new url, with pages incremented by one.
+		 */
+		UIApplication * appForNetDelegate = [UIApplication sharedApplication];
+		appForNetDelegate.networkActivityIndicatorVisible = YES;
+		[self loadXml:YES];
+		appForNetDelegate.networkActivityIndicatorVisible = NO;
+		[self.tableView reloadData];
+	} else {
+		Event * event = [self getEvent:indexPath];
+		if (event == nil) { error = YES; }
+		if(!error) {
+			//Navigation logic
+			GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+			
+			appDelegate.selectedEvent = event;
 		
-		appDelegate.selectedEvent = event;
-	
-		DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];
-		self.detailedViewController = dView;
-	
-		[dView release];
+			DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];
+			self.detailedViewController = dView;
 		
-		[self.navigationController pushViewController:detailedViewController animated:YES];
-		[event retain];
+			[dView release];
+			
+			[self.navigationController pushViewController:detailedViewController animated:YES];
+			[event retain];
+		}
 	}
 }
 
 # pragma mark General methods
 
-- (void)loadXml:(NSString *)address {
+- (void)loadXml:(bool)increment {
+	
+	// Create our last fm url
+	if(!increment) {
+		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage];
+	} else {
+		int tmpVal = [currentPage intValue];
+		tmpVal++;
+		NSNumber * tmpNo = [NSNumber numberWithInt:tmpVal];
+		currentPage = tmpNo;
+		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage];
+	}
 	bool debug = NO;
 	error = NO;
 	
 	// We load our xml from the url provided
-	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:address]];
+	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:url]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
 	
 

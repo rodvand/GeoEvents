@@ -24,13 +24,14 @@
 	NSMutableArray * events;
 	NSMutableArray * sections;
 	NSMutableArray * aDates;
+	NSNumber * currentPage;
 	int sectionCounter;
 	int eventCounter;
 	bool error;
 	bool more; // if there is more pages to be fetched
 }
 - (void) loadMap;
-- (void) loadXml:(NSString *)address;
+- (void) loadXml:(bool)increment;
 - (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber;
 - (NSString*) createDate:(NSString*)rawDate;
 - (void) addDate:(Event*)event;
@@ -45,4 +46,5 @@
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSMutableArray * events;
+@property (nonatomic, retain) NSNumber * currentPage;
 @end
