@@ -4,7 +4,7 @@
 //
 // ================================================================================================
 //  Created by Tom Bradley on 21/10/2009.
-//  Version 1.2
+//  Version 1.3
 //  
 //  Copyright (c) 2009 Tom Bradley
 //  
@@ -78,7 +78,7 @@ typedef struct _TBXMLAttributeBuffer {
 } TBXMLAttributeBuffer;
 
 // ================================================================================================
-//  TBXML Interface
+//  TBXML Public Interface
 // ================================================================================================
 @interface TBXML : NSObject {
 	
@@ -97,18 +97,34 @@ typedef struct _TBXMLAttributeBuffer {
 
 @property (nonatomic, readonly) TBXMLElement * rootXMLElement;
 
++ (id)tbxmlWithURL:(NSURL*)aURL;
++ (id)tbxmlWithXMLString:(NSString*)aXMLString;
++ (id)tbxmlWithXMLData:(NSData*)aData;
++ (id)tbxmlWithXMLFile:(NSString*)aXMLFile;
++ (id)tbxmlWithXMLFile:(NSString*)aXMLFile fileExtension:(NSString*)aFileExtension;
+
 - (id)initWithURL:(NSURL*)aURL;
 - (id)initWithXMLString:(NSString*)aXMLString;
 - (id)initWithXMLData:(NSData*)aData;
+- (id)initWithXMLFile:(NSString*)aXMLFile;
 - (id)initWithXMLFile:(NSString*)aXMLFile fileExtension:(NSString*)aFileExtension;
 
-- (NSString*) elementName:(TBXMLElement*)aXMLElement;
-- (NSString*) textForElement:(TBXMLElement*)aXMLElement;
-- (NSString*) valueOfAttributeNamed:(NSString *)aName forElement:(TBXMLElement*)aXMLElement;
-- (TBXMLElement*) nextSiblingNamed:(NSString*)aName searchFromElement:(TBXMLElement*)aXMLElement;
-- (TBXMLElement*) childElementNamed:(NSString*)aName parentElement:(TBXMLElement*)aParentXMLElement;
+@end
 
-- (NSString*) attributeName:(TBXMLAttribute*)aXMLAttribute;
-- (NSString*) attributeValue:(TBXMLAttribute*)aXMLAttribute;
+// ================================================================================================
+//  TBXML Static Functions Interface
+// ================================================================================================
+
+@interface TBXML (StaticFunctions)
+
++ (NSString*) elementName:(TBXMLElement*)aXMLElement;
++ (NSString*) textForElement:(TBXMLElement*)aXMLElement;
++ (NSString*) valueOfAttributeNamed:(NSString *)aName forElement:(TBXMLElement*)aXMLElement;
+
++ (NSString*) attributeName:(TBXMLAttribute*)aXMLAttribute;
++ (NSString*) attributeValue:(TBXMLAttribute*)aXMLAttribute;
+
++ (TBXMLElement*) nextSiblingNamed:(NSString*)aName searchFromElement:(TBXMLElement*)aXMLElement;
++ (TBXMLElement*) childElementNamed:(NSString*)aName parentElement:(TBXMLElement*)aParentXMLElement;
 
 @end

@@ -21,8 +21,6 @@
 		5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */; };
 		5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */; };
 		5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1D6DA10CE8BB0002BFF08 /* icon.png */; };
-		5BF286E210CDA142005EB7AB /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286DE10CDA142005EB7AB /* TBXML.m */; };
-		5BF286E310CDA142005EB7AB /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E010CDA142005EB7AB /* NSDataAdditions.m */; };
 		5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF286E410CDA153005EB7AB /* libz.dylib */; };
 		5BF286EA10CDA16B005EB7AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E910CDA16B005EB7AB /* Event.m */; };
 		5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF2871210CDDE14005EB7AB /* CoreLocation.framework */; };
@@ -30,6 +28,8 @@
 		8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A61A11135BA180039EC54 /* MapViewController.m */; };
 		8C2A61B71135BBB10039EC54 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2A61B61135BBB10039EC54 /* MapKit.framework */; };
 		8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FD41C111B9F3700A332CA /* AboutViewController.m */; };
+		8C51CB1C1145918F006AB04E /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C51CB191145918F006AB04E /* NSDataAdditions.m */; };
+		8C51CB1D1145918F006AB04E /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C51CB1B1145918F006AB04E /* TBXML.m */; };
 		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
 		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
 /* End PBXBuildFile section */
@@ -57,10 +57,6 @@
 		5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewViewController.h; sourceTree = "<group>"; };
 		5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewViewController.m; sourceTree = "<group>"; };
 		5BE1D6DA10CE8BB0002BFF08 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../Poster/icon.png; sourceTree = SOURCE_ROOT; };
-		5BF286DE10CDA142005EB7AB /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
-		5BF286DF10CDA142005EB7AB /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
-		5BF286E010CDA142005EB7AB /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
-		5BF286E110CDA142005EB7AB /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		5BF286E410CDA153005EB7AB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5BF286E810CDA16B005EB7AB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		5BF286E910CDA16B005EB7AB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
@@ -72,6 +68,10 @@
 		8C2A61B61135BBB10039EC54 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8C4FD41B111B9F3700A332CA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		8C4FD41C111B9F3700A332CA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		8C51CB181145918F006AB04E /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		8C51CB191145918F006AB04E /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		8C51CB1A1145918F006AB04E /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
+		8C51CB1B1145918F006AB04E /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		8CACF7E511342354007D6247 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 		8CC1A9C011236DEA00BA6497 /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookViewController.h; path = ../FacebookViewController.h; sourceTree = "<group>"; };
 		8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookViewController.m; path = ../FacebookViewController.m; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				5BF286DB10CDA12F005EB7AB /* TBXML */,
+				8C51CB171145918F006AB04E /* TBXML */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -172,15 +172,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5BF286DB10CDA12F005EB7AB /* TBXML */ = {
+		8C51CB171145918F006AB04E /* TBXML */ = {
 			isa = PBXGroup;
 			children = (
-				5BF286DE10CDA142005EB7AB /* TBXML.m */,
-				5BF286DF10CDA142005EB7AB /* TBXML.h */,
-				5BF286E010CDA142005EB7AB /* NSDataAdditions.m */,
-				5BF286E110CDA142005EB7AB /* NSDataAdditions.h */,
+				8C51CB181145918F006AB04E /* NSDataAdditions.h */,
+				8C51CB191145918F006AB04E /* NSDataAdditions.m */,
+				8C51CB1A1145918F006AB04E /* TBXML.h */,
+				8C51CB1B1145918F006AB04E /* TBXML.m */,
 			);
 			name = TBXML;
+			path = "TBXML-V1.3";
 			sourceTree = "<group>";
 		};
 		8CC1A9CF11236E2300BA6497 /* SocialMedia */ = {
@@ -287,8 +288,6 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* GeoEvents_finalAppDelegate.m in Sources */,
-				5BF286E210CDA142005EB7AB /* TBXML.m in Sources */,
-				5BF286E310CDA142005EB7AB /* NSDataAdditions.m in Sources */,
 				5BF286EA10CDA16B005EB7AB /* Event.m in Sources */,
 				5BF2871E10CDE5BC005EB7AB /* MyCLController.m in Sources */,
 				5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */,
@@ -300,6 +299,8 @@
 				8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */,
 				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
 				8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */,
+				8C51CB1C1145918F006AB04E /* NSDataAdditions.m in Sources */,
+				8C51CB1D1145918F006AB04E /* TBXML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +338,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

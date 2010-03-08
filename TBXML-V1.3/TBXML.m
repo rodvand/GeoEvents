@@ -4,7 +4,7 @@
 //
 // ================================================================================================
 //  Created by Tom Bradley on 21/10/2009.
-//  Version 1.2
+//  Version 1.3
 //  
 //  Copyright (c) 2009 Tom Bradley
 //  
@@ -29,7 +29,6 @@
 #import "TBXML.h"
 #import "NSDataAdditions.h"
 
-
 // ================================================================================================
 // Private methods
 // ================================================================================================
@@ -41,12 +40,33 @@
 @end
 
 
+
 // ================================================================================================
 // Public Implementation
 // ================================================================================================
 @implementation TBXML
 
 @synthesize rootXMLElement;
+
++ (id)tbxmlWithURL:(NSURL*)aURL {
+	return [[[TBXML alloc] initWithURL:aURL] autorelease];
+}
+
++ (id)tbxmlWithXMLString:(NSString*)aXMLString {
+	return [[[TBXML alloc] initWithXMLString:aXMLString] autorelease];
+}
+
++ (id)tbxmlWithXMLData:(NSData*)aData {
+	return [[[TBXML alloc] initWithXMLData:aData] autorelease];
+}
+
++ (id)tbxmlWithXMLFile:(NSString*)aXMLFile {
+	return [[[TBXML alloc] initWithXMLFile:aXMLFile] autorelease];
+}
+
++ (id)tbxmlWithXMLFile:(NSString*)aXMLFile fileExtension:(NSString*)aFileExtension {
+	return [[[TBXML alloc] initWithXMLFile:aXMLFile fileExtension:aFileExtension] autorelease];
+}
 
 - (id)init {
 	self = [super init];
@@ -112,27 +132,54 @@
 	return self;
 }
 
-- (NSString*) elementName:(TBXMLElement*)aXMLElement {
+- (id)initWithXMLFile:(NSString*)aXMLFile {
+	self = [self init];
+	if (self != nil) {
+		NSString * filename = [aXMLFile stringByDeletingPathExtension];
+		NSString * extension = [aXMLFile pathExtension];
+		
+		// Get uncompressed file contents
+		NSData * data = [NSData dataWithUncompressedContentsOfFile:[[NSBundle mainBundle] pathForResource:filename ofType:extension]];
+		
+		// decode data
+		[self decodeData:data];
+	}
+	return self;
+}
+
+@end
+
+
+// ================================================================================================
+// Static Functions Implementation
+// ================================================================================================
+
+#pragma mark -
+#pragma mark Static Functions implementation
+
+@implementation TBXML (StaticFunctions)
+
++ (NSString*) elementName:(TBXMLElement*)aXMLElement {
 	if (nil == aXMLElement->name) return @"";
 	return [NSString stringWithCString:&aXMLElement->name[0] encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*) attributeName:(TBXMLAttribute*)aXMLAttribute {
++ (NSString*) attributeName:(TBXMLAttribute*)aXMLAttribute {
 	if (nil == aXMLAttribute->name) return @"";
 	return [NSString stringWithCString:&aXMLAttribute->name[0] encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*) attributeValue:(TBXMLAttribute*)aXMLAttribute {
++ (NSString*) attributeValue:(TBXMLAttribute*)aXMLAttribute {
 	if (nil == aXMLAttribute->value) return @"";
 	return [NSString stringWithCString:&aXMLAttribute->value[0] encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*) textForElement:(TBXMLElement*)aXMLElement {
++ (NSString*) textForElement:(TBXMLElement*)aXMLElement {
 	if (nil == aXMLElement->text) return @"";
 	return [NSString stringWithCString:&aXMLElement->text[0] encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*) valueOfAttributeNamed:(NSString *)aName forElement:(TBXMLElement*)aXMLElement {
++ (NSString*) valueOfAttributeNamed:(NSString *)aName forElement:(TBXMLElement*)aXMLElement {
 	const char * name = [aName cStringUsingEncoding:NSUTF8StringEncoding];
 	NSString * value = nil;
 	TBXMLAttribute * attribute = aXMLElement->firstAttribute;
@@ -146,7 +193,7 @@
 	return value;
 }
 
-- (TBXMLElement*) childElementNamed:(NSString*)aName parentElement:(TBXMLElement*)aParentXMLElement{
++ (TBXMLElement*) childElementNamed:(NSString*)aName parentElement:(TBXMLElement*)aParentXMLElement{
 	TBXMLElement * xmlElement = aParentXMLElement->firstChild;
 	const char * name = [aName cStringUsingEncoding:NSUTF8StringEncoding];
 	while (xmlElement) {
@@ -158,7 +205,7 @@
 	return nil;
 }
 
-- (TBXMLElement*) nextSiblingNamed:(NSString*)aName searchFromElement:(TBXMLElement*)aXMLElement{
++ (TBXMLElement*) nextSiblingNamed:(NSString*)aName searchFromElement:(TBXMLElement*)aXMLElement{
 	TBXMLElement * xmlElement = aXMLElement->nextSibling;
 	const char * name = [aName cStringUsingEncoding:NSUTF8StringEncoding];
 	while (xmlElement) {
@@ -171,7 +218,6 @@
 }
 
 @end
-
 
 
 // ================================================================================================
@@ -368,6 +414,7 @@
 			char * CDATAEnd = nil;
 			TBXMLAttribute * lastXMLAttribute = nil;
 			TBXMLAttribute * xmlAttribute = nil;
+			BOOL singleQuote = NO;
 			
 			int mode = TBXML_ATTRIBUTE_NAME_START;
 			
@@ -391,22 +438,23 @@
 					// look for start of attribute value
 					case TBXML_ATTRIBUTE_VALUE_START:
 						if (isspace(*chr)) continue;
-						if (*chr == '"') {
+						if (*chr == '"' || *chr == '\'') {
 							value = chr+1;
 							mode = TBXML_ATTRIBUTE_VALUE_END;
+							if (*chr == '\'') 
+								singleQuote = YES;
+							else
+								singleQuote = NO;
 						}
 						break;
 					// look for end of attribute value
 					case TBXML_ATTRIBUTE_VALUE_END:
 						if (*chr == '<' && strncmp(chr, "<![CDATA[", 9) == 0) {
-							CDATAStart = chr;
 							mode = TBXML_ATTRIBUTE_CDATA_END;
-						}else if (*chr == '"') {
+						}else if ((*chr == '"' && singleQuote == NO) || (*chr == '\'' && singleQuote == YES)) {
 							*chr = 0;
 							
-							
 							// remove cdata section tags
-							
 							while (CDATAStart = strstr(value, "<![CDATA[")) {
 								
 								// remove begin cdata tag
@@ -417,9 +465,7 @@
 								
 								// remove end cdata tag
 								memcpy(CDATAEnd, CDATAEnd+3, strlen(CDATAEnd)-2);
-								
 							}
-							
 							
 							
 							// create new attribute
@@ -440,7 +486,6 @@
 							name = nil;
 							value = nil;
 							
-							
 							// start looking for next attribute
 							mode = TBXML_ATTRIBUTE_NAME_START;
 						}
@@ -449,7 +494,6 @@
 					case TBXML_ATTRIBUTE_CDATA_END:
 						if (*chr == ']') {
 							if (strncmp(chr, "]]>", 3) == 0) {
-								CDATAEnd = chr;
 								mode = TBXML_ATTRIBUTE_VALUE_END;
 							}
 						}
@@ -472,8 +516,6 @@
 		// start looking for next element after end of current element
 		elementStart = elementEnd+1;
 	}
-	
-	
 }
 
 // Deallocate used memory

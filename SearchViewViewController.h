@@ -25,6 +25,7 @@
 	NSMutableArray * sections;
 	NSMutableArray * aDates;
 	NSNumber * currentPage;
+	NSNumber * totalNumberOfPages;
 	int sectionCounter;
 	int eventCounter;
 	bool error;
@@ -47,4 +48,5 @@
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSMutableArray * events;
 @property (nonatomic, retain) NSNumber * currentPage;
+@property (nonatomic, retain) NSNumber * totalNumberOfPages;
 @end

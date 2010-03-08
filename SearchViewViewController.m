@@ -23,7 +23,8 @@
 			events,
 			sections,
 			aDates,
-			currentPage;
+			currentPage,
+			totalNumberOfPages;
 
 - (void)viewDidLoad {
 	/* 
@@ -47,7 +48,7 @@
 	/*
 	 TODO: Check how many pages we have. Then say if we have more.
 	 */
-	more = YES;
+	more = NO;
 	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
@@ -215,8 +216,10 @@
 		tmpVal++;
 		NSNumber * tmpNo = [NSNumber numberWithInt:tmpVal];
 		currentPage = tmpNo;
+		
 		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage];
 	}
+	
 	bool debug = NO;
 	error = NO;
 	
@@ -226,8 +229,14 @@
 	
 
 	if(rootXMLElement) {
-		TBXMLElement * event_top = [tbXML childElementNamed:@"events" parentElement:rootXMLElement];
-		TBXMLElement * event = [tbXML childElementNamed:@"event" parentElement:event_top];
+		TBXMLElement * event_top = [TBXML childElementNamed:@"events" parentElement:rootXMLElement];
+		NSString * totalPages = [TBXML valueOfAttributeNamed:@"totalpages" forElement:event_top];
+		
+		if(totalNumberOfPages == nil) {
+			totalNumberOfPages = [NSNumber numberWithInt:[totalPages intValue]];
+		}
+		
+		TBXMLElement * event = [TBXML childElementNamed:@"event" parentElement:event_top];
 		
 		while(event != nil) {
 			//Create our event object
@@ -236,27 +245,27 @@
 			//Add it to the array
 			[events addObject:anEvent];
 			
-			TBXMLElement * artists = [tbXML childElementNamed:@"artists" parentElement:event];
-			anEvent.artist = [tbXML textForElement:[tbXML childElementNamed:@"headliner" parentElement:artists]];
+			TBXMLElement * artists = [TBXML childElementNamed:@"artists" parentElement:event];
+			anEvent.artist = [TBXML textForElement:[TBXML childElementNamed:@"headliner" parentElement:artists]];
 			
-			anEvent.ident = [tbXML textForElement:[tbXML childElementNamed:@"id" parentElement:event]];
-			anEvent.startDate = [tbXML textForElement:[tbXML childElementNamed:@"startDate" parentElement:event]];
+			anEvent.ident = [TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:event]];
+			anEvent.startDate = [TBXML textForElement:[TBXML childElementNamed:@"startDate" parentElement:event]];
 			
 			[self addDate:anEvent];
 			
-			anEvent.eventUrl = [tbXML textForElement:[tbXML childElementNamed:@"url" parentElement:event]];
-			anEvent.eventStatus = [tbXML textForElement:[tbXML childElementNamed:@"cancelled" parentElement:event]];
-			anEvent.attendance = [tbXML textForElement:[tbXML childElementNamed:@"attendance" parentElement:event]];
-			TBXMLElement * venues = [tbXML childElementNamed:@"venue" parentElement:event];
+			anEvent.eventUrl = [TBXML textForElement:[TBXML childElementNamed:@"url" parentElement:event]];
+			anEvent.eventStatus = [TBXML textForElement:[TBXML childElementNamed:@"cancelled" parentElement:event]];
+			anEvent.attendance = [TBXML textForElement:[TBXML childElementNamed:@"attendance" parentElement:event]];
+			TBXMLElement * venues = [TBXML childElementNamed:@"venue" parentElement:event];
 			
-			anEvent.venue = [tbXML textForElement:[tbXML childElementNamed:@"name" parentElement:venues]];
-			TBXMLElement * location = [tbXML childElementNamed:@"location" parentElement:venues];
-			anEvent.location = [tbXML textForElement:[tbXML childElementNamed:@"city" parentElement:location]];
-			TBXMLElement * geo = [tbXML childElementNamed:@"geo:point" parentElement:location];
+			anEvent.venue = [TBXML textForElement:[TBXML childElementNamed:@"name" parentElement:venues]];
+			TBXMLElement * location = [TBXML childElementNamed:@"location" parentElement:venues];
+			anEvent.location = [TBXML textForElement:[TBXML childElementNamed:@"city" parentElement:location]];
+			TBXMLElement * geo = [TBXML childElementNamed:@"geo:point" parentElement:location];
 			
 			if(geo != nil) {
-				anEvent.lat = [tbXML textForElement:[tbXML childElementNamed:@"geo:lat" parentElement:geo]];
-				anEvent.lon = [tbXML textForElement:[tbXML childElementNamed:@"geo:long" parentElement:geo]];
+				anEvent.lat = [TBXML textForElement:[TBXML childElementNamed:@"geo:lat" parentElement:geo]];
+				anEvent.lon = [TBXML textForElement:[TBXML childElementNamed:@"geo:long" parentElement:geo]];
 			}
 			
 			if(debug) {
@@ -276,12 +285,18 @@
 				}
 				
 			}
-			event = [tbXML nextSiblingNamed:@"event" searchFromElement:event];
+			event = [TBXML nextSiblingNamed:@"event" searchFromElement:event];
 		}
 	} else {
 		NSLog(@"Something went wrong with our parsing.");
 		error = YES;
 	}
+	
+	/*
+	 If our currentpage is on the total number of pages we disbale the "Load more...".
+	 And if we haven't reached the last set of data, we show the "Load more..."
+	 */
+	more = (currentPage != totalNumberOfPages) ? YES : NO;
 	
 	[events retain];
 	[tbXML release];
