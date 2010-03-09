@@ -28,7 +28,8 @@
 	NSNumber * totalNumberOfPages;
 	int sectionCounter;
 	int eventCounter;
-	bool error;
+	bool error; //If something went wrong with our search
+	NSString * errorMessage; //Message when something goes wrong
 	bool more; // if there is more pages to be fetched
 }
 - (void) loadMap;
@@ -44,6 +45,7 @@
 @property (nonatomic, retain) NSString *  searchString;
 @property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * apiKey;
+@property (nonatomic, retain) NSString * errorMessage;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSMutableArray * events;

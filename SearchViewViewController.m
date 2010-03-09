@@ -24,7 +24,8 @@
 			sections,
 			aDates,
 			currentPage,
-			totalNumberOfPages;
+			totalNumberOfPages,
+			errorMessage;
 
 - (void)viewDidLoad {
 	/* 
@@ -58,16 +59,17 @@
 	
 	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];
 	
-	//Add a map it button
-	UIBarButtonItem * mapBtn = [[UIBarButtonItem alloc] initWithTitle:@"Map 'em!" style:UIBarButtonItemStylePlain target:self action:@selector(loadMap)];
-	[self.navigationItem setRightBarButtonItem:mapBtn];
-	[mapBtn release];
-	
 	appForNetDelegate.networkActivityIndicatorVisible = YES;
 	currentPage = [NSNumber numberWithInt:1];
 	[self loadXml:NO];
-	
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
+	
+	if(!error) {
+		//Add a map it button
+		UIBarButtonItem * mapBtn = [[UIBarButtonItem alloc] initWithTitle:@"Map 'em!" style:UIBarButtonItemStylePlain target:self action:@selector(loadMap)];
+		[self.navigationItem setRightBarButtonItem:mapBtn];
+		[mapBtn release];
+	}
 }
 
 
@@ -100,6 +102,8 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	if(more) {
 		return [aDates count]+1;
+	} else if(error) {
+		return 1;
 	} else {
 		return [aDates count];
 	}
@@ -155,6 +159,7 @@
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		[cell.textLabel setText:@"No results"];
+		cell.textLabel.textAlignment = UITextAlignmentCenter;
 	} else {
 		
 		if (cell == nil) {
@@ -195,6 +200,7 @@
 		 */
 		Event * event = [self getEvent:indexPath];
 		if (event == nil) { error = YES; }
+		
 		if(!error) {
 			//Navigation logic
 			GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
@@ -239,21 +245,20 @@
 	bool debug = NO;
 	error = NO;
 	
-	
+	//Encode those pesky characters who no one likes
 	url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-	
-	// We load our xml from the url provided
-	NSURL * sUrl = [NSURL URLWithString:url];
-	
-	if(sUrl == nil) {
-		NSLog(@"It's NIL!!!!!");
-	}
 	
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:url]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
 	
 
 	if(rootXMLElement) {
+		TBXMLElement * error_top = [TBXML childElementNamed:@"error" parentElement:rootXMLElement];
+		
+		if(error_top != nil) {
+			errorMessage = [TBXML textForElement:error_top];
+			NSLog(@"Error: %@", errorMessage);
+		}
 		TBXMLElement * event_top = [TBXML childElementNamed:@"events" parentElement:rootXMLElement];
 		NSString * totalPages = [TBXML valueOfAttributeNamed:@"totalpages" forElement:event_top];
 		
@@ -321,7 +326,7 @@
 	 If our currentpage is on the total number of pages we disbale the "Load more...".
 	 And if we haven't reached the last set of data, we show the "Load more..."
 	 */
-	more = (currentPage != totalNumberOfPages) ? YES : NO;
+	more = (currentPage != totalNumberOfPages && !error) ? YES : NO;
 	
 	[events retain];
 	[tbXML release];
