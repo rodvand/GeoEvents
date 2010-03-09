@@ -136,12 +136,14 @@
     static NSString *MoreCellIdentifier = @"More";
 	
 	UITableViewCell *moreCell = [tableView dequeueReusableCellWithIdentifier:MoreCellIdentifier];
+	
 	//If we have more data that can be fetched
 	if(more && indexPath.section == [aDates count]) {
 		if (moreCell == nil) {
 			moreCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MoreCellIdentifier] autorelease];
 		}
-		[moreCell.textLabel setText:@"Load more data..."];
+		[moreCell.textLabel setText:@"Load more..."];
+		moreCell.textLabel.textAlignment = UITextAlignmentCenter;
 		return moreCell;
 		
 	}
@@ -181,10 +183,16 @@
 		 */
 		UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 		appForNetDelegate.networkActivityIndicatorVisible = YES;
+		
 		[self loadXml:YES];
+		
 		appForNetDelegate.networkActivityIndicatorVisible = NO;
+		
 		[self.tableView reloadData];
 	} else {
+		/*
+		 We have pressed on an Event and load the Event up in our DetailedViewController.
+		 */
 		Event * event = [self getEvent:indexPath];
 		if (event == nil) { error = YES; }
 		if(!error) {
@@ -208,7 +216,13 @@
 
 - (void)loadXml:(bool)increment {
 	
-	// Create our last fm url
+	/*
+	 Create our last fm url
+	 If we are running this for the first time, we do not want to increment and search for page 1.
+	 If we want to increment, we take the currentPage we're on and increment it by one. The check to see if
+	 we have more pages is done in the end of this method.
+	 */
+	
 	if(!increment) {
 		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:nil];
 	} else {
@@ -220,10 +234,21 @@
 		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:nil];
 	}
 	
+	NSLog(@"URL: %@", url);
+
 	bool debug = NO;
 	error = NO;
 	
+	
+	url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	
 	// We load our xml from the url provided
+	NSURL * sUrl = [NSURL URLWithString:url];
+	
+	if(sUrl == nil) {
+		NSLog(@"It's NIL!!!!!");
+	}
+	
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:url]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
 	
@@ -404,7 +429,6 @@
 	 We create our URL here.
 	 URL output depends on if it's location based or purely based on search string.
 	 Require apiKey to work.
-	 TODO: Implement range and pagenumber.
 	 TODO: Clean String. Replace space and various other entitities with respective html entitities.
 	 */
 	
@@ -420,9 +444,7 @@
 	
 	if(!appDelegate.isUsingGps) {
 		//The search is based on a string
-		//We replace space with %20
-		NSString * modifiedSearch = [searchQuery stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-		[baseUrl appendFormat:@"&location=%@&api_key=%@", modifiedSearch, api];
+		[baseUrl appendFormat:@"&location=%@&api_key=%@", searchQuery, api];
 	} else {
 		[baseUrl appendFormat:@"&lat=%f&long=%f&api_key=%@", [lat doubleValue], [lon doubleValue], api];
 	}
