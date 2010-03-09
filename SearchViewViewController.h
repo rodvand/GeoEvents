@@ -33,7 +33,7 @@
 }
 - (void) loadMap;
 - (void) loadXml:(bool)increment;
-- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber;
+- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber range:(NSNumber*)distance;
 - (NSString*) createDate:(NSString*)rawDate;
 - (void) addDate:(Event*)event;
 - (Event*) getEvent:(NSIndexPath *)indexPath;

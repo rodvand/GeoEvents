@@ -210,14 +210,14 @@
 	
 	// Create our last fm url
 	if(!increment) {
-		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage];
+		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:nil];
 	} else {
 		int tmpVal = [currentPage intValue];
 		tmpVal++;
 		NSNumber * tmpNo = [NSNumber numberWithInt:tmpVal];
 		currentPage = tmpNo;
 		
-		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage];
+		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:nil];
 	}
 	
 	bool debug = NO;
@@ -399,7 +399,7 @@
 	return formattedDate;
 }
 
-- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lon searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber{
+- (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lon searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber range:(NSNumber*)distance{
 	/*
 	 We create our URL here.
 	 URL output depends on if it's location based or purely based on search string.
@@ -426,6 +426,11 @@
 	} else {
 		[baseUrl appendFormat:@"&lat=%f&long=%f&api_key=%@", [lat doubleValue], [lon doubleValue], api];
 	}
+	
+	if(distance != nil) {
+		[baseUrl appendFormat:@"&distance=%d", [distance intValue]];
+	}
+	
 	return baseUrl;
 }
 
