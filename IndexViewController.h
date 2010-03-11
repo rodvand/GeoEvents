@@ -39,6 +39,7 @@
 
 enum Sections {
 	searchSection = 0,
+	//settingSection,
 	historySection,
 	NUM_SECTIONS
 };

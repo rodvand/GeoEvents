@@ -146,7 +146,11 @@
 		if (moreCell == nil) {
 			moreCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MoreCellIdentifier] autorelease];
 		}
-		[moreCell.textLabel setText:@"Load more..."];
+		if(!currentlyLoading) {
+			[moreCell.textLabel setText:@"Load more..."];
+		} else {
+			[moreCell.textLabel setText:@"Loading..."];
+		}
 		moreCell.textLabel.textAlignment = UITextAlignmentCenter;
 		return moreCell;
 		
@@ -188,11 +192,10 @@
 		 */
 		UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 		appForNetDelegate.networkActivityIndicatorVisible = YES;
-		
+		currentlyLoading = YES;
 		[self loadXml:YES];
-		
+		currentlyLoading = NO;
 		appForNetDelegate.networkActivityIndicatorVisible = NO;
-		
 		[self.tableView reloadData];
 	} else {
 		/*
@@ -251,14 +254,7 @@
 	TBXML * tbXML = [[TBXML alloc] initWithURL:[NSURL URLWithString:url]];
 	TBXMLElement * rootXMLElement = tbXML.rootXMLElement;
 	
-
 	if(rootXMLElement) {
-		TBXMLElement * error_top = [TBXML childElementNamed:@"error" parentElement:rootXMLElement];
-		
-		if(error_top != nil) {
-			errorMessage = [TBXML textForElement:error_top];
-			NSLog(@"Error: %@", errorMessage);
-		}
 		TBXMLElement * event_top = [TBXML childElementNamed:@"events" parentElement:rootXMLElement];
 		NSString * totalPages = [TBXML valueOfAttributeNamed:@"totalpages" forElement:event_top];
 		
@@ -440,7 +436,7 @@
 	//Our base URL
 	NSMutableString * baseUrl = [[NSMutableString alloc] initWithString:@"http://ws.audioscrobbler.com/2.0/?method=geo.getevents"];
 	
-	//Get the appDelegate
+	//Get the appDelegate - to get to the isUsingGps variable
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	
 	if(pageNumber != nil) {

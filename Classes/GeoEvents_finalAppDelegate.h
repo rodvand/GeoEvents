@@ -20,6 +20,7 @@
 	NSMutableArray * searchHistory;
 	NSNumber * lat;
 	NSNumber * lon;
+	NSNumber * range;
 	bool isUsingGps;
 	NSString * searchString;
 	bool lastfmstatus;
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) Event * selectedEvent;
 @property (nonatomic, retain) NSNumber * lat;
 @property (nonatomic, retain) NSNumber * lon;
+@property (nonatomic, retain) NSNumber * range;
 @property (nonatomic, retain) NSMutableArray * searchHistory;
 @property (nonatomic, retain) NSString * searchString;
 @property bool isUsingGps;

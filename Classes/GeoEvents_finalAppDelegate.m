@@ -23,7 +23,8 @@
 			isUsingGps,
 			searchString,
 			lastfmstatus,
-			searchSuggestions;
+			searchSuggestions,
+			range;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -42,6 +43,7 @@
 	
 	NSArray * savedSearches = [[NSArray alloc]initWithContentsOfFile:fullFileName];
 	
+	range = [NSNumber numberWithInt:50];
 	/*
 	 If we have nothing in our search file, we populate it with some searches
 	 If we have stuff in our search file, we fill the array with these searches

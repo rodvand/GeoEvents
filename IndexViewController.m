@@ -30,8 +30,6 @@
 	locationController = [[MyCLController alloc] init];
 	locationController.delegate = self;	
 	[locationController.locationManager startUpdatingLocation];
-
-	//UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 	
 }
 
@@ -139,8 +137,6 @@
 			} else {
 				return 1;
 			}
-			 
-			 
 		case historySection:
 			if(theSearchHistory != nil) {
 				if([theSearchHistory count] > 3) {
@@ -149,6 +145,8 @@
 					return [theSearchHistory count];
 				}
 			}
+		//case settingSection:
+		//	return 1;
 		default:
 			return 1;
 	}
@@ -160,6 +158,7 @@
 	static NSString *CellIdentifier = @"Cell";
 	static NSString *CellSearch = @"searchHistory";
 	static NSString *CellGPS = @"GPS";
+	//static NSString *CellSetting = @"Settings";
 
 	
 	if(indexPath.section == searchSection) {
@@ -215,6 +214,40 @@
 		
 		return searchHistoryCell;
 	}
+	/*
+	if (indexPath.section == settingSection) {
+		
+		 Get the AppDelegate and get our global setting for range.
+		 
+		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+		NSNumber * rangeSettings = appDelegate.range;
+		
+		UITableViewCell * rangeSettingCell = [tableView dequeueReusableCellWithIdentifier:CellSetting];
+		
+		if(rangeSettingCell == nil) {
+			rangeSettingCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellSetting];
+		}
+		
+		rangeSettingCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		
+
+		[rangeSettingCell.textLabel setText:@"Search range"];
+		
+
+		NSMutableString * rangeText;
+		
+		if(rangeSettings == nil) {
+			rangeText = [NSMutableString stringWithString:@"Not defined"];
+		} else {
+			rangeText = [NSMutableString stringWithString:[rangeSettings stringValue]];
+			[rangeText appendString:@" km"];
+		}
+
+		[rangeSettingCell.detailTextLabel setText:rangeText];
+		
+		return rangeSettingCell;
+	}
+	*/
 	
 	return nil;
 }

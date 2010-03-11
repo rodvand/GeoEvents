@@ -31,6 +31,7 @@
 	bool error; //If something went wrong with our search
 	NSString * errorMessage; //Message when something goes wrong
 	bool more; // if there is more pages to be fetched
+	bool currentlyLoading; 
 }
 - (void) loadMap;
 - (void) loadXml:(bool)increment;
