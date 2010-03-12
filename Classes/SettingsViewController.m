@@ -8,11 +8,12 @@
 
 #import "SettingsViewController.h"
 #import "AboutViewController.h"
-
+#import "AccountsViewController.h"
 
 @implementation SettingsViewController
 
-@synthesize aboutView;
+@synthesize aboutView,
+			accountsView;
 
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:UITableViewStyleGrouped]) {

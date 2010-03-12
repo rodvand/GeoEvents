@@ -24,7 +24,8 @@
 			searchString,
 			lastfmstatus,
 			searchSuggestions,
-			range;
+			range,
+			numberOfEventsToBeFetched;
 
 #pragma mark -
 #pragma mark Application lifecycle

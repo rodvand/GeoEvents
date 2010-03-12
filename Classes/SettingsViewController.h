@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "AboutViewController.h"
+#import "AccountsViewController.h"
 /* Prefix-Letter: s */
 
 @interface SettingsViewController : UITableViewController {
 	AboutViewController * aboutView;
+	AccountsViewController * accountsView;
 }
 
 @property (nonatomic, retain) AboutViewController * aboutView; 
+@property (nonatomic, retain) AccountsViewController * accountsView;
 
 enum sSections {
 	sAccountSettings = 0,
