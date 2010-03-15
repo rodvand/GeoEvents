@@ -10,6 +10,7 @@
 #import "AboutViewController.h"
 #import "AccountsViewController.h"
 #import "SearchSettingsViewController.h"
+#import "GeoEvents_finalAppDelegate.h"
 
 @implementation SettingsViewController
 
@@ -48,8 +49,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	switch(section) {
-		case sAccountSettings:
-			return sNUM_ACCOUNT_ROWS;
+		//case sAccountSettings:
+		//	return sNUM_ACCOUNT_ROWS;
 		case sSearchSettings:
 			return sNUM_SEARCH_ROWS;
 		case sAboutSection:
@@ -63,9 +64,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
 	static NSString *CellIdentifier = @"General";
 	
 	// For our account cells
+	/*
 	if(indexPath.section == sAccountSettings) {
 		UITableViewCell *accountCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		//Code for our different account cells
@@ -87,12 +91,12 @@
 		
 		return accountCell;
 	}
+	 */
 	
 	// For our search setting cell
 	if(indexPath.section == sSearchSettings) {
 		UITableViewCell *searchCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if(searchCell == nil) {
-			// We define our cell to use Value1 style. This is black text on the left, blue text on the right
 			searchCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		}
 		
@@ -100,8 +104,11 @@
 		
 		switch(indexPath.row) {
 			case sKilometersRangeRow:
+				;
+				
+				NSString * distanceText = [NSString stringWithFormat:@"%@ km", appDelegate.range];
 				[searchCell.textLabel setText:@"Search radius"];
-				[searchCell.detailTextLabel setText:@"50 km"];
+				[searchCell.detailTextLabel setText:distanceText];
 				break;
 			case sNumberOfResultsRow:
 				[searchCell.textLabel setText:@"Max events shown"];
@@ -131,8 +138,8 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 	switch(section) {
-		case sAccountSettings:
-			return @"Account Settings";
+		//case sAccountSettings:
+		//	return @"Account Settings";
 		case sSearchSettings:
 			return @"Search Settings";
 		case sAboutSection:
@@ -143,6 +150,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	switch(indexPath.section) {
+		/*
 		case sAccountSettings:
 			switch(indexPath.row) {
 				case sFacebookRow:
@@ -156,6 +164,7 @@
 					break;
 			}
 			break;
+		 */
 		case sSearchSettings:
 			;
 			SearchSettingsViewController * searchV = [[SearchSettingsViewController alloc]initWithStyle:UITableViewStyleGrouped];

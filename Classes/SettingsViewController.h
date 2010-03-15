@@ -22,8 +22,8 @@
 @property (nonatomic, retain) AccountsViewController * accountsView;
 @property (nonatomic, retain) SearchSettingsViewController * searchView;
 enum sSections {
-	sAccountSettings = 0,
-	sSearchSettings,
+	//sAccountSettings = 0,
+	sSearchSettings = 0,
 	sAboutSection,
 	sNUM_SECTIONS
 };

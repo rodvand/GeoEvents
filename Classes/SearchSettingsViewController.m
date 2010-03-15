@@ -16,18 +16,6 @@
 			searchRadiusArray,
 			noOfEventsArray;
 
-#pragma mark -
-#pragma mark Initialization
-
-/*
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    if ((self = [super initWithStyle:style])) {
-    }
-    return self;
-}
-*/
-
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -42,18 +30,18 @@
 	searchRadius = appDelegate.range;
 	
 	noOfEventsArray = [[NSMutableArray alloc]init];
-	[noOfEventsArray addObject:[NSString stringWithString:@"10"]];
-	[noOfEventsArray addObject:[NSString stringWithString:@"20"]];
-	[noOfEventsArray addObject:[NSString stringWithString:@"30"]];
-	[noOfEventsArray addObject:[NSString stringWithString:@"40"]];
-	[noOfEventsArray addObject:[NSString stringWithString:@"50"]];
+	[noOfEventsArray addObject:[NSNumber numberWithInt:10]];
+	[noOfEventsArray addObject:[NSNumber numberWithInt:20]];
+	[noOfEventsArray addObject:[NSNumber numberWithInt:30]];
+	[noOfEventsArray addObject:[NSNumber numberWithInt:40]];
+	[noOfEventsArray addObject:[NSNumber numberWithInt:50]];
 	
 	searchRadiusArray = [[NSMutableArray alloc]init];
-	[searchRadiusArray addObject:[NSString stringWithString:@"10"]];
-	[searchRadiusArray addObject:[NSString stringWithString:@"20"]];
-	[searchRadiusArray addObject:[NSString stringWithString:@"30"]];
-	[searchRadiusArray addObject:[NSString stringWithString:@"40"]];
-	[searchRadiusArray addObject:[NSString stringWithString:@"50"]];
+	[searchRadiusArray addObject:[NSNumber numberWithInt:10]];
+	[searchRadiusArray addObject:[NSNumber numberWithInt:20]];
+	[searchRadiusArray addObject:[NSNumber numberWithInt:30]];
+	[searchRadiusArray addObject:[NSNumber numberWithInt:40]];
+	[searchRadiusArray addObject:[NSNumber numberWithInt:50]];
 	
     // Uncomment the following line to preserve selection between presentations.
     //self.clearsSelectionOnViewWillAppear = NO;
@@ -72,6 +60,9 @@
 	/*
 	 Write the settings to file and send the user back one level.
 	 */
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	appDelegate.numberOfEventsToBeFetched = eventsToBeFetched;
+	appDelegate.range = searchRadius;
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -103,7 +94,7 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+	
     static NSString *CellIdentifier = @"Cell";
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -112,14 +103,24 @@
 	}
 	
     if([viewToBeDisplayed isEqualToString:@"Radius"]) {
-		NSString * textLabel = [NSString stringWithFormat:@"%@ km", [searchRadiusArray objectAtIndex:indexPath.row]];
+		NSNumber * number = [searchRadiusArray objectAtIndex:indexPath.row];
+		NSString * textLabel = [NSString stringWithFormat:@"%@ km", number];
 		[cell.textLabel setText:textLabel];
+		
+		if([searchRadius isEqualToNumber:number]) {
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		}
 	} else if([viewToBeDisplayed isEqualToString:@"Events"]) {
-		NSString * textLabel = [NSString stringWithFormat:@"%@ events", [noOfEventsArray objectAtIndex:indexPath.row]];
+		NSNumber * number = [noOfEventsArray objectAtIndex:indexPath.row];
+		NSString * textLabel = [NSString stringWithFormat:@"%@ events", number];
 		[cell.textLabel setText:textLabel];
+		
+		if([eventsToBeFetched isEqualToNumber:number]) {
+			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		}
 	}
 	
-	cell.textLabel.textAlignment = UITextAlignmentCenter;
+	cell.textLabel.textAlignment = UITextAlignmentLeft;
     
     // Configure the cell...
     
@@ -133,14 +134,11 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-	/*
-	 <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-	 [self.navigationController pushViewController:detailViewController animated:YES];
-	 [detailViewController release];
-	 */
+    if([viewToBeDisplayed isEqualToString:@"Radius"]) {
+		searchRadius = [searchRadiusArray objectAtIndex:indexPath.row];
+	} else if([viewToBeDisplayed isEqualToString:@"Events"]) {
+		eventsToBeFetched = [noOfEventsArray objectAtIndex:indexPath.row];
+	}
 }
 
 

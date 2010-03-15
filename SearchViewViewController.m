@@ -364,11 +364,6 @@
 		[self loadXml:YES recursive:YES];
 	}
 	
-	
-	
-	
-	
-	
 	[events retain];
 	[tbXML release];
 }

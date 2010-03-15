@@ -44,7 +44,9 @@
 	
 	NSArray * savedSearches = [[NSArray alloc]initWithContentsOfFile:fullFileName];
 	
-	range = [NSNumber numberWithInt:50];
+	range = [[NSNumber alloc]initWithInt:50];
+	NSLog(@"Range: %@", range);
+	numberOfEventsToBeFetched = [[NSNumber alloc] initWithInt:40];
 	/*
 	 If we have nothing in our search file, we populate it with some searches
 	 If we have stuff in our search file, we fill the array with these searches
