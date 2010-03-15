@@ -12,7 +12,13 @@
 
 @implementation IndexViewController
 
-@synthesize searchViewViewController, searchField, latitude, longitude, locationFound, run, settingsViewController;
+@synthesize searchViewViewController, 
+			searchField,
+			latitude,
+			longitude,
+			locationFound,
+			run,
+			settingsViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

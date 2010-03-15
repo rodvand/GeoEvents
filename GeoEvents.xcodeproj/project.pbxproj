@@ -31,6 +31,7 @@
 		8C51CB1D1145918F006AB04E /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C51CB1B1145918F006AB04E /* TBXML.m */; };
 		8C6C1E67114AFEA40096C3F3 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C1E66114AFEA40096C3F3 /* AccountsViewController.m */; };
 		8CE63BC5114E53A40052A346 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CE63BC4114E53A40052A346 /* icon.png */; };
+		8CE63C09114E5C5D0052A346 /* SearchSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE63C08114E5C5D0052A346 /* SearchSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,8 @@
 		8C6C1E66114AFEA40096C3F3 /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
 		8CACF7E511342354007D6247 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 		8CE63BC4114E53A40052A346 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		8CE63C07114E5C5D0052A346 /* SearchSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSettingsViewController.h; sourceTree = "<group>"; };
+		8CE63C08114E5C5D0052A346 /* SearchSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSettingsViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +196,8 @@
 		8CC1A9D011236E4300BA6497 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				8CE63C07114E5C5D0052A346 /* SearchSettingsViewController.h */,
+				8CE63C08114E5C5D0052A346 /* SearchSettingsViewController.m */,
 				8C4FD41B111B9F3700A332CA /* AboutViewController.h */,
 				5B3AA99D10D20A8200E81307 /* SettingsViewController.h */,
 				5B3AA99E10D20A8200E81307 /* SettingsViewController.m */,
@@ -295,6 +300,7 @@
 				8C51CB1C1145918F006AB04E /* NSDataAdditions.m in Sources */,
 				8C51CB1D1145918F006AB04E /* TBXML.m in Sources */,
 				8C6C1E67114AFEA40096C3F3 /* AccountsViewController.m in Sources */,
+				8CE63C09114E5C5D0052A346 /* SearchSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

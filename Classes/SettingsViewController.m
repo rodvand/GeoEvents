@@ -9,11 +9,13 @@
 #import "SettingsViewController.h"
 #import "AboutViewController.h"
 #import "AccountsViewController.h"
+#import "SearchSettingsViewController.h"
 
 @implementation SettingsViewController
 
 @synthesize aboutView,
-			accountsView;
+			accountsView,
+			searchView;
 
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:UITableViewStyleGrouped]) {
@@ -132,7 +134,7 @@
 		case sAccountSettings:
 			return @"Account Settings";
 		case sSearchSettings:
-			return @"General Search Settings";
+			return @"Search Settings";
 		case sAboutSection:
 			return @"About this app";
 	}
@@ -155,14 +157,20 @@
 			}
 			break;
 		case sSearchSettings:
+			;
+			SearchSettingsViewController * searchV = [[SearchSettingsViewController alloc]initWithStyle:UITableViewStyleGrouped];
+			searchView = searchV;
+			
 			switch(indexPath.row) {
 				case sKilometersRangeRow:
-					
+					[searchView setViewToBeDisplayed:@"Radius"];
 					break;
 				case sNumberOfResultsRow:
-					
+					[searchView setViewToBeDisplayed:@"Events"];
 					break;
 			}
+			[self.navigationController pushViewController:searchView animated:YES];
+			[searchV release];
 			break;
 		case sAboutSection:
 			switch(indexPath.row) {
