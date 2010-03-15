@@ -21,6 +21,7 @@
 	NSString * apiKey;
 	NSNumber * latitude;
 	NSNumber * longitude;
+	NSNumber * range;
 	NSMutableArray * events;
 	NSMutableArray * sections;
 	NSMutableArray * aDates;
@@ -56,4 +57,5 @@
 @property (nonatomic, retain) NSNumber * totalNumberOfPages;
 @property (nonatomic, retain) NSNumber * noOfPages;
 @property (nonatomic, retain) NSNumber * nextPageLimit;
+@property (nonatomic, retain) NSNumber * range;
 @end

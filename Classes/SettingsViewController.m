@@ -112,10 +112,13 @@
 		switch(indexPath.row) {
 			case sKilometersRangeRow:
 				;
-				
-				NSString * distanceText = [NSString stringWithFormat:@"%@ km", appDelegate.range];
 				[searchCell.textLabel setText:@"Search radius"];
-				[searchCell.detailTextLabel setText:distanceText];
+				if([appDelegate.range intValue] != 0) {
+					NSString * distanceText = [NSString stringWithFormat:@"%@ km", appDelegate.range];
+					[searchCell.detailTextLabel setText:distanceText];
+				} else {
+					[searchCell.detailTextLabel setText:@"Not defined"];
+				}
 				break;
 			case sNumberOfResultsRow:
 				;

@@ -20,6 +20,7 @@
 			apiKey,
 			latitude,
 			longitude,
+			range,
 			events,
 			sections,
 			aDates,
@@ -40,6 +41,7 @@
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	locationBasedSearch = appDelegate.isUsingGps;
 	searchString = appDelegate.searchString;
+	range = appDelegate.range;
 	
 	//Initialise our sections array
 	sections = [[NSMutableArray alloc] initWithCapacity:10];
@@ -246,19 +248,16 @@
 	 If we want to increment, we take the currentPage we're on and increment it by one. The check to see if
 	 we have more pages is done in the end of this method.
 	 */
-	NSLog(@"Current page: %@", currentPage);
-	//NSLog(@"Next page limit: %@", nextPageLimit);
-	//NSLog(@"Total number of pages: %@", totalNumberOfPages);
 	
 	if(!increment) {
-		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:nil];
+		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:range];
 	} else {
 		int tmpVal = [currentPage intValue];
 		tmpVal++;
 		NSNumber * tmpNo = [NSNumber numberWithInt:tmpVal];
 		currentPage = tmpNo;
 		
-		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:nil];
+		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:range];
 	}
 	
 	NSLog(@"URL: %@", url);
@@ -349,18 +348,20 @@
 	 */
 	
 	if(!again) {
-		NSLog(@"We set new page limit");
+		//NSLog(@"We set new page limit");
 		//We set the next page limit. If it's more than our pages we have to set it to the maximum allowed pages
 		int curPageLimit = [nextPageLimit intValue];
 		curPageLimit = curPageLimit + [noOfPages intValue];
 		nextPageLimit = [NSNumber numberWithInt:curPageLimit];
 		
+		/*
 		if(nextPageLimit > totalNumberOfPages && totalNumberOfPages != nil) {
 			NSLog(@"next page limit before we mess it up: %@", nextPageLimit);
 			nextPageLimit = totalNumberOfPages;
 		}
-		 
-		NSLog(@"Next page limit: %@", nextPageLimit);
+		 */
+		
+		//NSLog(@"Next page limit: %@", nextPageLimit);
 		//Ok, we've set up the next page limit.
 	}
 	
@@ -495,7 +496,7 @@
 		[baseUrl appendFormat:@"&lat=%f&long=%f&api_key=%@", [lat doubleValue], [lon doubleValue], api];
 	}
 	
-	if(distance != nil) {
+	if(distance != nil && [distance intValue] != 0) {
 		[baseUrl appendFormat:@"&distance=%d", [distance intValue]];
 	}
 	

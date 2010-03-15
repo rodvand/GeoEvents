@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	self.title = ([viewToBeDisplayed isEqualToString:@"Radius"]) ? @"Search radius" : @"Number of events" ;
+	
 	//Get our default values from the appdelegate
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	eventsToBeFetched = appDelegate.numberOfEventsToBeFetched;
@@ -37,6 +39,7 @@
 	[noOfEventsArray addObject:[NSNumber numberWithInt:50]];
 	
 	searchRadiusArray = [[NSMutableArray alloc]init];
+	[searchRadiusArray addObject:[NSNumber numberWithInt:0]];
 	[searchRadiusArray addObject:[NSNumber numberWithInt:10]];
 	[searchRadiusArray addObject:[NSNumber numberWithInt:20]];
 	[searchRadiusArray addObject:[NSNumber numberWithInt:30]];
@@ -106,14 +109,22 @@
 	
     if([viewToBeDisplayed isEqualToString:@"Radius"]) {
 		NSNumber * number = [searchRadiusArray objectAtIndex:indexPath.row];
-		NSString * textLabel = [NSString stringWithFormat:@"%@ kilometre", number];
-		[cell.textLabel setText:textLabel];
+		
+		if(indexPath.row == 0) {
+			[cell.textLabel setText:@"Not defined"];
+		} else {
+			
+			NSString * textLabel = [NSString stringWithFormat:@"%@ kilometre", number];
+			[cell.textLabel setText:textLabel];
+			
+		}
 		
 		if([searchRadius isEqualToNumber:number]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
 		} else {
 			cell.accessoryType = UITableViewCellAccessoryNone;
 		}
+		
 	} else if([viewToBeDisplayed isEqualToString:@"Events"]) {
 		NSNumber * number = [noOfEventsArray objectAtIndex:indexPath.row];
 		NSString * textLabel = [NSString stringWithFormat:@"%@ events", number];
