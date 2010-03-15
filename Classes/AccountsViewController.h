@@ -10,7 +10,14 @@
 
 
 @interface AccountsViewController : UITableViewController {
+	
 
 }
+
+enum GEAccountSettings {
+	GEAccountFacebook = 0,
+	GEAccountTwitter,
+	GEAccountLastFM
+};
 
 @end

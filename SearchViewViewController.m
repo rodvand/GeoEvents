@@ -25,7 +25,9 @@
 			aDates,
 			currentPage,
 			totalNumberOfPages,
-			errorMessage;
+			errorMessage,
+			noOfPages,
+			nextPageLimit;
 
 - (void)viewDidLoad {
 	/* 
@@ -51,6 +53,21 @@
 	 */
 	more = NO;
 	
+	/*
+	 The number of pages we want to fetch each "Load more..."
+	 */
+	NSNumber * noOfEvents = appDelegate.numberOfEventsToBeFetched;
+	
+	if(noOfEvents == nil) {
+		//Initiate with a default value
+		noOfEvents = [NSNumber numberWithInt:20];
+	}
+	nextPageLimit = [NSNumber numberWithInt:0];
+	
+	//The number of pages to be fetched (noOfEvents/10)
+	noOfPages = [NSNumber numberWithInt:[noOfEvents intValue]/10];
+	NSLog(@"No of pages: %d", [noOfPages intValue]);
+	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
 	
@@ -61,7 +78,7 @@
 	
 	appForNetDelegate.networkActivityIndicatorVisible = YES;
 	currentPage = [NSNumber numberWithInt:1];
-	[self loadXml:NO];
+	[self loadXml:NO recursive:NO];
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
 	
 	if(!error) {
@@ -193,7 +210,7 @@
 		UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 		appForNetDelegate.networkActivityIndicatorVisible = YES;
 		currentlyLoading = YES;
-		[self loadXml:YES];
+		[self loadXml:YES recursive:NO];
 		currentlyLoading = NO;
 		appForNetDelegate.networkActivityIndicatorVisible = NO;
 		[self.tableView reloadData];
@@ -223,7 +240,7 @@
 
 # pragma mark General methods
 
-- (void)loadXml:(bool)increment {
+- (void)loadXml:(bool)increment recursive:(bool)again{
 	
 	/*
 	 Create our last fm url
@@ -323,6 +340,34 @@
 	 And if we haven't reached the last set of data, we show the "Load more..."
 	 */
 	more = (currentPage != totalNumberOfPages && !error) ? YES : NO;
+	
+	/*
+	 If we are to fetch more pages due to the number of results we want to fetch.
+	 Recursive! Boya!
+	 */
+	
+	if(!again) {
+		//We set the next page limit. If it's more than our pages we have to set it to the maximum allowed pages
+		int curPageLimit = [nextPageLimit intValue];
+		curPageLimit = curPageLimit + [noOfPages intValue];
+		nextPageLimit = [NSNumber numberWithInt:curPageLimit];
+		
+		if(nextPageLimit > totalNumberOfPages) {
+			nextPageLimit = totalNumberOfPages;
+		}
+		
+		//Ok, we've set up the next page limit.
+	}
+	
+	
+	if(more && currentPage != nextPageLimit) {
+		[self loadXml:YES recursive:YES];
+	}
+	
+	
+	
+	
+	
 	
 	[events retain];
 	[tbXML release];

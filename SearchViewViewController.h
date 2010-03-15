@@ -26,6 +26,8 @@
 	NSMutableArray * aDates;
 	NSNumber * currentPage;
 	NSNumber * totalNumberOfPages;
+	NSNumber * noOfPages;
+	NSNumber * nextPageLimit;
 	int sectionCounter;
 	int eventCounter;
 	bool error; //If something went wrong with our search
@@ -34,7 +36,7 @@
 	bool currentlyLoading; 
 }
 - (void) loadMap;
-- (void) loadXml:(bool)increment;
+- (void) loadXml:(bool)increment recursive:(bool)again;
 - (NSString*) createUrl:(NSString*)api latitude:(NSNumber*)lat longitude:(NSNumber*)lang searchString:(NSString*)searchQuery page:(NSNumber*)pageNumber range:(NSNumber*)distance;
 - (NSString*) createDate:(NSString*)rawDate;
 - (void) addDate:(Event*)event;
@@ -52,4 +54,6 @@
 @property (nonatomic, retain) NSMutableArray * events;
 @property (nonatomic, retain) NSNumber * currentPage;
 @property (nonatomic, retain) NSNumber * totalNumberOfPages;
+@property (nonatomic, retain) NSNumber * noOfPages;
+@property (nonatomic, retain) NSNumber * nextPageLimit;
 @end

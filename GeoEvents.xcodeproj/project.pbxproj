@@ -20,7 +20,6 @@
 		5B85658C10D6020500C8E54D /* lastfm.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B85658B10D6020500C8E54D /* lastfm.png */; };
 		5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */; };
 		5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */; };
-		5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1D6DA10CE8BB0002BFF08 /* icon.png */; };
 		5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF286E410CDA153005EB7AB /* libz.dylib */; };
 		5BF286EA10CDA16B005EB7AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E910CDA16B005EB7AB /* Event.m */; };
 		5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF2871210CDDE14005EB7AB /* CoreLocation.framework */; };
@@ -31,8 +30,7 @@
 		8C51CB1C1145918F006AB04E /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C51CB191145918F006AB04E /* NSDataAdditions.m */; };
 		8C51CB1D1145918F006AB04E /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C51CB1B1145918F006AB04E /* TBXML.m */; };
 		8C6C1E67114AFEA40096C3F3 /* AccountsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6C1E66114AFEA40096C3F3 /* AccountsViewController.m */; };
-		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
-		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
+		8CE63BC5114E53A40052A346 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CE63BC4114E53A40052A346 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +55,6 @@
 		5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewViewController.m; path = ../SearchViewViewController.m; sourceTree = "<group>"; };
 		5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewViewController.h; sourceTree = "<group>"; };
 		5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewViewController.m; sourceTree = "<group>"; };
-		5BE1D6DA10CE8BB0002BFF08 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../Poster/icon.png; sourceTree = SOURCE_ROOT; };
 		5BF286E410CDA153005EB7AB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5BF286E810CDA16B005EB7AB /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Event.h; path = ../Event.h; sourceTree = "<group>"; };
 		5BF286E910CDA16B005EB7AB /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Event.m; path = ../Event.m; sourceTree = "<group>"; };
@@ -76,10 +73,7 @@
 		8C6C1E65114AFEA40096C3F3 /* AccountsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountsViewController.h; sourceTree = "<group>"; };
 		8C6C1E66114AFEA40096C3F3 /* AccountsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountsViewController.m; sourceTree = "<group>"; };
 		8CACF7E511342354007D6247 /* GlobalHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
-		8CC1A9C011236DEA00BA6497 /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacebookViewController.h; path = ../FacebookViewController.h; sourceTree = "<group>"; };
-		8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacebookViewController.m; path = ../FacebookViewController.m; sourceTree = "<group>"; };
-		8CC1A9C311236E0100BA6497 /* LastfmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastfmViewController.h; sourceTree = "<group>"; };
-		8CC1A9C411236E0100BA6497 /* LastfmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmViewController.m; sourceTree = "<group>"; };
+		8CE63BC4114E53A40052A346 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +99,7 @@
 			children = (
 				8CACF7E511342354007D6247 /* GlobalHeader.h */,
 				5B45527210D352780087F585 /* IndexViewController.h */,
+				8CE63BC4114E53A40052A346 /* icon.png */,
 				5B45527310D352780087F585 /* IndexViewController.m */,
 				8CC1A9DA11236E9800BA6497 /* Search */,
 				8CC1A9D011236E4300BA6497 /* Settings */,
@@ -155,7 +150,6 @@
 			children = (
 				5B85658B10D6020500C8E54D /* lastfm.png */,
 				5B3AA99F10D20A8200E81307 /* SettingsView.xib */,
-				5BE1D6DA10CE8BB0002BFF08 /* icon.png */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* GeoEvents-Info.plist */,
 			);
@@ -190,10 +184,8 @@
 		8CC1A9CF11236E2300BA6497 /* SocialMedia */ = {
 			isa = PBXGroup;
 			children = (
-				8CC1A9C311236E0100BA6497 /* LastfmViewController.h */,
-				8CC1A9C411236E0100BA6497 /* LastfmViewController.m */,
-				8CC1A9C011236DEA00BA6497 /* FacebookViewController.h */,
-				8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */,
+				8C6C1E65114AFEA40096C3F3 /* AccountsViewController.h */,
+				8C6C1E66114AFEA40096C3F3 /* AccountsViewController.m */,
 			);
 			name = SocialMedia;
 			sourceTree = "<group>";
@@ -201,8 +193,6 @@
 		8CC1A9D011236E4300BA6497 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				8C6C1E65114AFEA40096C3F3 /* AccountsViewController.h */,
-				8C6C1E66114AFEA40096C3F3 /* AccountsViewController.m */,
 				8C4FD41B111B9F3700A332CA /* AboutViewController.h */,
 				5B3AA99D10D20A8200E81307 /* SettingsViewController.h */,
 				5B3AA99E10D20A8200E81307 /* SettingsViewController.m */,
@@ -278,9 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
-				5BE1D6DB10CE8BB0002BFF08 /* icon.png in Resources */,
 				5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */,
 				5B85658C10D6020500C8E54D /* lastfm.png in Resources */,
+				8CE63BC5114E53A40052A346 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,8 +291,6 @@
 				5B45527510D352780087F585 /* IndexViewController.m in Sources */,
 				5B45541F10D3D1650087F585 /* EditableDetailCell.m in Sources */,
 				8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */,
-				8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */,
-				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
 				8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */,
 				8C51CB1C1145918F006AB04E /* NSDataAdditions.m in Sources */,
 				8C51CB1D1145918F006AB04E /* TBXML.m in Sources */,
