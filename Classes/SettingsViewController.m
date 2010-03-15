@@ -17,6 +17,9 @@
 @synthesize aboutView,
 			accountsView,
 			searchView;
+- (void) viewDidLoad {
+	[self.tableView reloadData];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style {
 	if (self = [super initWithStyle:UITableViewStyleGrouped]) {
@@ -39,6 +42,10 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	[self.tableView reloadData];
 }
 
 #pragma mark Table view methods
@@ -111,8 +118,10 @@
 				[searchCell.detailTextLabel setText:distanceText];
 				break;
 			case sNumberOfResultsRow:
+				;
+				NSString * eventText = [NSString stringWithFormat:@"%@", appDelegate.numberOfEventsToBeFetched];
 				[searchCell.textLabel setText:@"Max events shown"];
-				[searchCell.detailTextLabel setText:@"100"];
+				[searchCell.detailTextLabel setText:eventText];
 				break;
 		}
 		

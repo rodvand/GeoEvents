@@ -12,7 +12,7 @@
 #import "MapViewController.h"
 #import "Event.h"
 
-@interface SearchViewViewController : UITableViewController {
+@interface SearchViewController : UITableViewController {
 	DetailedViewViewController * detailedViewController;
 	MapViewController * mapViewController;
 	NSString * searchString;

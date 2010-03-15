@@ -47,8 +47,8 @@
     //self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-	UIBarButtonItem * doneBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings)];
-    self.navigationItem.rightBarButtonItem = doneBtn;
+	//UIBarButtonItem * doneBtn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveSettings)];
+    //self.navigationItem.rightBarButtonItem = doneBtn;
 }
 
 
@@ -99,16 +99,20 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
 	}
+	
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
     if([viewToBeDisplayed isEqualToString:@"Radius"]) {
 		NSNumber * number = [searchRadiusArray objectAtIndex:indexPath.row];
-		NSString * textLabel = [NSString stringWithFormat:@"%@ km", number];
+		NSString * textLabel = [NSString stringWithFormat:@"%@ kilometre", number];
 		[cell.textLabel setText:textLabel];
 		
 		if([searchRadius isEqualToNumber:number]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		} else {
+			cell.accessoryType = UITableViewCellAccessoryNone;
 		}
 	} else if([viewToBeDisplayed isEqualToString:@"Events"]) {
 		NSNumber * number = [noOfEventsArray objectAtIndex:indexPath.row];
@@ -117,6 +121,8 @@
 		
 		if([eventsToBeFetched isEqualToNumber:number]) {
 			cell.accessoryType = UITableViewCellAccessoryCheckmark;
+		} else {
+			cell.accessoryType = UITableViewCellAccessoryNone;
 		}
 	}
 	
@@ -134,10 +140,21 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	
     if([viewToBeDisplayed isEqualToString:@"Radius"]) {
 		searchRadius = [searchRadiusArray objectAtIndex:indexPath.row];
+		UITableViewCell * searchCell = [self.tableView cellForRowAtIndexPath:indexPath];
+		searchCell.accessoryType = UITableViewCellAccessoryCheckmark;
+		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+		appDelegate.range = searchRadius;
 	} else if([viewToBeDisplayed isEqualToString:@"Events"]) {
 		eventsToBeFetched = [noOfEventsArray objectAtIndex:indexPath.row];
+		UITableViewCell * eventCell = [self.tableView cellForRowAtIndexPath:indexPath];
+		eventCell.accessoryType = UITableViewCellAccessoryCheckmark;
+		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+		appDelegate.numberOfEventsToBeFetched = eventsToBeFetched;
 	}
 }
 

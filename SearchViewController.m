@@ -6,13 +6,13 @@
 //  Copyright 2009 Redwater Software. All rights reserved.
 //
 
-#import "SearchViewViewController.h"
+#import "SearchViewController.h"
 #import "GeoEvents_finalAppDelegate.h"
 #import "Event.h"
 #import "TBXML.h"
 #import "MapViewController.h"
 
-@implementation SearchViewViewController
+@implementation SearchViewController
 @synthesize detailedViewController,
 			mapViewController,
 			searchString,
@@ -110,8 +110,6 @@
 	[mapView release];
 	
 	[self.navigationController pushViewController:mapViewController animated:YES];
-	NSLog(@"Her!");
-	
 }
 
 #pragma mark Table view methods
@@ -248,6 +246,9 @@
 	 If we want to increment, we take the currentPage we're on and increment it by one. The check to see if
 	 we have more pages is done in the end of this method.
 	 */
+	NSLog(@"Current page: %@", currentPage);
+	//NSLog(@"Next page limit: %@", nextPageLimit);
+	//NSLog(@"Total number of pages: %@", totalNumberOfPages);
 	
 	if(!increment) {
 		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:nil];
@@ -264,6 +265,7 @@
 
 	bool debug = NO;
 	error = NO;
+	totalNumberOfPages = nil;
 	
 	//Encode those pesky characters who no one likes
 	url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -347,15 +349,18 @@
 	 */
 	
 	if(!again) {
+		NSLog(@"We set new page limit");
 		//We set the next page limit. If it's more than our pages we have to set it to the maximum allowed pages
 		int curPageLimit = [nextPageLimit intValue];
 		curPageLimit = curPageLimit + [noOfPages intValue];
 		nextPageLimit = [NSNumber numberWithInt:curPageLimit];
 		
-		if(nextPageLimit > totalNumberOfPages) {
+		if(nextPageLimit > totalNumberOfPages && totalNumberOfPages != nil) {
+			NSLog(@"next page limit before we mess it up: %@", nextPageLimit);
 			nextPageLimit = totalNumberOfPages;
 		}
-		
+		 
+		NSLog(@"Next page limit: %@", nextPageLimit);
 		//Ok, we've set up the next page limit.
 	}
 	

@@ -18,7 +18,7 @@
 		5B45527510D352780087F585 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B45527310D352780087F585 /* IndexViewController.m */; };
 		5B45541F10D3D1650087F585 /* EditableDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B45541E10D3D1650087F585 /* EditableDetailCell.m */; };
 		5B85658C10D6020500C8E54D /* lastfm.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B85658B10D6020500C8E54D /* lastfm.png */; };
-		5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */; };
+		5BA1286F10CE6E140024ADC6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1286E10CE6E140024ADC6 /* SearchViewController.m */; };
 		5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */; };
 		5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF286E410CDA153005EB7AB /* libz.dylib */; };
 		5BF286EA10CDA16B005EB7AB /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF286E910CDA16B005EB7AB /* Event.m */; };
@@ -52,8 +52,8 @@
 		5B45541D10D3D1650087F585 /* EditableDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableDetailCell.h; sourceTree = "<group>"; };
 		5B45541E10D3D1650087F585 /* EditableDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableDetailCell.m; sourceTree = "<group>"; };
 		5B85658B10D6020500C8E54D /* lastfm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lastfm.png; sourceTree = "<group>"; };
-		5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewViewController.h; path = ../SearchViewViewController.h; sourceTree = "<group>"; };
-		5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewViewController.m; path = ../SearchViewViewController.m; sourceTree = "<group>"; };
+		5BA1286D10CE6E140024ADC6 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = ../SearchViewController.h; sourceTree = "<group>"; };
+		5BA1286E10CE6E140024ADC6 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = ../SearchViewController.m; sourceTree = "<group>"; };
 		5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedViewViewController.h; sourceTree = "<group>"; };
 		5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedViewViewController.m; sourceTree = "<group>"; };
 		5BF286E410CDA153005EB7AB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -212,10 +212,10 @@
 			children = (
 				8C2A61A01135BA180039EC54 /* MapViewController.h */,
 				8C2A61A11135BA180039EC54 /* MapViewController.m */,
-				5BA1286D10CE6E140024ADC6 /* SearchViewViewController.h */,
+				5BA1286D10CE6E140024ADC6 /* SearchViewController.h */,
 				5BA1288810CE71310024ADC6 /* DetailedViewViewController.h */,
 				5BA1288910CE71310024ADC6 /* DetailedViewViewController.m */,
-				5BA1286E10CE6E140024ADC6 /* SearchViewViewController.m */,
+				5BA1286E10CE6E140024ADC6 /* SearchViewController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -290,7 +290,7 @@
 				1D3623260D0F684500981E51 /* GeoEvents_finalAppDelegate.m in Sources */,
 				5BF286EA10CDA16B005EB7AB /* Event.m in Sources */,
 				5BF2871E10CDE5BC005EB7AB /* MyCLController.m in Sources */,
-				5BA1286F10CE6E140024ADC6 /* SearchViewViewController.m in Sources */,
+				5BA1286F10CE6E140024ADC6 /* SearchViewController.m in Sources */,
 				5BA1288A10CE71310024ADC6 /* DetailedViewViewController.m in Sources */,
 				5B3AA9A010D20A8200E81307 /* SettingsViewController.m in Sources */,
 				5B45527510D352780087F585 /* IndexViewController.m in Sources */,
@@ -338,7 +338,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
