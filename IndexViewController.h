@@ -17,6 +17,7 @@
 	MyCLController *locationController;
 	SearchViewController * searchViewViewController;
 	SettingsViewController * settingsViewController;
+	UIActivityIndicatorView * activityIndicator;
 	NSNumber * latitude;
 	NSNumber * longitude;
 	int run;
@@ -34,6 +35,7 @@
 @property (nonatomic, retain) UITextField * searchField;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) UIActivityIndicatorView * activityIndicator;
 @property bool locationFound;
 @property int run;
 

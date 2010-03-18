@@ -3,13 +3,13 @@
 //  GeoEvents_final
 //
 //  Created by Martin Roedvand on 07/12/2009.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Redwater software. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-
-@interface Event : NSObject {
+@interface Event : NSObject <MKAnnotation>{
 	NSString * ident;
 	NSString * artist;
 	NSString * venue;
@@ -23,8 +23,13 @@
 	NSString * location;
 	NSNumber * section;
 	NSNumber * row;
+	
+	//MKAnnotation properties
+	CLLocationCoordinate2D coordinate;
+	NSString * title;
+	NSString * subtitle;
 }
-
+-(void) setForMapKit;
 @property (nonatomic, retain) NSString * ident;
 @property (nonatomic, retain) NSString * artist;
 @property (nonatomic, retain) NSString * venue;
@@ -38,4 +43,6 @@
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSNumber * section;
 @property (nonatomic, retain) NSNumber * row;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * subtitle;
 @end

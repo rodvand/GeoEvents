@@ -18,7 +18,8 @@
 			longitude,
 			locationFound,
 			run,
-			settingsViewController;
+			settingsViewController,
+			activityIndicator;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,8 +29,18 @@
 	UIBarButtonItem * settingsBtn = [[UIBarButtonItem alloc]initWithTitle:@"Settings" 
 																	style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings:)];
 	
-	[self.navigationItem setRightBarButtonItem:settingsBtn animated:YES];
+	[self.navigationItem setRightBarButtonItem:settingsBtn animated:NO];
 	[settingsBtn release];
+	
+	/*
+	 Add button to the left navigationBar
+	activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+	[activityIndicator stopAnimating];
+	[activityIndicator hidesWhenStopped];
+	UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
+	[self.navigationItem setLeftBarButtonItem:barButton];
+	*/
+	
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	
 	run = 0;
@@ -76,7 +87,7 @@
 }
 
 - (void)locationError:(NSError *)error {
-    //locationLabel.text = [error description];
+    
 }
 
 - (void)search:(NSString *)searchText addToSearchHistory:(bool)addToSearch {
@@ -94,6 +105,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+	[activityIndicator stopAnimating];
 	[self.tableView reloadData];
 }
 
@@ -297,6 +309,7 @@
 	 select one and send him to the search
 	 */
 	if(indexPath.section == historySection) {
+		[activityIndicator startAnimating];
 		GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 		NSMutableArray * theSearchHistory = appDelegate.searchHistory;
 		

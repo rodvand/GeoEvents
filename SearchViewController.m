@@ -83,6 +83,8 @@
 	[self loadXml:NO recursive:NO];
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
 	
+	appDelegate.events = events;
+	
 	if(!error) {
 		//Add a map it button
 		UIBarButtonItem * mapBtn = [[UIBarButtonItem alloc] initWithTitle:@"Map 'em!" style:UIBarButtonItemStylePlain target:self action:@selector(loadMap)];
@@ -331,6 +333,10 @@
 				}
 				
 			}
+			
+			//Prepare it for mapKit
+			[anEvent setForMapKit];
+			
 			event = [TBXML nextSiblingNamed:@"event" searchFromElement:event];
 		}
 	} else {

@@ -25,7 +25,8 @@
 			lastfmstatus,
 			searchSuggestions,
 			range,
-			numberOfEventsToBeFetched;
+			numberOfEventsToBeFetched,
+			events;
 
 #pragma mark -
 #pragma mark Application lifecycle
@@ -45,7 +46,6 @@
 	
 	NSArray * savedSearches = [[NSArray alloc]initWithContentsOfFile:fullFileName];
 	NSArray * savedSettings = [[NSArray alloc]initWithContentsOfFile:settingsFileName];
-	
 	
 	/*
 	 If we have nothing in our search file, we populate it with some searches

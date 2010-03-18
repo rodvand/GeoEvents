@@ -26,6 +26,7 @@
 	NSString * searchString;
 	bool lastfmstatus;
 	bool searchSuggestions;
+	NSArray * events;
 }
 
 @property (nonatomic, retain) UIWindow *window;
@@ -39,6 +40,7 @@
 @property (nonatomic, retain) NSMutableArray * searchHistory;
 @property (nonatomic, retain) NSString * searchString;
 @property (nonatomic, retain) NSNumber * numberOfEventsToBeFetched;
+@property (nonatomic, retain) NSArray * events;
 @property bool isUsingGps;
 @property bool lastfmstatus;
 @property bool searchSuggestions;
