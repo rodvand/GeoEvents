@@ -25,18 +25,32 @@
 		mapView.showsUserLocation = YES;
 	}
 	CLLocationCoordinate2D location;
-	location.latitude = [appDelegate.lat doubleValue];
-	location.longitude = [appDelegate.lon doubleValue];
 	
-	/*
-	NSLog(@"Latitude: %@", [location.latitude doubleValue]);
-	NSLog(@"Longitude: %@", [location.longitude doubleValue]);
-	*/
+	if(appDelegate.isUsingGps) {
+		location.latitude = [appDelegate.lat doubleValue];
+		location.longitude = [appDelegate.lon doubleValue];
+	} else {
+		//Fetch an event and set it as center
+		NSArray * eventArray = appDelegate.events;
+		int max = [eventArray count];
+		int ranNo = arc4random() % max;
+		Event * luckyEvent = [eventArray objectAtIndex:ranNo];
+		
+		location.latitude = [luckyEvent.lat doubleValue];
+		location.longitude = [luckyEvent.lon doubleValue];
+		[luckyEvent release];
+		
+	}
+	MKCoordinateSpan span;
+	span.latitudeDelta = .005;
+	span.latitudeDelta = 1;
+
 	MKCoordinateRegion region;
 	region.center = location;
+	region.span = span;
 	[mapView addAnnotations:appDelegate.events];
 
-	//[mapView setRegion:region animated:YES];
+	[mapView setRegion:region animated:YES];
 	
 	[self.view insertSubview:mapView atIndex:0];
 	
