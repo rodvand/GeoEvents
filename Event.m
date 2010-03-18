@@ -37,7 +37,7 @@
 	NSLog(@"Longitude: %@", [lon description]);
 	
 	title = artist;
-	subtitle = [NSString stringWithFormat:@"%@, %@", venue, location];
+	subtitle = [[NSString alloc]initWithFormat:@"%@, %@", venue, location];
 	
 	NSLog(@"Title: %@", title);
 	NSLog(@"Subtitle: %@", subtitle);
