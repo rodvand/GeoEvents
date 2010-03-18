@@ -40,12 +40,13 @@
 	 Make a file name to write the data to using the
 	 documents directory.
 	 */
-	NSString *fullFileName = [NSString stringWithFormat:@"%@/searchHistory", documentsDirectory];
+	NSString * fullFileName = [NSString stringWithFormat:@"%@/searchHistory.plist", documentsDirectory];
+	NSString * settingsFileName = [NSString stringWithFormat:@"%@/searchSettings.plist", documentsDirectory];
 	
 	NSArray * savedSearches = [[NSArray alloc]initWithContentsOfFile:fullFileName];
+	NSArray * savedSettings = [[NSArray alloc]initWithContentsOfFile:settingsFileName];
 	
-	range = [[NSNumber alloc]initWithInt:0];
-	numberOfEventsToBeFetched = [[NSNumber alloc] initWithInt:40];
+	
 	/*
 	 If we have nothing in our search file, we populate it with some searches
 	 If we have stuff in our search file, we fill the array with these searches
@@ -64,6 +65,25 @@
 		searchSuggestions = NO;
 		testArray = [[NSArray alloc] initWithArray:savedSearches];
 	}
+	
+	/*
+	 We check if there's anything in our settings file.
+	 If not, let's make some default values for
+	 search radius and no of events to fetch
+	 */
+	NSArray * defaultSettings;
+	if([savedSettings count] == 0) {
+		NSNumber * numbers[2];
+		numbers[0] = [[NSNumber alloc]initWithInt:0];
+		numbers[1] = [[NSNumber alloc]initWithInt:40];
+		
+		defaultSettings = [NSArray arrayWithObjects:numbers count:2];
+	} else {
+		defaultSettings = [[NSArray alloc]initWithArray:savedSettings];
+	}
+	range = [defaultSettings objectAtIndex:0];
+	numberOfEventsToBeFetched = [defaultSettings objectAtIndex:1];
+	
 	//Set our last.fm status
 	//TODO: Implement real login
 	lastfmstatus = NO;
@@ -110,9 +130,24 @@
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
 	
-	NSString *fullFileName = [NSString stringWithFormat:@"%@/searchHistory", documentsDirectory];
+	/*
+	 Save the search history
+	 */
+	NSString *fullFileName = [NSString stringWithFormat:@"%@/searchHistory.plist", documentsDirectory];
 	
 	[searchHistory writeToFile:fullFileName atomically:NO];
+	
+	/*
+	 Save the search settings
+	 */
+	NSString *settingsFileName = [NSString stringWithFormat:@"%@/searchSettings.plist", documentsDirectory];
+	
+	NSMutableArray * searchSettings = [[NSMutableArray alloc] init];
+	[searchSettings insertObject:range atIndex:0];
+	[searchSettings insertObject:numberOfEventsToBeFetched atIndex:1];
+	
+	[searchSettings writeToFile:settingsFileName atomically:YES];
+	
 }
 
 #pragma mark -

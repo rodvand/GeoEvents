@@ -103,6 +103,8 @@
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 	self.searchString = nil;
+	[aDates release];
+	[events release];
 }
 
 - (void)loadMap {
