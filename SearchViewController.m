@@ -290,9 +290,6 @@
 			//Create our event object
 			Event * anEvent = [[Event alloc] init];
 			
-			//Add it to the array
-			[events addObject:anEvent];
-			
 			TBXMLElement * artists = [TBXML childElementNamed:@"artists" parentElement:event];
 			anEvent.artist = [TBXML textForElement:[TBXML childElementNamed:@"headliner" parentElement:artists]];
 			
@@ -302,7 +299,10 @@
 			[self addDate:anEvent];
 			
 			anEvent.eventUrl = [TBXML textForElement:[TBXML childElementNamed:@"url" parentElement:event]];
-			anEvent.eventStatus = [TBXML textForElement:[TBXML childElementNamed:@"cancelled" parentElement:event]];
+			anEvent.canceled = [TBXML textForElement:[TBXML childElementNamed:@"cancelled" parentElement:event]];
+			
+			
+			
 			anEvent.attendance = [TBXML textForElement:[TBXML childElementNamed:@"attendance" parentElement:event]];
 			TBXMLElement * venues = [TBXML childElementNamed:@"venue" parentElement:event];
 			
@@ -334,8 +334,14 @@
 				
 			}
 			
-			//Prepare it for mapKit
-			[anEvent setForMapKit];
+
+			if([anEvent.canceled isEqualToString:@"0"]) {
+				//Add it to the array
+				[events addObject:anEvent];
+				
+				//Prepare it for mapKit
+				[anEvent setForMapKit];
+			}
 			
 			event = [TBXML nextSiblingNamed:@"event" searchFromElement:event];
 		}

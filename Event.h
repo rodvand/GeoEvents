@@ -16,7 +16,7 @@
 	NSString * startDate;
 	NSArray * tags;
 	NSString * eventUrl;
-	NSString * eventStatus;
+	NSString *canceled;
 	NSString * lat;
 	NSString * lon;
 	NSString * attendance;
@@ -35,7 +35,6 @@
 @property (nonatomic, retain) NSString * venue;
 @property (nonatomic, retain) NSString * startDate;
 @property (nonatomic, retain) NSString * eventUrl;
-@property (nonatomic, retain) NSString * eventStatus;
 @property (nonatomic, retain) NSString * lat;
 @property (nonatomic, retain) NSString * lon;
 @property (nonatomic, retain) NSArray * tags;
@@ -45,4 +44,5 @@
 @property (nonatomic, retain) NSNumber * row;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * subtitle;
+@property (nonatomic, retain) NSString * canceled;
 @end

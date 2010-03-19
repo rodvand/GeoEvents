@@ -16,7 +16,7 @@
 			venue,
 			startDate,
 			eventUrl,
-			eventStatus,
+			canceled,
 			lat,
 			lon,
 			tags,
@@ -33,14 +33,14 @@
 	coordinate.latitude = [lat doubleValue];
 	coordinate.longitude = [lon doubleValue];
 	
-	NSLog(@"Latitude: %@", [lat description]);
-	NSLog(@"Longitude: %@", [lon description]);
+	//NSLog(@"Latitude: %@", [lat description]);
+	//NSLog(@"Longitude: %@", [lon description]);
 	
 	title = artist;
 	subtitle = [[NSString alloc]initWithFormat:@"%@, %@", venue, location];
 	
-	NSLog(@"Title: %@", title);
-	NSLog(@"Subtitle: %@", subtitle);
+	//NSLog(@"Title: %@", title);
+	//NSLog(@"Subtitle: %@", subtitle);
 	
 }
 

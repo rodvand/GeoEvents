@@ -42,8 +42,8 @@
 		
 	}
 	MKCoordinateSpan span;
-	span.latitudeDelta = .005;
-	span.latitudeDelta = 1;
+	span.latitudeDelta = 0.1;
+	span.longitudeDelta = 0.1;
 
 	MKCoordinateRegion region;
 	region.center = location;
@@ -60,7 +60,7 @@
 	MKAnnotationView * mkView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
 	mkView.enabled = YES;
 	mkView.canShowCallout = YES;
-	
+	mkView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 	return mkView;
 }
 
