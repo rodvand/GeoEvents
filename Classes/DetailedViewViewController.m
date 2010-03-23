@@ -207,6 +207,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	if(indexPath.section == linkSection) {
+		switch (indexPath.row) {
+			case linkEvent:
+				;
+				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithString:selectedEvent.eventUrl]]];
+				break;
+				
+			case linkWebsite:
+				;
+				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithString:selectedEvent.websiteUrl]]];
+				break;
+		}
+	}
 }
 
 - (void)dealloc {
