@@ -12,6 +12,7 @@
 
 @implementation DetailedViewViewController
 
+@synthesize selectedEvent;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -20,14 +21,13 @@
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	
 	//Get our selected event from the delegate
-	Event * event = appDelegate.selectedEvent;
+	selectedEvent = appDelegate.selectedEvent;
 	
 	//Get our logged in status Last.fm/Facebook/Twitter/Etc
 	lastfmLoggedIn = appDelegate.lastfmstatus;
 	
-	self.title = event.artist;
+	self.title = selectedEvent.artist;
 	
-	[event release];
 }
 
 
@@ -60,13 +60,17 @@
 	
 	if(section == attendanceSection) {
 		//If we're logged in to last.fm, enable adding attendance to event
+		//return (lastfmLoggedIn) ? NUM_ATTENDANCE : NUM_ATTENDANCE -1;
 		if(lastfmLoggedIn) {
 			return NUM_ATTENDANCE;
 		} else {
-			return NUM_ATTENDANCE - 1;
+			return NUM_ATTENDANCE -1;
 		}
 	}
     
+	if(section == linkSection) {
+		return (selectedEvent.websiteUrl == nil) ? NUM_LINKS - 1 : NUM_LINKS;
+	}
 	return 0;
 }
 
@@ -82,6 +86,8 @@
     static NSString *CellIdentifier = @"Event";
 	static NSString *AttCellIdentifier = @"Attendance";
 	static NSString *AttBtnCellIdentifier = @"Attendance button";
+	static NSString *LinkCellIdentifier = @"Link";
+	
     if(indexPath.section == eventSection) {
 		UITableViewCell *eventCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (eventCell == nil) {
@@ -140,6 +146,39 @@
 				return attendanceBtnCell;
 				break;
 		}
+	} 
+	
+	else if(indexPath.section == linkSection) {
+		switch(indexPath.row) {
+			case linkEvent:
+				;
+				UITableViewCell * eventLinkCell = [tableView dequeueReusableCellWithIdentifier:LinkCellIdentifier];
+				if(eventLinkCell == nil) {
+					eventLinkCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LinkCellIdentifier] autorelease];
+				}
+				
+				[eventLinkCell.textLabel setText:@"Event (opens in Safari)"];
+				eventLinkCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+				[eventLinkCell.textLabel setTextAlignment:UITextAlignmentCenter];
+				
+				return eventLinkCell;
+				break;
+			case linkWebsite:
+				;
+				if(selectedEvent.websiteUrl != nil) {
+					UITableViewCell * websiteLinkCell = [tableView dequeueReusableCellWithIdentifier:LinkCellIdentifier];
+					if(websiteLinkCell == nil) {
+						websiteLinkCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LinkCellIdentifier] autorelease];
+					}
+					[websiteLinkCell.textLabel setText:@"Website (opens in Safari)"];
+					websiteLinkCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+					[websiteLinkCell.textLabel setTextAlignment:UITextAlignmentCenter];
+					
+					return websiteLinkCell;
+					break;
+				}
+		}
+		
 	}
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];

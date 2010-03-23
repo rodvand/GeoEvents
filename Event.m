@@ -16,6 +16,7 @@
 			venue,
 			startDate,
 			eventUrl,
+			websiteUrl,
 			canceled,
 			lat,
 			lon,

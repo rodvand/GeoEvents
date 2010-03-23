@@ -301,7 +301,7 @@
 			anEvent.eventUrl = [TBXML textForElement:[TBXML childElementNamed:@"url" parentElement:event]];
 			anEvent.canceled = [TBXML textForElement:[TBXML childElementNamed:@"cancelled" parentElement:event]];
 			
-			
+			anEvent.websiteUrl = [TBXML textForElement:[TBXML childElementNamed:@"website" parentElement:event]];
 			
 			anEvent.attendance = [TBXML textForElement:[TBXML childElementNamed:@"attendance" parentElement:event]];
 			TBXMLElement * venues = [TBXML childElementNamed:@"venue" parentElement:event];
@@ -323,6 +323,7 @@
 				NSLog(@"Start date: %@", anEvent.startDate);
 				NSLog(@"Artist: %@", anEvent.artist);
 				NSLog(@"Venue: %@", anEvent.venue);
+				NSLog(@"Website: %@", anEvent.websiteUrl);
 				NSLog(@"URL: %@", anEvent.eventUrl);
 				NSLog(@"City: %@", anEvent.location);
 				NSLog(@"Section: %@", [anEvent.section stringValue]);

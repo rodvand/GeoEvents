@@ -60,7 +60,9 @@
 	MKAnnotationView * mkView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
 	mkView.enabled = YES;
 	mkView.canShowCallout = YES;
+	mkView.leftCalloutAccessoryView = nil;
 	mkView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+	
 	return mkView;
 }
 
