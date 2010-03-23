@@ -15,6 +15,7 @@
 			artist,
 			venue,
 			startDate,
+			sensibleDate,
 			eventUrl,
 			websiteUrl,
 			canceled,

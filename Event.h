@@ -14,6 +14,7 @@
 	NSString * artist;
 	NSString * venue;
 	NSString * startDate;
+	NSString * sensibleDate;
 	NSArray * tags;
 	NSString * eventUrl;
 	NSString * websiteUrl;
@@ -35,6 +36,7 @@
 @property (nonatomic, retain) NSString * artist;
 @property (nonatomic, retain) NSString * venue;
 @property (nonatomic, retain) NSString * startDate;
+@property (nonatomic, retain) NSString * sensibleDate;
 @property (nonatomic, retain) NSString * eventUrl;
 @property (nonatomic, retain) NSString * websiteUrl;
 @property (nonatomic, retain) NSString * lat;

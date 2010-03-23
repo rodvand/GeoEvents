@@ -266,6 +266,31 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	NSLog(@"Button clicked: %d", buttonIndex );
+	
+	switch(buttonIndex) {
+		case 0:
+			NSLog(@"Mail it!");
+			NSString * mail = [NSString stringWithFormat:@"mailto:?subject=Check out %@&body=I'm seeing %@ on %@.\n Check the event out at: %@", 
+							   selectedEvent.artist,
+							   selectedEvent.artist,
+							   selectedEvent.sensibleDate,
+								selectedEvent.eventUrl];
+			
+			NSURL * mailUrl = [NSURL URLWithString:[mail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+			[[UIApplication sharedApplication] openURL:mailUrl];
+			break;
+		case 1:
+			NSLog(@"Tweet it!");
+			break;
+		case 2:
+			NSLog(@"Favourite it!");
+			break;
+		case 3:
+			NSLog(@"Cancel it");
+			break;
+		default:
+			break;
+	}
 }
 
 - (void)dealloc {

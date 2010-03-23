@@ -402,6 +402,7 @@
 
 - (void) addDate:(Event *)event {
 	NSString * dateString = [self createDate:event.startDate];
+	event.sensibleDate = dateString;
 	/*
 	 Take the date,
 	 check if it is already present in the array/dictionary,
