@@ -3,7 +3,7 @@
 //  GeoEvents_final
 //
 //  Created by Martin Roedvand on 08/12/2009.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009 Redwater software. All rights reserved.
 //
 
 #import "DetailedViewViewController.h"
@@ -13,9 +13,28 @@
 @implementation DetailedViewViewController
 
 @synthesize selectedEvent;
-
+- (id) initWithStyle:(UITableViewStyle)style {
+	[super initWithStyle:style];
+	
+	// Create a UIToolbar
+	/*
+	UIToolbar * toolBar = [[UIToolbar alloc] init];
+	toolBar.barStyle = UIBarStyleBlack;
+	NSLog(@"Her!");
+	[self.navigationController.view addSubview:toolBar]; 
+	 */
+	
+	return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+	//Toolbar setup
+	UIToolbar * toolBar = self.navigationController.toolbar;
+	toolBar.barStyle = UIBarStyleBlack;
+	UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
+	NSArray * buttonArray = [NSArray arrayWithObject:item];
+	[self.navigationController setToolbarHidden:NO];
+	[self.navigationController setToolbarItems:buttonArray];
 	
 	//We create our link to the appDelegate
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
