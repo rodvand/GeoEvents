@@ -31,10 +31,12 @@
 	//Toolbar setup
 	UIToolbar * toolBar = self.navigationController.toolbar;
 	toolBar.barStyle = UIBarStyleBlack;
-	UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:nil action:nil];
-	NSArray * buttonArray = [NSArray arrayWithObject:item];
 	[self.navigationController setToolbarHidden:NO];
-	[self.navigationController setToolbarItems:buttonArray];
+	UIBarButtonItem * flexibleSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionItems)];
+	NSArray * buttonArray = [NSArray arrayWithObjects:flexibleSpace, item, nil];
+	
+	[self setToolbarItems:buttonArray];
 	
 	//We create our link to the appDelegate
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
@@ -78,10 +80,15 @@
 	}
 	
 	if(section == attendanceSection) {
-		//If we're logged in to last.fm, enable adding attendance to event
-		//return (lastfmLoggedIn) ? NUM_ATTENDANCE : NUM_ATTENDANCE -1;
+		/*
+		 If we're logged in to last.fm, enable adding attendance to event.
+		 In the case we have none attending we don't bother showing it. Looks lame.
+		 */
+		
 		if(lastfmLoggedIn) {
 			return NUM_ATTENDANCE;
+		} else if([selectedEvent.attendance isEqualToString:@"0"]) {
+			return 0;
 		} else {
 			return NUM_ATTENDANCE -1;
 		}
@@ -144,10 +151,10 @@
 				;
 				UITableViewCell * attendanceCell = [tableView dequeueReusableCellWithIdentifier:AttCellIdentifier];
 				if(attendanceCell == nil) {
-					attendanceCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:AttCellIdentifier] autorelease];
+					attendanceCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:AttCellIdentifier] autorelease];
 				}
 				
-				[attendanceCell.textLabel setText:@"Attendance"];
+				[attendanceCell.textLabel setText:@"Last.fm users attending"];
 				[attendanceCell.detailTextLabel setText:event.attendance];
 				
 				return attendanceCell;
@@ -176,7 +183,7 @@
 					eventLinkCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LinkCellIdentifier] autorelease];
 				}
 				
-				[eventLinkCell.textLabel setText:@"Event (opens in Safari)"];
+				[eventLinkCell.textLabel setText:@"Event"];
 				eventLinkCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 				[eventLinkCell.textLabel setTextAlignment:UITextAlignmentCenter];
 				
@@ -189,7 +196,7 @@
 					if(websiteLinkCell == nil) {
 						websiteLinkCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LinkCellIdentifier] autorelease];
 					}
-					[websiteLinkCell.textLabel setText:@"Website (opens in Safari)"];
+					[websiteLinkCell.textLabel setText:@"Website"];
 					websiteLinkCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
 					[websiteLinkCell.textLabel setTextAlignment:UITextAlignmentCenter];
 					
@@ -219,8 +226,8 @@
 		return @"Event information";
 	}
 	
-	if(section == attendanceSection) {
-		return @"Attendance";
+	if(section == linkSection) {
+		return @"Links";
 	}
 	return 0;
 }
@@ -239,6 +246,26 @@
 				break;
 		}
 	}
+}
+
+- (void) showActionItems {
+	/*
+	 Create an ActionSheet and show it
+	 */
+	
+	UIActionSheet * actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
+	[actionSheet addButtonWithTitle:@"Mail this event"];
+	[actionSheet addButtonWithTitle:@"Tweet it"];
+	[actionSheet addButtonWithTitle:@"Add to favourites"];
+	actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+	actionSheet.delegate = self;
+	[actionSheet showInView:self.view];
+	[actionSheet showFromToolbar:self.navigationController.toolbar];
+	[actionSheet release];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+	NSLog(@"Button clicked: %d", buttonIndex );
 }
 
 - (void)dealloc {

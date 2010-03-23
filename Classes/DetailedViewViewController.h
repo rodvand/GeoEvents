@@ -9,11 +9,11 @@
 #import "Event.h"
 #import <UIKit/UIKit.h>
 
-@interface DetailedViewViewController : UITableViewController {
+@interface DetailedViewViewController : UITableViewController <UIActionSheetDelegate> {
 	bool lastfmLoggedIn;
 	Event * selectedEvent;
 }
-
+- (void) showActionItems;
 @property (nonatomic, retain) Event * selectedEvent;
 
 enum detailedSections {
