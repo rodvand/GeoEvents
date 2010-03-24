@@ -46,4 +46,15 @@
 	
 }
 
+- (bool)isThisIt:(NSString*)band venue:(NSString*)place {
+	
+	if([artist isEqualToString:band]) {
+		NSString *compVenue = [NSString stringWithFormat:@"%@, %@", venue, location];
+		if([compVenue isEqualToString:place]) {
+			return true;
+		}
+	}
+	return false;
+	
+}
 @end

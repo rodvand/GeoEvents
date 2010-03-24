@@ -32,6 +32,7 @@
 	NSString * subtitle;
 }
 -(void) setForMapKit;
+-(bool)isThisIt:(NSString*)artist venue:(NSString*)place;
 @property (nonatomic, retain) NSString * ident;
 @property (nonatomic, retain) NSString * artist;
 @property (nonatomic, retain) NSString * venue;

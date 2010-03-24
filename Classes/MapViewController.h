@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "DetailedViewViewController.h"
 
 @interface MapViewController : UIViewController <MKMapViewDelegate> {
 	MKMapView * mapView;
+	NSArray * arrayWithEvents;
+	DetailedViewViewController * detailedView;
 }
-
+@property(nonatomic, retain) NSArray * arrayWithEvents;
+@property(nonatomic, retain) DetailedViewViewController * detailedView;
 @end

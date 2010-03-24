@@ -8,18 +8,21 @@
 
 #import "MapViewController.h"
 #import "GeoEvents_finalAppDelegate.h"
+#import "DetailedViewViewController.h"
 
 @implementation MapViewController
+
+@synthesize arrayWithEvents,
+			detailedView;
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
 	mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-	//mapView.delegate = self;
 	mapView.mapType = MKMapTypeStandard;
-	
+	mapView.delegate = self;
 	//Get the appDelegate for the latitude and longitude of the user.
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-	
+	arrayWithEvents = appDelegate.events;
 	//Only if we're on a GPS search will we show the user's location
 	if(appDelegate.isUsingGps) {
 		mapView.showsUserLocation = YES;
@@ -48,7 +51,7 @@
 	MKCoordinateRegion region;
 	region.center = location;
 	region.span = span;
-	[mapView addAnnotations:appDelegate.events];
+	[mapView addAnnotations:arrayWithEvents];
 
 	[mapView setRegion:region animated:YES];
 	
@@ -57,17 +60,45 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id <MKAnnotation>)annotation {
-	MKAnnotationView * mkView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"MapAnnotation"];
-	
+	NSLog(@"In here.");
+	MKPinAnnotationView * mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
 	if(mkView == nil) {
-		mkView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
+		mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
 	}
 	mkView.enabled = YES;
 	mkView.canShowCallout = YES;
-	mkView.leftCalloutAccessoryView = nil;
-	mkView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+	
+	UIButton * accBtn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+	
+	mkView.rightCalloutAccessoryView = accBtn;
 	
 	return mkView;
 }
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
+	Event * ourEvent;
+	for(Event * curEvent in arrayWithEvents) {
+		NSString * comparableVenueString = [NSString stringWithFormat:@"%@, %@", curEvent.venue, curEvent.location];
+		
+		NSLog(@"DVenue: %@", comparableVenueString);
+		
+		if([curEvent isThisIt:view.annotation.title venue:comparableVenueString]) {
+			ourEvent = curEvent;
+		}
+			
+	}
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	appDelegate.selectedEvent = ourEvent;
+	
+	DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	self.detailedView = dView;
+	
+	[dView release];
+	
+	[self.navigationController pushViewController:detailedView animated:YES];
+	
+	
+}
+
 
 @end
