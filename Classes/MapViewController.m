@@ -57,7 +57,11 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id <MKAnnotation>)annotation {
-	MKAnnotationView * mkView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
+	MKAnnotationView * mkView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"MapAnnotation"];
+	
+	if(mkView == nil) {
+		mkView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
+	}
 	mkView.enabled = YES;
 	mkView.canShowCallout = YES;
 	mkView.leftCalloutAccessoryView = nil;

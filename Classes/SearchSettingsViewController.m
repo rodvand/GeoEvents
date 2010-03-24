@@ -160,12 +160,14 @@
 		searchCell.accessoryType = UITableViewCellAccessoryCheckmark;
 		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 		appDelegate.range = searchRadius;
+		[self.navigationController popViewControllerAnimated:YES];
 	} else if([viewToBeDisplayed isEqualToString:@"Events"]) {
 		eventsToBeFetched = [noOfEventsArray objectAtIndex:indexPath.row];
 		UITableViewCell * eventCell = [self.tableView cellForRowAtIndexPath:indexPath];
 		eventCell.accessoryType = UITableViewCellAccessoryCheckmark;
 		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
 		appDelegate.numberOfEventsToBeFetched = eventsToBeFetched;
+		[self.navigationController popViewControllerAnimated:YES];
 	}
 }
 

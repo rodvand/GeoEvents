@@ -255,8 +255,8 @@
 	
 	UIActionSheet * actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 	[actionSheet addButtonWithTitle:@"Mail this event"];
-	[actionSheet addButtonWithTitle:@"Tweet it"];
-	[actionSheet addButtonWithTitle:@"Add to favourites"];
+	//[actionSheet addButtonWithTitle:@"Tweet it"];
+	//[actionSheet addButtonWithTitle:@"Add to favourites"];
 	actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
 	actionSheet.delegate = self;
 	[actionSheet showInView:self.view];

@@ -266,7 +266,7 @@
 	
 	NSLog(@"URL: %@", url);
 
-	bool debug = NO;
+	bool debug = YES;
 	error = NO;
 	totalNumberOfPages = nil;
 	
@@ -296,8 +296,6 @@
 			anEvent.ident = [TBXML textForElement:[TBXML childElementNamed:@"id" parentElement:event]];
 			anEvent.startDate = [TBXML textForElement:[TBXML childElementNamed:@"startDate" parentElement:event]];
 			
-			[self addDate:anEvent];
-			
 			anEvent.eventUrl = [TBXML textForElement:[TBXML childElementNamed:@"url" parentElement:event]];
 			anEvent.canceled = [TBXML textForElement:[TBXML childElementNamed:@"cancelled" parentElement:event]];
 			
@@ -315,6 +313,16 @@
 				anEvent.lat = [TBXML textForElement:[TBXML childElementNamed:@"geo:lat" parentElement:geo]];
 				anEvent.lon = [TBXML textForElement:[TBXML childElementNamed:@"geo:long" parentElement:geo]];
 			}
+
+			if([anEvent.canceled isEqualToString:@"0"]) {
+				NSLog(@"This event is not canceled.");
+				[self addDate:anEvent];
+				//Add it to the array
+				[events addObject:anEvent];
+				
+				//Prepare it for mapKit
+				[anEvent setForMapKit];
+			}
 			
 			if(debug) {
 				NSLog(@"**********************************");
@@ -327,21 +335,13 @@
 				NSLog(@"URL: %@", anEvent.eventUrl);
 				NSLog(@"City: %@", anEvent.location);
 				NSLog(@"Section: %@", [anEvent.section stringValue]);
+				NSLog(@"Canceled: %@", anEvent.canceled);
 				NSLog(@"Row: %@", [anEvent.row stringValue]);
 				if(geo != nil) {
 					NSLog(@"Latitude: %@", anEvent.lat);
 					NSLog(@"Longitude: %@", anEvent.lon);
 				}
 				
-			}
-			
-
-			if([anEvent.canceled isEqualToString:@"0"]) {
-				//Add it to the array
-				[events addObject:anEvent];
-				
-				//Prepare it for mapKit
-				[anEvent setForMapKit];
 			}
 			
 			event = [TBXML nextSiblingNamed:@"event" searchFromElement:event];
