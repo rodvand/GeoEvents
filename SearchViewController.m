@@ -37,6 +37,7 @@
 	 */
 	
     [super viewDidLoad];
+	
 	UIApplication * appForNetDelegate = [UIApplication sharedApplication];
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	locationBasedSearch = appDelegate.isUsingGps;
@@ -50,9 +51,6 @@
 	events = [[NSMutableArray alloc] initWithCapacity:10];
 	aDates = [[NSMutableArray alloc] init];
 	
-	/*
-	 TODO: Check how many pages we have. Then say if we have more.
-	 */
 	more = NO;
 	
 	/*
@@ -110,6 +108,10 @@
 	self.searchString = nil;
 	[aDates release];
 	[events release];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+	[self.navigationController setToolbarHidden:YES];
 }
 
 - (void)loadMap {

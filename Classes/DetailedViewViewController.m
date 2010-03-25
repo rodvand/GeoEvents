@@ -16,14 +16,6 @@
 - (id) initWithStyle:(UITableViewStyle)style {
 	[super initWithStyle:style];
 	
-	// Create a UIToolbar
-	/*
-	UIToolbar * toolBar = [[UIToolbar alloc] init];
-	toolBar.barStyle = UIBarStyleBlack;
-	NSLog(@"Her!");
-	[self.navigationController.view addSubview:toolBar]; 
-	 */
-	
 	return self;
 }
 - (void)viewDidLoad {
@@ -61,8 +53,7 @@
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+	
 }
 
 
