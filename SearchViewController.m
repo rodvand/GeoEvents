@@ -78,9 +78,12 @@
 	
 	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];
 	
-	appForNetDelegate.networkActivityIndicatorVisible = YES;
-	currentPage = [NSNumber numberWithInt:1];
-	[self loadXml:NO recursive:NO];
+	if(events != nil) {
+		appForNetDelegate.networkActivityIndicatorVisible = YES;
+		currentPage = [NSNumber numberWithInt:1];
+		[self loadXml:NO recursive:NO];
+	}
+	
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
 	
 	appDelegate.events = events;

@@ -25,21 +25,15 @@
     [super viewDidLoad];
 	self.title = @"GeoEvents";
 	
+	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+	appDelegate.events = nil;
+	
 	//Add button to navigationBar
 	UIBarButtonItem * settingsBtn = [[UIBarButtonItem alloc]initWithTitle:@"Settings" 
 																	style:UIBarButtonItemStyleBordered target:self action:@selector(goToSettings:)];
 	
 	[self.navigationItem setRightBarButtonItem:settingsBtn animated:NO];
 	[settingsBtn release];
-	
-	/*
-	 Add button to the left navigationBar
-	activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-	[activityIndicator stopAnimating];
-	[activityIndicator hidesWhenStopped];
-	UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithCustomView:activityIndicator];
-	[self.navigationItem setLeftBarButtonItem:barButton];
-	*/
 	
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 	

@@ -60,7 +60,7 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id <MKAnnotation>)annotation {
-	NSLog(@"In here.");
+	
 	MKPinAnnotationView * mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
 	if(mkView == nil) {
 		mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
@@ -79,8 +79,6 @@
 	Event * ourEvent;
 	for(Event * curEvent in arrayWithEvents) {
 		NSString * comparableVenueString = [NSString stringWithFormat:@"%@, %@", curEvent.venue, curEvent.location];
-		
-		NSLog(@"DVenue: %@", comparableVenueString);
 		
 		if([curEvent isThisIt:view.annotation.title venue:comparableVenueString]) {
 			ourEvent = curEvent;
