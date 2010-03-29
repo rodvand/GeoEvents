@@ -76,13 +76,12 @@
 	
 	self.title = (appDelegate.isUsingGps)? @"GPS search" : [searchString capitalizedString];
 	
-	if(events != nil) {
-		appForNetDelegate.networkActivityIndicatorVisible = YES;
-		currentPage = [NSNumber numberWithInt:1];
-		[self loadXml:NO recursive:NO];
+	if(events == nil || [events count] == 0) {
+			appForNetDelegate.networkActivityIndicatorVisible = YES;
+			currentPage = [NSNumber numberWithInt:1];
+			[self loadXml:NO recursive:NO];
+			appForNetDelegate.networkActivityIndicatorVisible = NO;
 	}
-	
-	appForNetDelegate.networkActivityIndicatorVisible = NO;
 	
 	appDelegate.events = events;
 	
@@ -93,7 +92,6 @@
 		[mapBtn release];
 	}
 }
-
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -250,6 +248,9 @@
 # pragma mark General methods
 
 - (void)loadXml:(bool)increment recursive:(bool)again{
+	/*
+	 TODO: When we receive an error, get the error and the code, and display a suitable message.
+	 */
 	
 	/*
 	 Create our last fm url
@@ -368,21 +369,11 @@
 	 */
 	
 	if(!again) {
-		//NSLog(@"We set new page limit");
 		//We set the next page limit. If it's more than our pages we have to set it to the maximum allowed pages
 		int curPageLimit = [nextPageLimit intValue];
 		curPageLimit = curPageLimit + [noOfPages intValue];
 		nextPageLimit = [NSNumber numberWithInt:curPageLimit];
 		
-		/*
-		if(nextPageLimit > totalNumberOfPages && totalNumberOfPages != nil) {
-			NSLog(@"next page limit before we mess it up: %@", nextPageLimit);
-			nextPageLimit = totalNumberOfPages;
-		}
-		 */
-		
-		//NSLog(@"Next page limit: %@", nextPageLimit);
-		//Ok, we've set up the next page limit.
 	}
 	
 	

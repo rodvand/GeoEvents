@@ -60,7 +60,6 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id <MKAnnotation>)annotation {
-	
 	MKPinAnnotationView * mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
 	if(mkView == nil) {
 		mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];

@@ -20,15 +20,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-	//Toolbar setup
-	UIToolbar * toolBar = self.navigationController.toolbar;
-	toolBar.barStyle = UIBarStyleBlack;
-	[self.navigationController setToolbarHidden:NO];
-	UIBarButtonItem * flexibleSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionItems)];
-	NSArray * buttonArray = [NSArray arrayWithObjects:flexibleSpace, item, nil];
 	
-	[self setToolbarItems:buttonArray];
+	UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionItems)];
+	self.navigationItem.rightBarButtonItem = item;
 	
 	//We create our link to the appDelegate
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
