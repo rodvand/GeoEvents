@@ -60,6 +60,14 @@
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)lmapView viewForAnnotation:(id <MKAnnotation>)annotation {
+	
+	/*
+	 We show the standard blue pin on our Current Location
+	 */
+	if([annotation.title isEqualToString:@"Current Location"]) {
+		return nil;
+	}
+	   
 	MKPinAnnotationView * mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
 	if(mkView == nil) {
 		mkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"MapAnnotation"];
