@@ -13,11 +13,19 @@
 @implementation DetailedViewViewController
 
 @synthesize selectedEvent;
+- (id) initWithEvent:(Event*)event {
+	[super initWithStyle:UITableViewStyleGrouped];
+	selectedEvent = event;
+	
+	return self;
+}
+/*
 - (id) initWithStyle:(UITableViewStyle)style {
 	[super initWithStyle:style];
 	
 	return self;
 }
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -28,7 +36,7 @@
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	
 	//Get our selected event from the delegate
-	selectedEvent = appDelegate.selectedEvent;
+	//selectedEvent = appDelegate.selectedEvent;
 	
 	//Get our logged in status Last.fm/Facebook/Twitter/Etc
 	lastfmLoggedIn = appDelegate.lastfmstatus;
@@ -88,11 +96,9 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //We create our link to the appDelegate
-	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	
-	//Get our selected event from the delegate
-	Event * event = appDelegate.selectedEvent;
+	//Get our selected event
+	Event * event = selectedEvent;
 	
     static NSString *CellIdentifier = @"Event";
 	static NSString *AttCellIdentifier = @"Attendance";
@@ -201,11 +207,6 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	//We create our link to the appDelegate
-	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-	
-	//Get our selected event from the delegate
-	Event * event = appDelegate.selectedEvent;
 	
 	if(section == eventSection) {
 		return @"Event information";

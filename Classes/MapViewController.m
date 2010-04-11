@@ -92,10 +92,8 @@
 		}
 			
 	}
-	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-	appDelegate.selectedEvent = ourEvent;
 	
-	DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];
+	DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithEvent:ourEvent];
 	self.detailedView = dView;
 	
 	[dView release];

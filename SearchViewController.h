@@ -42,6 +42,7 @@
 - (NSString*) createDate:(NSString*)rawDate;
 - (void) addDate:(Event*)event;
 - (Event*) getEvent:(NSIndexPath *)indexPath;
+
 @property (nonatomic, retain) NSMutableArray * aDates;
 @property (nonatomic, retain) NSMutableArray * sections;
 @property (nonatomic, retain) DetailedViewViewController * detailedViewController;

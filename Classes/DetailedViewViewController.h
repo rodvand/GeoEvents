@@ -14,6 +14,7 @@
 	Event * selectedEvent;
 }
 - (void) showActionItems;
+- (id) initWithEvent:(Event*)event;
 @property (nonatomic, retain) Event * selectedEvent;
 
 enum detailedSections {

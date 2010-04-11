@@ -229,12 +229,7 @@
 		if (event == nil) { error = YES; }
 		
 		if(!error) {
-			//Navigation logic
-			GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-			
-			appDelegate.selectedEvent = event;
-		
-			DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];
+			DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithEvent:event];
 			self.detailedViewController = dView;
 		
 			[dView release];
