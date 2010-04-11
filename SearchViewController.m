@@ -66,7 +66,6 @@
 	
 	//The number of pages to be fetched (noOfEvents/10)
 	noOfPages = [NSNumber numberWithInt:[noOfEvents intValue]/10];
-	NSLog(@"No of pages: %d", [noOfPages intValue]);
 	
 	// Last.fm API key
 	apiKey = @"3c1e7d9edb3eeb785596fc009d5a163b";
@@ -97,7 +96,7 @@
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
 	
-	// Release any cached data, images, etc that aren't in use.
+		// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
@@ -231,7 +230,9 @@
 		if(!error) {
 			DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithEvent:event];
 			self.detailedViewController = dView;
-		
+			UITableViewCell * cellToDeSelect = [self.tableView cellForRowAtIndexPath:indexPath];
+			cellToDeSelect.selected = NO;
+			
 			[dView release];
 			
 			[self.navigationController pushViewController:detailedViewController animated:YES];

@@ -74,9 +74,10 @@
 		NSArray * indexPathArray = [NSArray arrayWithObject:[NSIndexPath indexPathForRow:1 inSection:0]];
 		[self.tableView insertRowsAtIndexPaths:indexPathArray withRowAnimation:UITableViewRowAnimationBottom];
 	}
-	
+	/*
 	NSLog(@"Location: %f", [location coordinate].latitude);
 	NSLog(@"Location: %f", [longitude doubleValue]);
+	 */
 	[locationController.locationManager stopUpdatingLocation];
 }
 

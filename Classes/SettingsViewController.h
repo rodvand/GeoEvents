@@ -24,7 +24,7 @@
 enum sSections {
 	//sAccountSettings = 0,
 	sSearchSettings = 0,
-	sAboutSection,
+	//sAboutSection,
 	sNUM_SECTIONS
 };
 

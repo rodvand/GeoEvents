@@ -247,6 +247,7 @@
 			/*
 			 Mail it!
 			 */
+			;
 			NSString * mail = [NSString stringWithFormat:@"mailto:?subject=Check out %@&body=I'm seeing %@ on %@.\n Check the event out at: %@", 
 							   selectedEvent.artist,
 							   selectedEvent.artist,

@@ -60,8 +60,8 @@
 		//	return sNUM_ACCOUNT_ROWS;
 		case sSearchSettings:
 			return sNUM_SEARCH_ROWS;
-		case sAboutSection:
-			return sNUM_ABOUT_ROWS;
+		//case sAboutSection:
+		//	return sNUM_ABOUT_ROWS;
 	}
 	
 	return 1;
@@ -132,6 +132,7 @@
 	}
 	
 	// For our about cells
+	/*
 	if(indexPath.section == sAboutSection) {
 		UITableViewCell *aboutCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		
@@ -143,7 +144,7 @@
 		return aboutCell;
 		
 	}
-	
+	*/
 	return nil;
 	
 }
@@ -154,8 +155,8 @@
 		//	return @"Account Settings";
 		case sSearchSettings:
 			return @"Search Settings";
-		case sAboutSection:
-			return @"About this app";
+		//case sAboutSection:
+		//	return @"About this app";
 	}
 	return nil;
 }
@@ -193,6 +194,7 @@
 			[self.navigationController pushViewController:searchView animated:YES];
 			[searchV release];
 			break;
+		/*
 		case sAboutSection:
 			switch(indexPath.row) {
 				case sAboutRow:
@@ -204,6 +206,7 @@
 					break;
 			}
 			break;
+		 */
 	}
 }
 

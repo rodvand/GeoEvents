@@ -64,7 +64,8 @@
 					}
 					[cell.textLabel setLineBreakMode:UILineBreakModeWordWrap];
 					[cell.textLabel setTextAlignment:UITextAlignmentCenter];
-					cell.textLabel.numberOfLines = 6;
+					
+					cell.textLabel.numberOfLines = 0;
 					[cell.textLabel setText:@"GeoEvents is a part of my Bachelor with Honors degree, taken at the University of Stirling in Scotland.The complete source code can be found at the github address listed below."];
 					
 					return cell;
@@ -91,12 +92,12 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NCellIdentifier] autorelease];
     }
     
-    // Set up the cell...
     
     return cell;
 }
 
 #pragma mark TableViewDelegate method
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Change the height of our row if its necessary
