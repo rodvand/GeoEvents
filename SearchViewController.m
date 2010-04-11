@@ -265,11 +265,13 @@
 		url = [self createUrl:apiKey latitude:latitude longitude:longitude searchString:searchString page:currentPage range:range];
 	}
 	
-	NSLog(@"URL: %@", url);
-
-	bool debug = YES;
+	bool debug = NO;
 	error = NO;
 	totalNumberOfPages = nil;
+	
+	if(debug) {
+		NSLog(@"URL: %@", url);
+	}
 	
 	//Encode those pesky characters who no one likes
 	url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -316,8 +318,8 @@
 			}
 
 			if([anEvent.canceled isEqualToString:@"0"]) {
-				NSLog(@"This event is not canceled.");
 				[self addDate:anEvent];
+				
 				//Add it to the array
 				[events addObject:anEvent];
 				

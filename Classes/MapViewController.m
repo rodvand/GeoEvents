@@ -90,7 +90,6 @@
 		if([curEvent isThisIt:view.annotation.title venue:comparableVenueString]) {
 			ourEvent = curEvent;
 		}
-			
 	}
 	
 	DetailedViewViewController * dView = [[DetailedViewViewController alloc] initWithEvent:ourEvent];

@@ -32,15 +32,6 @@
 	UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionItems)];
 	self.navigationItem.rightBarButtonItem = item;
 	
-	//We create our link to the appDelegate
-	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-	
-	//Get our selected event from the delegate
-	//selectedEvent = appDelegate.selectedEvent;
-	
-	//Get our logged in status Last.fm/Facebook/Twitter/Etc
-	lastfmLoggedIn = appDelegate.lastfmstatus;
-	
 	self.title = selectedEvent.artist;
 	
 }
@@ -241,8 +232,6 @@
 	
 	UIActionSheet * actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
 	[actionSheet addButtonWithTitle:@"Mail this event"];
-	//[actionSheet addButtonWithTitle:@"Tweet it"];
-	//[actionSheet addButtonWithTitle:@"Add to favourites"];
 	actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
 	actionSheet.delegate = self;
 	[actionSheet showInView:self.view];
@@ -255,7 +244,9 @@
 	
 	switch(buttonIndex) {
 		case 0:
-			NSLog(@"Mail it!");
+			/*
+			 Mail it!
+			 */
 			NSString * mail = [NSString stringWithFormat:@"mailto:?subject=Check out %@&body=I'm seeing %@ on %@.\n Check the event out at: %@", 
 							   selectedEvent.artist,
 							   selectedEvent.artist,
@@ -264,17 +255,6 @@
 			
 			NSURL * mailUrl = [NSURL URLWithString:[mail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 			[[UIApplication sharedApplication] openURL:mailUrl];
-			break;
-		case 1:
-			NSLog(@"Tweet it!");
-			break;
-		case 2:
-			NSLog(@"Favourite it!");
-			break;
-		case 3:
-			NSLog(@"Cancel it");
-			break;
-		default:
 			break;
 	}
 }

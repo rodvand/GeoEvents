@@ -114,7 +114,7 @@
 			[cell.textLabel setText:@"Not defined"];
 		} else {
 			
-			NSString * textLabel = [NSString stringWithFormat:@"%@ kilometre", number];
+			NSString * textLabel = [NSString stringWithFormat:@"%@ kilometres", number];
 			[cell.textLabel setText:textLabel];
 			
 		}

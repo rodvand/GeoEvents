@@ -13,8 +13,7 @@
 @implementation GeoEvents_finalAppDelegate
 
 @synthesize window, 
-			navigationController,
-			selectedEvent,
+			navigationController,			
 			lat,
 			lon,
 			settingsViewController,
@@ -111,11 +110,7 @@
     // Create the navigation and view controllers
     IndexViewController *rootViewController = [[IndexViewController alloc] initWithStyle:UITableViewStyleGrouped];
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
-	/* Toolbar inits
-	UIToolbar * toolbar = navigationController.toolbar;
-	toolbar.barStyle = UIBarStyleBlack;
-	[navigationController setToolbarHidden:NO];
-	 */
+
     [rootViewController release];
 	
     // Configure and show the window

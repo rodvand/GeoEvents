@@ -16,7 +16,6 @@
 	UIBarButtonItem * settingsButton;
     UINavigationController *navigationController;
 	SettingsViewController * settingsViewController;
-	Event * selectedEvent;
 	NSMutableArray * searchHistory;
 	NSNumber * lat;
 	NSNumber * lon;
