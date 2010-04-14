@@ -77,10 +77,6 @@
 			return NUM_ATTENDANCE -1;
 		}
 	}
-    
-	if(section == linkSection) {
-		return (selectedEvent.websiteUrl == nil) ? NUM_LINKS - 1 : NUM_LINKS;
-	}
 	return 0;
 }
 
@@ -94,7 +90,6 @@
     static NSString *CellIdentifier = @"Event";
 	static NSString *AttCellIdentifier = @"Attendance";
 	static NSString *AttBtnCellIdentifier = @"Attendance button";
-	static NSString *LinkCellIdentifier = @"Link";
 	
     if(indexPath.section == eventSection) {
 		UITableViewCell *eventCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -156,39 +151,6 @@
 		}
 	} 
 	
-	else if(indexPath.section == linkSection) {
-		switch(indexPath.row) {
-			case linkEvent:
-				;
-				UITableViewCell * eventLinkCell = [tableView dequeueReusableCellWithIdentifier:LinkCellIdentifier];
-				if(eventLinkCell == nil) {
-					eventLinkCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LinkCellIdentifier] autorelease];
-				}
-				
-				[eventLinkCell.textLabel setText:@"Event"];
-				eventLinkCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-				[eventLinkCell.textLabel setTextAlignment:UITextAlignmentCenter];
-				
-				return eventLinkCell;
-				break;
-			case linkWebsite:
-				;
-				if(selectedEvent.websiteUrl != nil) {
-					UITableViewCell * websiteLinkCell = [tableView dequeueReusableCellWithIdentifier:LinkCellIdentifier];
-					if(websiteLinkCell == nil) {
-						websiteLinkCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:LinkCellIdentifier] autorelease];
-					}
-					[websiteLinkCell.textLabel setText:@"Website"];
-					websiteLinkCell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-					[websiteLinkCell.textLabel setTextAlignment:UITextAlignmentCenter];
-					
-					return websiteLinkCell;
-					break;
-				}
-		}
-		
-	}
-	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:CellIdentifier] autorelease];
@@ -202,27 +164,11 @@
 	if(section == eventSection) {
 		return @"Event information";
 	}
-	
-	if(section == linkSection) {
-		return @"Links";
-	}
 	return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	if(indexPath.section == linkSection) {
-		switch (indexPath.row) {
-			case linkEvent:
-				;
-				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithString:selectedEvent.eventUrl]]];
-				break;
-				
-			case linkWebsite:
-				;
-				[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithString:selectedEvent.websiteUrl]]];
-				break;
-		}
-	}
+
 }
 
 - (void) showActionItems {
@@ -231,7 +177,8 @@
 	 */
 	
 	UIActionSheet * actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil];
-	[actionSheet addButtonWithTitle:@"Mail this event"];
+	[actionSheet addButtonWithTitle:@"Mail Event"];
+	[actionSheet addButtonWithTitle:@"Open Event Link"];
 	actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
 	actionSheet.delegate = self;
 	[actionSheet showInView:self.view];
@@ -240,8 +187,6 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	NSLog(@"Button clicked: %d", buttonIndex );
-	
 	switch(buttonIndex) {
 		case 0:
 			/*
@@ -256,6 +201,12 @@
 			
 			NSURL * mailUrl = [NSURL URLWithString:[mail stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 			[[UIApplication sharedApplication] openURL:mailUrl];
+			break;
+		case 1:
+			/*
+			 Open event link
+			 */
+			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithString:selectedEvent.eventUrl]]];
 			break;
 	}
 }

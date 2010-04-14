@@ -20,7 +20,6 @@
 enum detailedSections {
 	eventSection = 0,
 	attendanceSection,
-	linkSection,
 	NUM_DETAILED_SECTIONS
 };
 
@@ -35,11 +34,5 @@ enum detailedSectionAttendance {
 	attendanceNumber = 0,
 	attendanceButton,
 	NUM_ATTENDANCE
-};
-
-enum linkSection {
-	linkEvent = 0,
-	linkWebsite,
-	NUM_LINKS
 };
 @end

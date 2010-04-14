@@ -194,7 +194,6 @@
 			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 		}
 		
-		// Set up the cell...
 		Event * event = [self getEvent:indexPath];
 		[cell.textLabel setText:event.artist];
 		NSString * detailedText = [[NSString alloc] initWithFormat:@"%@, %@", event.venue, event.location];
