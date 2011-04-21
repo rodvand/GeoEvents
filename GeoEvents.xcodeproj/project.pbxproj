@@ -37,6 +37,7 @@
 		A648D331135E33F400BC529E /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = A648D330135E33F400BC529E /* sphere.obj */; };
 		A648D387135E401100BC529E /* pano_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D386135E401100BC529E /* pano_bg.png */; };
 		A648D584135F9D5800BC529E /* music_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D583135F9D5800BC529E /* music_icon.png */; };
+		A648D6D6136017AA00BC529E /* music_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D6D5136017AA00BC529E /* music_icon@2x.png */; };
 		A6645364135E017D00E93CF4 /* lib3DAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6645363135E017D00E93CF4 /* lib3DAR.a */; };
 		A6645377135E01D700E93CF4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6645375135E01D700E93CF4 /* Icon.png */; };
 		A6645378135E01D700E93CF4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6645376135E01D700E93CF4 /* Default.png */; };
@@ -112,6 +113,7 @@
 		A648D330135E33F400BC529E /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		A648D386135E401100BC529E /* pano_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pano_bg.png; sourceTree = "<group>"; };
 		A648D583135F9D5800BC529E /* music_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon.png; sourceTree = "<group>"; };
+		A648D6D5136017AA00BC529E /* music_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music_icon@2x.png"; sourceTree = "<group>"; };
 		A6645363135E017D00E93CF4 /* lib3DAR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib3DAR.a; path = "../../../Library/iOS/build/Debug-iphoneos/lib3DAR.a"; sourceTree = SOURCE_ROOT; };
 		A6645375135E01D700E93CF4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		A6645376135E01D700E93CF4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				A69F2536135919D80091A696 /* bubble1.png */,
 				A69F2537135919D80091A696 /* compass_rose.png */,
 				A648D583135F9D5800BC529E /* music_icon.png */,
+				A648D6D5136017AA00BC529E /* music_icon@2x.png */,
 				A648D386135E401100BC529E /* pano_bg.png */,
 				A69F2539135919D90091A696 /* Pushpin.h */,
 				A69F253A135919D90091A696 /* pushpin_1.0.obj */,
@@ -401,6 +404,7 @@
 				A648D331135E33F400BC529E /* sphere.obj in Resources */,
 				A648D387135E401100BC529E /* pano_bg.png in Resources */,
 				A648D584135F9D5800BC529E /* music_icon.png in Resources */,
+				A648D6D6136017AA00BC529E /* music_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

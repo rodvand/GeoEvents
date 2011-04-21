@@ -100,7 +100,11 @@
         marker.subtitle = [NSString stringWithFormat:@"At %@ on %@", event.venue, event.startDate];
         marker.imageName = @"music_icon.png";
         
-        [mapView addAnnotation:marker]; 
+        // TODO: Test with array
+        [mapView addAnnotations:[NSArray arrayWithObject:marker]]; 
+        
+//        [mapView addAnnotation:marker]; 
+        
         [marker release];    
     }
 
@@ -128,34 +132,8 @@
 	[mapView setRegion:region animated:YES];
 }
 
--(MKAnnotationView *)mapView:(SM3DARMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation {
-
-	MKPinAnnotationView * view = nil;
-
-	if (annotation != theMapView.userLocation) {
-
-		view = (MKPinAnnotationView *)
-		[theMapView dequeueReusableAnnotationViewWithIdentifier:@"identifier"];
-
-		if (view == nil) {
-			view = [[[MKPinAnnotationView alloc]
-                     initWithAnnotation:annotation reuseIdentifier:@"identifier"]
-                    autorelease];
-		}
-
-		[view setPinColor:MKPinAnnotationColorRed];
-		[view setCanShowCallout:YES];
-		[view setAnimatesDrop:YES];
-
-	} else {
-        // User's current position
-        //GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
-		//[self setCurrentMapLocation:appDelegate.location];
-	}
-	return view;
-}
-
 -(void)dealloc {
+    [mapView release];
     [events release];
     [super dealloc];
 }

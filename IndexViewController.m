@@ -58,7 +58,7 @@
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
 
-	if(location.horizontalAccuracy < 1000.0) { // run == 5 || simulator) {
+	if(location.horizontalAccuracy < 5000.0) { // run == 5 || simulator) {
 		locationFound = YES;
 		[self.tableView reloadData];
 		[locationController.locationManager stopUpdatingLocation];
