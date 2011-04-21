@@ -12,18 +12,21 @@
 @implementation SM3DARMapView
 
 @synthesize containerView;
+@synthesize calloutView;
+@synthesize hudView;
 
 - (void) dealloc 
 {
-    [hudView release];
-    hudView = nil;
 
     [overlayView release];
     overlayView = nil;
     
+    self.hudView = nil;
     self.containerView = nil;
+    self.calloutView = nil;
     
     [sm3dar release];
+    [pointAnnotations release];
 
     [super dealloc];
 }
@@ -39,6 +42,8 @@
     // Self will be the delegate until 3DAR is done initializing.
 
     sm3dar = [[SM3DAR_Controller alloc] initWithDelegate:self];
+    
+    pointAnnotations = [[NSMutableDictionary alloc] init];
 }
 
 - (void) add3darContainer:(SM3DAR_Controller *)_sm3dar
@@ -63,13 +68,28 @@
     
 //    _sm3dar.markerViewClass = [PushpinView class];    
     
-    _sm3dar.focusView = nil;
-    
-    if (hudView)
+    if (!hudView)
     {
-        _sm3dar.hudView = hudView;
+        self.hudView = [[[UIView alloc] initWithFrame:self.bounds] autorelease];
     }
     
+    _sm3dar.hudView = hudView;
+    
+    if (!hudView.superview)
+    {
+        [_sm3dar.view addSubview:hudView];
+    }
+
+    
+    self.calloutView = [[[MarkerCalloutView alloc] 
+                        initWithFrame:CGRectMake(10, 178, 300, 60)] autorelease];
+    calloutView.delegate = self;
+    calloutView.hidden = YES;
+    [hudView addSubview:calloutView];
+
+    _sm3dar.focusView = calloutView;
+    
+
 
     // Add 3DAR view to parent view.
     
@@ -101,7 +121,7 @@
     if (self = [super initWithFrame:frame]);
     {
         // When no NIB is used, init3DAR must be called manually 
-        // after the map view is added to its superview.
+        // after the map view is added to its superview.        
     }
     
     return self;
@@ -312,16 +332,23 @@
 
 - (void) addAnnotation:(id)object
 {
+    NSObject<MKAnnotation> *annotation = nil;
+    
     if ([object conformsToProtocol:@protocol(MKAnnotation)])
     {
         // The object is an annotation so add it to the map.
         
-        NSObject<MKAnnotation> *annotation = (NSObject<MKAnnotation>*)object;
+        annotation = (NSObject<MKAnnotation>*)object;
         [super addAnnotation:annotation];
     }
     
     id p = [self poiFromAnnotation:object];
     [sm3dar addPoint:p];
+    
+    if (annotation)
+    {
+        [pointAnnotations setObject:p forKey:annotation];
+    }
 }
 
 - (void) addPoints:(NSArray *)points
@@ -332,6 +359,9 @@
     {
         id p = [self poiFromAnnotation:object];
         [tmpPoints addObject:p];
+        NSLog(@"Mapping point %@ to annotation %@", p, object);
+
+        [pointAnnotations setObject:p forKey:object];
     }
     
     [sm3dar addPointsOfInterest:tmpPoints addToMap:NO];
@@ -534,5 +564,21 @@
     }
 }
 
+- (void) calloutViewWasTappedForPoint:(SM3DAR_Point *)point
+{
+    NSLog(@"Digging up point: %@", point);
+    
+    
+    NSObject<MKAnnotation> *annotation = [pointAnnotations objectForKey:point];
+
+    MKAnnotationView *annView = (MKAnnotationView*)point.view;
+    
+    if (annotation)
+    {
+        annView.annotation = annotation;
+    }
+    
+    [self mapView:self annotationView:annView calloutAccessoryControlTapped:nil];
+}
 
 @end

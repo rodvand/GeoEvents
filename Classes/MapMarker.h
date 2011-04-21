@@ -7,17 +7,20 @@
 
 #import <Foundation/Foundation.h>
 #import "Mapkit/Mapkit.h"
+#import "Event.h"
 
 @interface MapMarker : CLLocation <MKAnnotation> 
 {
 	NSString* title;
 	NSString* subtitle;
-    NSString* imageName;
+    NSString* imageName;    
+    Event *event;
 }
 
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, retain) NSString* subtitle;
 @property (nonatomic, retain) NSString* imageName;
+@property (nonatomic, retain) Event *event;
 
 - (id)initWithLocation:(CLLocation*)loc;
 

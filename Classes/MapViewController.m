@@ -9,6 +9,7 @@
 #import "MapViewController.h"
 #import "MapMarker.h"
 #import "GeoEvents_finalAppDelegate.h"
+#import "DetailedViewViewController.h"
 
 @implementation MapViewController
 
@@ -99,6 +100,7 @@
         marker.title = event.artist;
         marker.subtitle = [NSString stringWithFormat:@"At %@ on %@", event.venue, event.startDate];
         marker.imageName = @"music_icon.png";
+        marker.event = event;
         
         // TODO: Test with array
         [mapView addAnnotations:[NSArray arrayWithObject:marker]]; 
@@ -141,12 +143,29 @@
 
 #pragma mark -
 
-- (void) mapAnnotationView:(MKAnnotationView*)annotationView calloutAccessoryControlTapped:(UIControl*)control 
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)annView calloutAccessoryControlTapped:(UIControl *)control
 {
-    NSLog(@"calloutAccessoryControlTapped");
+    NSLog(@"mapView:annotationView:calloutAccessoryControlTapped:");
     
-//    SM3DAR_CustomAnnotationView *av = (SM3DAR_CustomAnnotationView*)annotationView;
-//    self.selectedPOI = av.poi;
+    MapMarker *marker = (MapMarker*)(annView.annotation);
+
+    for (Event *event in events)
+    {
+        if ([event.ident isEqualToString:marker.event.ident])
+        {
+            GeoEvents_finalAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;            
+            appDelegate.selectedEvent = event;            
+            DetailedViewViewController *dView = [[DetailedViewViewController alloc] initWithStyle:UITableViewStyleGrouped];            
+            [self.navigationController pushViewController:dView animated:YES];
+            [dView release];    
+            break;
+        }
+    }
+}
+
+- (void) sm3darDidShowMap:(SM3DAR_Controller *)sm3dar
+{
+    
 }
 
 @end

@@ -236,6 +236,7 @@ typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
 - (CGFloat)distanceInMilesFromCurrentLocation;
 - (NSString*)formattedDistanceInMilesFrom:(CLLocation*)otherPoint;
 - (NSString*)formattedDistanceInMilesFromCurrentLocation;
+- (NSString*)formattedDistanceFromCurrentLocationWithUnits;
 - (BOOL)isInView:(CGPoint*)point;
 - (CATransform3D)objectTransform;
 - (CGFloat)gearSpeed;
@@ -282,6 +283,7 @@ typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
 
 @property (nonatomic, retain) UIImageView *icon;
 
+- (id)initWithPointOfInterest:(SM3DAR_PointOfInterest*)pointOfInterest imageName:(NSString *)_imageName;
 + (NSString*)randomIconName;
 @end
 
