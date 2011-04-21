@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "SM3DARMapView.h"
 
-@interface MapViewController : UIViewController <MKMapViewDelegate> {
-	MKMapView * mapView;
-    NSArray * events;
+@interface MapViewController : UIViewController <MKMapViewDelegate, SM3DAR_Delegate> {
+	SM3DARMapView *mapView;
+    NSArray *events;
 }
 
-@property (nonatomic, retain) MKMapView * mapView;
-@property (nonatomic, retain) NSArray * events;
+@property (nonatomic, retain) SM3DARMapView *mapView;
+@property (nonatomic, retain) NSArray *events;
 
 -(void)loadEvents;
 

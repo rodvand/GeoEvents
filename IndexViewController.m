@@ -48,7 +48,7 @@
 }
 
 - (void)locationUpdate:(CLLocation *)location {
-	bool simulator = YES;
+//	bool simulator = NO; // ??
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
     
 	latitude = [NSNumber numberWithDouble:[location coordinate].latitude];
@@ -58,14 +58,13 @@
 	appDelegate.lat = latitude;
 	appDelegate.lon = longitude;
 
-	if(run == 5 || simulator) {
+	if(location.horizontalAccuracy < 1000.0) { // run == 5 || simulator) {
 		locationFound = YES;
 		[self.tableView reloadData];
 		[locationController.locationManager stopUpdatingLocation];
 	}
 	
-	NSLog(@"Location: %f", [location coordinate].latitude);
-	NSLog(@"Location: %f", [longitude doubleValue]);
+	NSLog(@"New lat/lon/acc %f, %f, %f", location.coordinate.latitude, location.coordinate.longitude, location.horizontalAccuracy);
 }
 
 - (void)locationError:(NSError *)error {
@@ -97,7 +96,7 @@
 -(void)loadSearchView:(bool)isUsingGps {
 	GeoEvents_finalAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
 	appDelegate.isUsingGps = isUsingGps;
-	
+
 	SearchViewViewController * searchView = [[SearchViewViewController alloc] initWithStyle:UITableViewStylePlain];
 	self.searchViewViewController = searchView;
 	[self.navigationController pushViewController:searchViewViewController animated:YES];

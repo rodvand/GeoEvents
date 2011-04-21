@@ -10,7 +10,7 @@
 
 @implementation MapMarker
 
-@synthesize title, subtitle;
+@synthesize title, subtitle, imageName;
 @dynamic coordinate;
 
 - (id)initWithLocation:(CLLocation*)loc 
@@ -22,6 +22,7 @@
 - (void) dealloc {
   [title release];
   [subtitle release];
+  [imageName release];
   [super dealloc];
 }
 

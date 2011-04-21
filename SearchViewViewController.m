@@ -60,6 +60,12 @@
 	appForNetDelegate.networkActivityIndicatorVisible = NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.wantsFullScreenLayout = NO;
+}
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -80,10 +86,13 @@
     mapView.events = events;
 	self.mapViewController = mapView;
 	[mapView release];
-	
-	[self.navigationController pushViewController:mapViewController animated:YES];
-	NSLog(@"Her!");
-	
+
+
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];    
+//    self.wantsFullScreenLayout = YES;
+//    mapView.wantsFullScreenLayout = YES;
+
+	[self.navigationController pushViewController:mapViewController animated:YES];	
 }
 
 #pragma mark Table view methods
@@ -260,8 +269,11 @@
 		NSString * modifiedSearch = [searchQuery stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
 		[baseUrl appendFormat:@"&location=%@&api_key=%@", modifiedSearch, api];
 	} else {
-		[baseUrl appendFormat:@"&lat=%f&long=%f&api_key=%@", [lat doubleValue], [lon doubleValue], api];
+		[baseUrl appendFormat:@"&lat=%f&long=%f&api_key=%@&distance=15&limit=30", [lat doubleValue], [lon doubleValue], api];
 	}
+    
+    NSLog(@"Fetching events: %@", baseUrl);
+    
 	return baseUrl;
 }
 

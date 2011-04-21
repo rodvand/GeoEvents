@@ -12,10 +12,12 @@
 {
 	NSString* title;
 	NSString* subtitle;
+    NSString* imageName;
 }
 
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, retain) NSString* subtitle;
+@property (nonatomic, retain) NSString* imageName;
 
 - (id)initWithLocation:(CLLocation*)loc;
 

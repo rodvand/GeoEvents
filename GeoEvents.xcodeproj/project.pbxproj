@@ -32,6 +32,33 @@
 		8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FD41C111B9F3700A332CA /* AboutViewController.m */; };
 		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
 		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
+		A648D30F135E32AC00BC529E /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D30E135E32AC00BC529E /* sky.png */; };
+		A648D329135E33B900BC529E /* SphereBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = A648D327135E33B900BC529E /* SphereBackgroundView.m */; };
+		A648D331135E33F400BC529E /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = A648D330135E33F400BC529E /* sphere.obj */; };
+		A648D387135E401100BC529E /* pano_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D386135E401100BC529E /* pano_bg.png */; };
+		A648D584135F9D5800BC529E /* music_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D583135F9D5800BC529E /* music_icon.png */; };
+		A6645364135E017D00E93CF4 /* lib3DAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6645363135E017D00E93CF4 /* lib3DAR.a */; };
+		A6645377135E01D700E93CF4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6645375135E01D700E93CF4 /* Icon.png */; };
+		A6645378135E01D700E93CF4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6645376135E01D700E93CF4 /* Default.png */; };
+		A69F2542135919D90091A696 /* 3dar.plist in Resources */ = {isa = PBXBuildFile; fileRef = A69F252E135919D80091A696 /* 3dar.plist */; };
+		A69F2543135919D90091A696 /* 3dar_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F252F135919D80091A696 /* 3dar_logo.png */; };
+		A69F2544135919D90091A696 /* 3dar_marker_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2530135919D80091A696 /* 3dar_marker_icon1.png */; };
+		A69F2545135919D90091A696 /* 3dar_marker_icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2531135919D80091A696 /* 3dar_marker_icon2.png */; };
+		A69F2546135919D90091A696 /* 3dar_marker_icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2532135919D80091A696 /* 3dar_marker_icon3.png */; };
+		A69F2547135919D90091A696 /* 3dar_marker_icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2533135919D80091A696 /* 3dar_marker_icon4.png */; };
+		A69F2548135919D90091A696 /* 3dar_marker_icon5.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2534135919D80091A696 /* 3dar_marker_icon5.png */; };
+		A69F2549135919D90091A696 /* 3dar_marker_icon6.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2535135919D80091A696 /* 3dar_marker_icon6.png */; };
+		A69F254A135919D90091A696 /* bubble1.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2536135919D80091A696 /* bubble1.png */; };
+		A69F254B135919D90091A696 /* compass_rose.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2537135919D80091A696 /* compass_rose.png */; };
+		A69F254D135919D90091A696 /* pushpin_1.0.obj in Resources */ = {isa = PBXBuildFile; fileRef = A69F253A135919D90091A696 /* pushpin_1.0.obj */; };
+		A69F254E135919D90091A696 /* PushpinView.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F253C135919D90091A696 /* PushpinView.m */; };
+		A69F254F135919D90091A696 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F253D135919D90091A696 /* red.png */; };
+		A69F2550135919D90091A696 /* SM3DAR_keys.txt in Resources */ = {isa = PBXBuildFile; fileRef = A69F253F135919D90091A696 /* SM3DAR_keys.txt */; };
+		A69F2551135919D90091A696 /* SM3DARMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F2541135919D90091A696 /* SM3DARMapView.m */; };
+		A69F256B13591ACD0091A696 /* TexturedGeometryView.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F256A13591ACD0091A696 /* TexturedGeometryView.m */; };
+		A69F259813591BF10091A696 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69F259713591BF10091A696 /* OpenGLES.framework */; };
+		A69F259E13591C000091A696 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69F259D13591C000091A696 /* QuartzCore.framework */; };
+		A69F25A413591C0B0091A696 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69F25A313591C0B0091A696 /* CoreMotion.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +106,39 @@
 		8CC1A9C311236E0100BA6497 /* LastfmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastfmViewController.h; sourceTree = "<group>"; };
 		8CC1A9C411236E0100BA6497 /* LastfmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A648D30E135E32AC00BC529E /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
+		A648D327135E33B900BC529E /* SphereBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereBackgroundView.m; sourceTree = "<group>"; };
+		A648D328135E33B900BC529E /* SphereBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereBackgroundView.h; sourceTree = "<group>"; };
+		A648D330135E33F400BC529E /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		A648D386135E401100BC529E /* pano_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pano_bg.png; sourceTree = "<group>"; };
+		A648D583135F9D5800BC529E /* music_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon.png; sourceTree = "<group>"; };
+		A6645363135E017D00E93CF4 /* lib3DAR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib3DAR.a; path = "../../../Library/iOS/build/Debug-iphoneos/lib3DAR.a"; sourceTree = SOURCE_ROOT; };
+		A6645375135E01D700E93CF4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A6645376135E01D700E93CF4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A69F252E135919D80091A696 /* 3dar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3dar.plist; sourceTree = "<group>"; };
+		A69F252F135919D80091A696 /* 3dar_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_logo.png; sourceTree = "<group>"; };
+		A69F2530135919D80091A696 /* 3dar_marker_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon1.png; sourceTree = "<group>"; };
+		A69F2531135919D80091A696 /* 3dar_marker_icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon2.png; sourceTree = "<group>"; };
+		A69F2532135919D80091A696 /* 3dar_marker_icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon3.png; sourceTree = "<group>"; };
+		A69F2533135919D80091A696 /* 3dar_marker_icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon4.png; sourceTree = "<group>"; };
+		A69F2534135919D80091A696 /* 3dar_marker_icon5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon5.png; sourceTree = "<group>"; };
+		A69F2535135919D80091A696 /* 3dar_marker_icon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_marker_icon6.png; sourceTree = "<group>"; };
+		A69F2536135919D80091A696 /* bubble1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble1.png; sourceTree = "<group>"; };
+		A69F2537135919D80091A696 /* compass_rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_rose.png; sourceTree = "<group>"; };
+		A69F2539135919D90091A696 /* Pushpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pushpin.h; sourceTree = "<group>"; };
+		A69F253A135919D90091A696 /* pushpin_1.0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pushpin_1.0.obj; sourceTree = "<group>"; };
+		A69F253B135919D90091A696 /* PushpinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushpinView.h; sourceTree = "<group>"; };
+		A69F253C135919D90091A696 /* PushpinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushpinView.m; sourceTree = "<group>"; };
+		A69F253D135919D90091A696 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		A69F253E135919D90091A696 /* SM3DAR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SM3DAR.h; sourceTree = "<group>"; };
+		A69F253F135919D90091A696 /* SM3DAR_keys.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SM3DAR_keys.txt; sourceTree = "<group>"; };
+		A69F2540135919D90091A696 /* SM3DARMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SM3DARMapView.h; sourceTree = "<group>"; };
+		A69F2541135919D90091A696 /* SM3DARMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SM3DARMapView.m; sourceTree = "<group>"; };
+		A69F256913591ACD0091A696 /* TexturedGeometryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexturedGeometryView.h; sourceTree = "<group>"; };
+		A69F256A13591ACD0091A696 /* TexturedGeometryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TexturedGeometryView.m; sourceTree = "<group>"; };
+		A69F259713591BF10091A696 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A69F259D13591C000091A696 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A69F25A313591C0B0091A696 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +152,10 @@
 				5BF286E510CDA153005EB7AB /* libz.dylib in Frameworks */,
 				5BF2871310CDDE14005EB7AB /* CoreLocation.framework in Frameworks */,
 				8C2A61B71135BBB10039EC54 /* MapKit.framework in Frameworks */,
+				A69F259813591BF10091A696 /* OpenGLES.framework in Frameworks */,
+				A69F259E13591C000091A696 /* QuartzCore.framework in Frameworks */,
+				A69F25A413591C0B0091A696 /* CoreMotion.framework in Frameworks */,
+				A6645364135E017D00E93CF4 /* lib3DAR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +193,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A69F252D135919D80091A696 /* 3DAR */,
 				5BF286DB10CDA12F005EB7AB /* TBXML */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -151,6 +216,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A6645375135E01D700E93CF4 /* Icon.png */,
+				A6645376135E01D700E93CF4 /* Default.png */,
 				5B85658B10D6020500C8E54D /* lastfm.png */,
 				5B3AA99F10D20A8200E81307 /* SettingsView.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -162,6 +229,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A69F259713591BF10091A696 /* OpenGLES.framework */,
+				A69F259D13591C000091A696 /* QuartzCore.framework */,
+				A69F25A313591C0B0091A696 /* CoreMotion.framework */,
 				8C2A61B61135BBB10039EC54 /* MapKit.framework */,
 				5BF286E410CDA153005EB7AB /* libz.dylib */,
 				5BF2871210CDDE14005EB7AB /* CoreLocation.framework */,
@@ -221,6 +291,41 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		A69F252D135919D80091A696 /* 3DAR */ = {
+			isa = PBXGroup;
+			children = (
+				A6645363135E017D00E93CF4 /* lib3DAR.a */,
+				A69F252E135919D80091A696 /* 3dar.plist */,
+				A69F252F135919D80091A696 /* 3dar_logo.png */,
+				A69F2530135919D80091A696 /* 3dar_marker_icon1.png */,
+				A69F2531135919D80091A696 /* 3dar_marker_icon2.png */,
+				A69F2532135919D80091A696 /* 3dar_marker_icon3.png */,
+				A69F2533135919D80091A696 /* 3dar_marker_icon4.png */,
+				A69F2534135919D80091A696 /* 3dar_marker_icon5.png */,
+				A69F2535135919D80091A696 /* 3dar_marker_icon6.png */,
+				A69F2536135919D80091A696 /* bubble1.png */,
+				A69F2537135919D80091A696 /* compass_rose.png */,
+				A648D583135F9D5800BC529E /* music_icon.png */,
+				A648D386135E401100BC529E /* pano_bg.png */,
+				A69F2539135919D90091A696 /* Pushpin.h */,
+				A69F253A135919D90091A696 /* pushpin_1.0.obj */,
+				A69F253B135919D90091A696 /* PushpinView.h */,
+				A69F253C135919D90091A696 /* PushpinView.m */,
+				A69F253D135919D90091A696 /* red.png */,
+				A648D30E135E32AC00BC529E /* sky.png */,
+				A69F253E135919D90091A696 /* SM3DAR.h */,
+				A69F253F135919D90091A696 /* SM3DAR_keys.txt */,
+				A69F2540135919D90091A696 /* SM3DARMapView.h */,
+				A69F2541135919D90091A696 /* SM3DARMapView.m */,
+				A648D330135E33F400BC529E /* sphere.obj */,
+				A648D328135E33B900BC529E /* SphereBackgroundView.h */,
+				A648D327135E33B900BC529E /* SphereBackgroundView.m */,
+				A69F256913591ACD0091A696 /* TexturedGeometryView.h */,
+				A69F256A13591ACD0091A696 /* TexturedGeometryView.m */,
+			);
+			path = 3DAR;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -277,6 +382,25 @@
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				5B3AA9A110D20A8200E81307 /* SettingsView.xib in Resources */,
 				5B85658C10D6020500C8E54D /* lastfm.png in Resources */,
+				A69F2542135919D90091A696 /* 3dar.plist in Resources */,
+				A69F2543135919D90091A696 /* 3dar_logo.png in Resources */,
+				A69F2544135919D90091A696 /* 3dar_marker_icon1.png in Resources */,
+				A69F2545135919D90091A696 /* 3dar_marker_icon2.png in Resources */,
+				A69F2546135919D90091A696 /* 3dar_marker_icon3.png in Resources */,
+				A69F2547135919D90091A696 /* 3dar_marker_icon4.png in Resources */,
+				A69F2548135919D90091A696 /* 3dar_marker_icon5.png in Resources */,
+				A69F2549135919D90091A696 /* 3dar_marker_icon6.png in Resources */,
+				A69F254A135919D90091A696 /* bubble1.png in Resources */,
+				A69F254B135919D90091A696 /* compass_rose.png in Resources */,
+				A69F254D135919D90091A696 /* pushpin_1.0.obj in Resources */,
+				A69F254F135919D90091A696 /* red.png in Resources */,
+				A69F2550135919D90091A696 /* SM3DAR_keys.txt in Resources */,
+				A6645377135E01D700E93CF4 /* Icon.png in Resources */,
+				A6645378135E01D700E93CF4 /* Default.png in Resources */,
+				A648D30F135E32AC00BC529E /* sky.png in Resources */,
+				A648D331135E33F400BC529E /* sphere.obj in Resources */,
+				A648D387135E401100BC529E /* pano_bg.png in Resources */,
+				A648D584135F9D5800BC529E /* music_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +427,10 @@
 				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
 				8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */,
 				4D8721F31139308000B3CB20 /* MapMarker.m in Sources */,
+				A69F254E135919D90091A696 /* PushpinView.m in Sources */,
+				A69F2551135919D90091A696 /* SM3DARMapView.m in Sources */,
+				A69F256B13591ACD0091A696 /* TexturedGeometryView.m in Sources */,
+				A648D329135E33B900BC529E /* SphereBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +447,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GeoEvents_Prefix.pch;
 				INFOPLIST_FILE = "GeoEvents-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/iOS/build/Debug-iphoneos\"",
+				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = GeoEvents;
 			};
 			name = Debug;
@@ -331,6 +464,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GeoEvents_Prefix.pch;
 				INFOPLIST_FILE = "GeoEvents-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/iOS/build/Debug-iphoneos\"",
+				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_NAME = GeoEvents;
 			};
 			name = Release;
@@ -339,14 +477,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Peter Anderson (PK484EQWS2)";
 				CURRENT_PROJECT_VERSION = 6;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "249889C4-BEBC-4098-A78F-E04E2CA962FC";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -357,11 +498,13 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -16,15 +16,39 @@
 
 -(void)viewDidLoad {
 	[super viewDidLoad];
-	self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+
+	self.mapView = [[[SM3DARMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)] autorelease];
+    
+    NSLog(@"mapView: %@", mapView);
+    
 	mapView.mapType = MKMapTypeStandard;
 	mapView.showsUserLocation = YES;
     mapView.delegate = self;
     mapView.scrollEnabled = YES;
 	
-	[self.view insertSubview:mapView atIndex:0];
+	[self.view addSubview:mapView];    
     
-    [self loadEvents];	
+    [mapView init3DAR];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];    
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+//    [mapView startCamera];
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+//    [mapView stopCamera];
 }
 
 - (void)zoomMapToFit {
@@ -61,17 +85,21 @@
 }
 
 -(void)loadEvents {
-    for (Event * event in events) {
+    for (Event *event in events) {
+        
         CLLocationDegrees latitude = [event.lat doubleValue];
         CLLocationDegrees longitude = [event.lon doubleValue];        
 
         if (latitude == 0 && longitude == 0) 
             continue;
 
-        CLLocation * markerLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-        MapMarker * marker = [[MapMarker alloc] initWithLocation:markerLocation];
+        CLLocation *markerLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];        
+        
+        MapMarker *marker = [[MapMarker alloc] initWithLocation:markerLocation];
         marker.title = event.artist;
         marker.subtitle = [NSString stringWithFormat:@"At %@ on %@", event.venue, event.startDate];
+        marker.imageName = @"music_icon.png";
+        
         [mapView addAnnotation:marker]; 
         [marker release];    
     }
@@ -79,11 +107,16 @@
     [self zoomMapToFit];
 }
 
--(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+- (void) sm3darLoadPoints:(SM3DAR_Controller *)sm3dar
+{
+    [self loadEvents];
+}
+
+-(void)mapViewDidFinishLoadingMap:(SM3DARMapView *)mapView {
 	NSLog(@"Map view did finish loading");
 }
 
--(void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
+-(void)mapViewDidFailLoadingMap:(SM3DARMapView *)mapView withError:(NSError *)error {
 	NSLog(@"ERROR: Map view failed to load. %@", error);
 }
 
@@ -95,7 +128,7 @@
 	[mapView setRegion:region animated:YES];
 }
 
--(MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation {
+-(MKAnnotationView *)mapView:(SM3DARMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation {
 
 	MKPinAnnotationView * view = nil;
 
@@ -125,6 +158,17 @@
 -(void)dealloc {
     [events release];
     [super dealloc];
+}
+
+
+#pragma mark -
+
+- (void) mapAnnotationView:(MKAnnotationView*)annotationView calloutAccessoryControlTapped:(UIControl*)control 
+{
+    NSLog(@"calloutAccessoryControlTapped");
+    
+//    SM3DAR_CustomAnnotationView *av = (SM3DAR_CustomAnnotationView*)annotationView;
+//    self.selectedPOI = av.poi;
 }
 
 @end
