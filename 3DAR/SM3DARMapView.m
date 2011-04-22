@@ -278,10 +278,15 @@
 
 #pragma mark Annotations
 
-- (id<SM3DAR_PointProtocol>) poiFromAnnotation:(id)object
+- (NSUInteger) nextPointIndentifier
 {
-    id<SM3DAR_PointProtocol> point = nil;
-    
+    return ++currentPointIdentifier;    
+}
+
+- (SM3DAR_Point*) poiFromAnnotation:(id)object
+{
+    SM3DAR_Point *point = nil;
+
     if ([object conformsToProtocol:@protocol(SM3DAR_PointProtocol)])
     {
         // The object is a 3DAR point.
@@ -327,28 +332,34 @@
         }
     }
     
+    point.identifier = [self nextPointIndentifier];
+    
     return point;
+}
+
+- (void) mapAnnotation:(id)object toPoint:(SM3DAR_Point*)point
+{
+    [pointAnnotations setObject:object
+                         forKey:[NSString stringWithFormat:@"%u", point.identifier]];
 }
 
 - (void) addAnnotation:(id)object
 {
     NSObject<MKAnnotation> *annotation = nil;
-    
+
+    SM3DAR_Point *point = [self poiFromAnnotation:object];
+
     if ([object conformsToProtocol:@protocol(MKAnnotation)])
     {
         // The object is an annotation so add it to the map.
         
         annotation = (NSObject<MKAnnotation>*)object;
         [super addAnnotation:annotation];
+        
+        [self mapAnnotation:annotation toPoint:point];
     }
     
-    id p = [self poiFromAnnotation:object];
-    [sm3dar addPoint:p];
-    
-    if (annotation)
-    {
-        [pointAnnotations setObject:p forKey:annotation];
-    }
+    [sm3dar addPoint:point];    
 }
 
 - (void) addPoints:(NSArray *)points
@@ -357,11 +368,9 @@
     
     for (id object in points)
     {
-        id p = [self poiFromAnnotation:object];
-        [tmpPoints addObject:p];
-        NSLog(@"Mapping point %@ to annotation %@", p, object);
-
-        [pointAnnotations setObject:p forKey:object];
+        SM3DAR_Point *point = [self poiFromAnnotation:object];
+        [self mapAnnotation:object toPoint:point];
+        [tmpPoints addObject:point];
     }
     
     [sm3dar addPointsOfInterest:tmpPoints addToMap:NO];
@@ -564,20 +573,16 @@
     }
 }
 
-- (void) calloutViewWasTappedForPoint:(SM3DAR_Point *)point
+- (id) annotationForPoint:(SM3DAR_Point *)point
 {
-    NSLog(@"Digging up point: %@", point);
-    
-    
-    NSObject<MKAnnotation> *annotation = [pointAnnotations objectForKey:point];
+    NSLog(@"Digging up annotation for point: %u", point.identifier);
+    return [pointAnnotations objectForKey:[NSString stringWithFormat:@"%u", point.identifier]];
+}
 
-    MKAnnotationView *annView = (MKAnnotationView*)point.view;
-    
-    if (annotation)
-    {
-        annView.annotation = annotation;
-    }
-    
+- (void) calloutViewWasTappedForPoint:(SM3DAR_Point *)point
+{    
+    id<MKAnnotation> annotation = [self annotationForPoint:point];
+    MKAnnotationView *annView = [self mapView:self viewForAnnotation:annotation];    
     [self mapView:self annotationView:annView calloutAccessoryControlTapped:nil];
 }
 

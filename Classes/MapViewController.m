@@ -56,8 +56,6 @@
 	if ([mapView.annotations count] == 0)
 		return;
 
-    NSLog(@"zoomMapToFit %i markers", [mapView.annotations count]);
-	
 	CLLocationCoordinate2D topLeftCoord;
 	topLeftCoord.latitude = -90;
 	topLeftCoord.longitude = 180;

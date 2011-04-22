@@ -41,8 +41,10 @@
 		A648D6F31360211200BC529E /* MarkerCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A648D6F21360211200BC529E /* MarkerCalloutView.m */; };
 		A648D80413604E7E00BC529E /* music_icon_focused.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D80213604E7E00BC529E /* music_icon_focused.png */; };
 		A648D80513604E7E00BC529E /* music_icon_focused@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D80313604E7E00BC529E /* music_icon_focused@2x.png */; };
+		A648D8BE136136EB00BC529E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D8BD136136EB00BC529E /* Icon.png */; };
+		A648D8C013615A1000BC529E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D8BF13615A1000BC529E /* Default@2x.png */; };
+		A648D8C213615B8A00BC529E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D8C113615B8A00BC529E /* Icon@2x.png */; };
 		A6645364135E017D00E93CF4 /* lib3DAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6645363135E017D00E93CF4 /* lib3DAR.a */; };
-		A6645377135E01D700E93CF4 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A6645375135E01D700E93CF4 /* Icon.png */; };
 		A6645378135E01D700E93CF4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6645376135E01D700E93CF4 /* Default.png */; };
 		A69F2542135919D90091A696 /* 3dar.plist in Resources */ = {isa = PBXBuildFile; fileRef = A69F252E135919D80091A696 /* 3dar.plist */; };
 		A69F2543135919D90091A696 /* 3dar_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F252F135919D80091A696 /* 3dar_logo.png */; };
@@ -121,8 +123,10 @@
 		A648D6F21360211200BC529E /* MarkerCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerCalloutView.m; sourceTree = "<group>"; };
 		A648D80213604E7E00BC529E /* music_icon_focused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon_focused.png; sourceTree = "<group>"; };
 		A648D80313604E7E00BC529E /* music_icon_focused@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music_icon_focused@2x.png"; sourceTree = "<group>"; };
+		A648D8BD136136EB00BC529E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		A648D8BF13615A1000BC529E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A648D8C113615B8A00BC529E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		A6645363135E017D00E93CF4 /* lib3DAR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib3DAR.a; path = "../../../Library/iOS/build/Debug-iphoneos/lib3DAR.a"; sourceTree = SOURCE_ROOT; };
-		A6645375135E01D700E93CF4 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		A6645376135E01D700E93CF4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A69F252E135919D80091A696 /* 3dar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3dar.plist; sourceTree = "<group>"; };
 		A69F252F135919D80091A696 /* 3dar_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_logo.png; sourceTree = "<group>"; };
@@ -225,8 +229,10 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A6645375135E01D700E93CF4 /* Icon.png */,
+				A648D8BD136136EB00BC529E /* Icon.png */,
+				A648D8C113615B8A00BC529E /* Icon@2x.png */,
 				A6645376135E01D700E93CF4 /* Default.png */,
+				A648D8BF13615A1000BC529E /* Default@2x.png */,
 				5B85658B10D6020500C8E54D /* lastfm.png */,
 				5B3AA99F10D20A8200E81307 /* SettingsView.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
@@ -409,7 +415,6 @@
 				A69F254D135919D90091A696 /* pushpin_1.0.obj in Resources */,
 				A69F254F135919D90091A696 /* red.png in Resources */,
 				A69F2550135919D90091A696 /* SM3DAR_keys.txt in Resources */,
-				A6645377135E01D700E93CF4 /* Icon.png in Resources */,
 				A6645378135E01D700E93CF4 /* Default.png in Resources */,
 				A648D30F135E32AC00BC529E /* sky.png in Resources */,
 				A648D331135E33F400BC529E /* sphere.obj in Resources */,
@@ -418,6 +423,9 @@
 				A648D6D6136017AA00BC529E /* music_icon@2x.png in Resources */,
 				A648D80413604E7E00BC529E /* music_icon_focused.png in Resources */,
 				A648D80513604E7E00BC529E /* music_icon_focused@2x.png in Resources */,
+				A648D8BE136136EB00BC529E /* Icon.png in Resources */,
+				A648D8C013615A1000BC529E /* Default@2x.png in Resources */,
+				A648D8C213615B8A00BC529E /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

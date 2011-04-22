@@ -21,6 +21,7 @@
     UIView *containerView;    
     MarkerCalloutView<SM3DAR_FocusDelegate> *calloutView;
     NSMutableDictionary *pointAnnotations;
+    NSUInteger currentPointIdentifier;
 }
 
 @property (nonatomic, retain) UIView *containerView;

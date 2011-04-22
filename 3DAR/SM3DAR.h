@@ -32,8 +32,10 @@ typedef struct
 @property (nonatomic, assign) Coord3D worldPoint;
 @property (nonatomic, retain) UIView *view;
 @property (nonatomic, retain) NSObject<SM3DAR_Delegate> *selectionDelegate;
-@property (assign) BOOL canReceiveFocus;
-@property (assign) BOOL hasFocus;
+@property (nonatomic, assign) BOOL canReceiveFocus;
+@property (nonatomic, assign) BOOL hasFocus;
+@property (nonatomic, assign) NSUInteger identifier;
+
 - (Coord3D) worldCoordinate;
 - (void) translateX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z;
 - (Coord3D) unitVectorFromOrigin;
@@ -201,6 +203,9 @@ typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
 @interface SM3DAR_Fixture : NSObject <SM3DAR_PointProtocol> {
 }
 @property (nonatomic, assign) CGFloat gearPosition;
+@property (nonatomic, assign) BOOL canReceiveFocus;
+@property (nonatomic, assign) BOOL hasFocus;
+@property (nonatomic, assign) NSUInteger identifier;
 - (CGFloat)gearSpeed;
 - (NSInteger)numberOfTeethInGear;
 - (void) gearHasTurned;
@@ -222,8 +227,9 @@ typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
 @property (nonatomic, retain) UIView *view;
 @property (nonatomic, assign) Class annotationViewClass;
 @property (nonatomic, retain) NSString *mapAnnotationImageName;
-@property (assign) BOOL hasFocus;
-@property (assign) BOOL canReceiveFocus;
+@property (nonatomic, assign) BOOL canReceiveFocus;
+@property (nonatomic, assign) BOOL hasFocus;
+@property (nonatomic, assign) NSUInteger identifier;
 @property (nonatomic, assign) CGFloat gearPosition;
 
 - (id)initWithLocation:(CLLocation*)loc properties:(NSDictionary*)props;
