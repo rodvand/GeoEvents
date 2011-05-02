@@ -100,10 +100,7 @@
         marker.imageName = @"music_icon.png";
         marker.event = event;
         
-        // TODO: Test with array
-        [mapView addAnnotations:[NSArray arrayWithObject:marker]]; 
-        
-//        [mapView addAnnotation:marker]; 
+        [mapView addAnnotation:marker]; 
         
         [marker release];    
     }

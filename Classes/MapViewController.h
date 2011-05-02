@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
-#import "SM3DARMapView.h"
+#import "SM3DAR.h"
 
 @interface MapViewController : UIViewController <MKMapViewDelegate, SM3DAR_Delegate> {
 	SM3DARMapView *mapView;

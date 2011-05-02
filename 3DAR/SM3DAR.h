@@ -1,17 +1,97 @@
 /*
+ *  3DAR Mapping Version 0.9.1 API
+ *
  *  SM3DAR.h
- *  3DAR API header
  *
  *  Copyright 2010 Spot Metrix, Inc. All rights reserved.
  *  Please see http://spotmetrix.com
- *
- *  Version 4.0.8
  *
  */
 
 #import <MapKit/MapKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
+
+
+/*************************************************
+ 
+ //
+ // Typical usage: 
+ //
+ - (void) viewDidLoad 
+ {
+ self.mapView = [[[SM3DARMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 416)] autorelease];
+ 
+ mapView.delegate = self;
+ mapView.mapType = MKMapTypeStandard;
+ mapView.showsUserLocation = YES;
+ mapView.scrollEnabled = YES;
+ 
+ [self.view addSubview:mapView];    
+ 
+ [mapView init3DAR];
+ } 
+ 
+ - (void) sm3darLoadPoints:(SM3DAR_Controller *)sm3dar
+ {
+ 
+ [mapView addAnnotation:myAnnotation];
+ }
+ 
+ ************************************************/
+
+@protocol SM3DAR_PointProtocol;
+@class SM3DAR_Controller;
+typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
+
+
+//
+//
+//
+@protocol SM3DAR_Delegate
+@optional
+- (void) sm3darViewDidLoad:(SM3DAR_Controller *)sm3dar;
+- (void) sm3darLoadPoints:(SM3DAR_Controller *)sm3dar;
+- (void) sm3dar:(SM3DAR_Controller *)sm3dar didChangeFocusToPOI:(SM3DAR_Point*)newPOI fromPOI:(SM3DAR_Point*)oldPOI;
+- (void) sm3dar:(SM3DAR_Controller *)sm3dar didChangeSelectionToPOI:(SM3DAR_Point*)newPOI fromPOI:(SM3DAR_Point*)oldPOI;
+- (void) sm3dar:(SM3DAR_Controller *)sm3dar didChangeOrientationYaw:(CGFloat)yaw pitch:(CGFloat)pitch roll:(CGFloat)roll;
+- (void) sm3darWillInitializeOrigin:(SM3DAR_Controller *)sm3dar;
+- (void) sm3darLogoWasTapped:(SM3DAR_Controller *)sm3dar;
+- (void) sm3darDidShowMap:(SM3DAR_Controller *)sm3dar;
+- (void) sm3darDidHideMap:(SM3DAR_Controller *)sm3dar;
+- (void) mapAnnotationView:(MKAnnotationView*)annotationView calloutAccessoryControlTapped:(UIControl*)control;
+@end
+
+
+@protocol SM3DAR_Delegate;
+
+@protocol MarkerCalloutViewDelegate
+- (void) calloutViewWasTappedForPoint:(SM3DAR_Point *)point;
+@end
+
+@class MarkerCalloutView;
+
+@interface SM3DARMapView : MKMapView <SM3DAR_Delegate, MKMapViewDelegate, MarkerCalloutViewDelegate> {}
+
+@property (nonatomic, retain) UIView *containerView;
+@property (nonatomic, retain) MarkerCalloutView *calloutView;
+@property (nonatomic, retain) UIView *hudView;
+@property (nonatomic, retain) SM3DAR_Controller *sm3dar;
+
+- (void) init3DAR;
+- (void) add3darContainer:(SM3DAR_Controller *)sm3dar;
+- (void) zoomMapToFitPointsIncludingUserLocation:(BOOL)includeUser;
+- (void) zoomMapToFit;
+- (void) startCamera;
+- (void) stopCamera;
+- (void) addBackground;
+- (void) moveToLocation:(CLLocation *)newLocation;
+
+@end
+
+///////////////////////////
+// Advanced usage follows.
+///////////////////////////
 
 @class SM3DAR_PointOfInterest;		
 @class SM3DAR_Session;
@@ -21,8 +101,6 @@ typedef struct
 {
     CGFloat x, y, z;
 } Coord3D;
-
-@protocol SM3DAR_Delegate;
 
 
 //
@@ -44,41 +122,8 @@ typedef struct
 - (void) step;
 @end
 
-typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
-
 
 @class SM3DAR_Controller;
-
-//
-//
-//
-@protocol SM3DAR_Delegate
-@optional
-- (void) sm3darViewDidLoad:(SM3DAR_Controller *)sm3dar;
-- (void) sm3darLoadPoints:(SM3DAR_Controller *)sm3dar;
-- (void) sm3dar:(SM3DAR_Controller *)sm3dar didChangeFocusToPOI:(SM3DAR_Point*)newPOI fromPOI:(SM3DAR_Point*)oldPOI;
-- (void) sm3dar:(SM3DAR_Controller *)sm3dar didChangeSelectionToPOI:(SM3DAR_Point*)newPOI fromPOI:(SM3DAR_Point*)oldPOI;
-- (void) sm3dar:(SM3DAR_Controller *)sm3dar didChangeOrientationYaw:(CGFloat)yaw pitch:(CGFloat)pitch roll:(CGFloat)roll;
-- (void) sm3darWillInitializeOrigin:(SM3DAR_Controller *)sm3dar;
-- (void) sm3darLogoWasTapped:(SM3DAR_Controller *)sm3dar;
-- (void) sm3darDidShowMap:(SM3DAR_Controller *)sm3dar;
-- (void) sm3darDidHideMap:(SM3DAR_Controller *)sm3dar;
-- (void) mapAnnotationView:(MKAnnotationView*)annotationView calloutAccessoryControlTapped:(UIControl*)control;
-
-/*
--(void)sm3darViewDidLoad;
--(void)loadPointsOfInterest;
--(void)didChangeFocusToPOI:(SM3DAR_Point*)newPOI fromPOI:(SM3DAR_Point*)oldPOI;
--(void)didChangeSelectionToPOI:(SM3DAR_Point*)newPOI fromPOI:(SM3DAR_Point*)oldPOI;
--(void)didChangeOrientationYaw:(CGFloat)yaw pitch:(CGFloat)pitch roll:(CGFloat)roll;
--(void)sm3darGLViewDidLoad;
--(void)sm3darWillInitializeOrigin;
--(void)logoWasTapped;
--(void)mapAnnotationView:(MKAnnotationView*)annotationView calloutAccessoryControlTapped:(UIControl*)control;
--(void)didShowMap;
--(void)didHideMap;
-*/
-@end
 
 
 //
@@ -113,6 +158,7 @@ typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
 @property (nonatomic, assign) CGFloat screenOrientationRadians;
 @property (nonatomic, retain) UIView *glView;
 @property (nonatomic, retain) UIView *hudView;
+@property (nonatomic, retain) UIView *compassView;
 @property (nonatomic, assign) CGFloat nearClipMeters;
 @property (nonatomic, assign) CGFloat farClipMeters;
 @property (assign) NSTimeInterval locationUpdateInterval;
@@ -361,6 +407,28 @@ typedef NSObject<SM3DAR_PointProtocol> SM3DAR_Point;
 }
 @property (nonatomic, retain) NSString *imageName;
 @property (nonatomic, retain) SM3DAR_PointOfInterest *poi;
+@end
+
+//
+//
+//
+@interface TexturedGeometryView : SM3DAR_PointView {}
+
+@property (nonatomic) double zrot;
+@property (nonatomic, retain) UIColor *color;
+@property (nonatomic, retain) Geometry *geometry;
+@property (nonatomic, retain) Texture *texture;
+@property (nonatomic, retain) NSString *textureName;
+@property (nonatomic, retain) NSURL *textureURL;
+@property (nonatomic, assign) CGFloat sizeScalar;
+
+- (id) initWithTextureNamed:(NSString*)name;
+- (id) initWithTextureURL:(NSURL*)url;
+- (void) drawInGLContext;
+- (void) updateTexture:(UIImage*)textureImage;
+- (void) updateImage:(UIImage*)newImage;
+- (UIImage*) resizeImage:(UIImage*)originalImage;
+- (void) displayGeometry;
 @end
 
 

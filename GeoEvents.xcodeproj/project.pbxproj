@@ -33,18 +33,16 @@
 		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
 		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
 		A648D30F135E32AC00BC529E /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D30E135E32AC00BC529E /* sky.png */; };
-		A648D329135E33B900BC529E /* SphereBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = A648D327135E33B900BC529E /* SphereBackgroundView.m */; };
 		A648D331135E33F400BC529E /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = A648D330135E33F400BC529E /* sphere.obj */; };
 		A648D387135E401100BC529E /* pano_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D386135E401100BC529E /* pano_bg.png */; };
 		A648D584135F9D5800BC529E /* music_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D583135F9D5800BC529E /* music_icon.png */; };
 		A648D6D6136017AA00BC529E /* music_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D6D5136017AA00BC529E /* music_icon@2x.png */; };
-		A648D6F31360211200BC529E /* MarkerCalloutView.m in Sources */ = {isa = PBXBuildFile; fileRef = A648D6F21360211200BC529E /* MarkerCalloutView.m */; };
 		A648D80413604E7E00BC529E /* music_icon_focused.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D80213604E7E00BC529E /* music_icon_focused.png */; };
 		A648D80513604E7E00BC529E /* music_icon_focused@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D80313604E7E00BC529E /* music_icon_focused@2x.png */; };
 		A648D8BE136136EB00BC529E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D8BD136136EB00BC529E /* Icon.png */; };
 		A648D8C013615A1000BC529E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D8BF13615A1000BC529E /* Default@2x.png */; };
 		A648D8C213615B8A00BC529E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D8C113615B8A00BC529E /* Icon@2x.png */; };
-		A6645364135E017D00E93CF4 /* lib3DAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6645363135E017D00E93CF4 /* lib3DAR.a */; };
+		A65B6021136E235200D5C93C /* lib3DAR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A65B6020136E235200D5C93C /* lib3DAR.a */; };
 		A6645378135E01D700E93CF4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6645376135E01D700E93CF4 /* Default.png */; };
 		A69F2542135919D90091A696 /* 3dar.plist in Resources */ = {isa = PBXBuildFile; fileRef = A69F252E135919D80091A696 /* 3dar.plist */; };
 		A69F2543135919D90091A696 /* 3dar_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F252F135919D80091A696 /* 3dar_logo.png */; };
@@ -57,11 +55,8 @@
 		A69F254A135919D90091A696 /* bubble1.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2536135919D80091A696 /* bubble1.png */; };
 		A69F254B135919D90091A696 /* compass_rose.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F2537135919D80091A696 /* compass_rose.png */; };
 		A69F254D135919D90091A696 /* pushpin_1.0.obj in Resources */ = {isa = PBXBuildFile; fileRef = A69F253A135919D90091A696 /* pushpin_1.0.obj */; };
-		A69F254E135919D90091A696 /* PushpinView.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F253C135919D90091A696 /* PushpinView.m */; };
 		A69F254F135919D90091A696 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = A69F253D135919D90091A696 /* red.png */; };
 		A69F2550135919D90091A696 /* SM3DAR_keys.txt in Resources */ = {isa = PBXBuildFile; fileRef = A69F253F135919D90091A696 /* SM3DAR_keys.txt */; };
-		A69F2551135919D90091A696 /* SM3DARMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F2541135919D90091A696 /* SM3DARMapView.m */; };
-		A69F256B13591ACD0091A696 /* TexturedGeometryView.m in Sources */ = {isa = PBXBuildFile; fileRef = A69F256A13591ACD0091A696 /* TexturedGeometryView.m */; };
 		A69F259813591BF10091A696 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69F259713591BF10091A696 /* OpenGLES.framework */; };
 		A69F259E13591C000091A696 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69F259D13591C000091A696 /* QuartzCore.framework */; };
 		A69F25A413591C0B0091A696 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A69F25A313591C0B0091A696 /* CoreMotion.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -113,20 +108,16 @@
 		8CC1A9C411236E0100BA6497 /* LastfmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A648D30E135E32AC00BC529E /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
-		A648D327135E33B900BC529E /* SphereBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereBackgroundView.m; sourceTree = "<group>"; };
-		A648D328135E33B900BC529E /* SphereBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereBackgroundView.h; sourceTree = "<group>"; };
 		A648D330135E33F400BC529E /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		A648D386135E401100BC529E /* pano_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pano_bg.png; sourceTree = "<group>"; };
 		A648D583135F9D5800BC529E /* music_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon.png; sourceTree = "<group>"; };
 		A648D6D5136017AA00BC529E /* music_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music_icon@2x.png"; sourceTree = "<group>"; };
-		A648D6F11360211200BC529E /* MarkerCalloutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerCalloutView.h; sourceTree = "<group>"; };
-		A648D6F21360211200BC529E /* MarkerCalloutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerCalloutView.m; sourceTree = "<group>"; };
 		A648D80213604E7E00BC529E /* music_icon_focused.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = music_icon_focused.png; sourceTree = "<group>"; };
 		A648D80313604E7E00BC529E /* music_icon_focused@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "music_icon_focused@2x.png"; sourceTree = "<group>"; };
 		A648D8BD136136EB00BC529E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		A648D8BF13615A1000BC529E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A648D8C113615B8A00BC529E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		A6645363135E017D00E93CF4 /* lib3DAR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib3DAR.a; path = "../../../Library/iOS/build/Debug-iphoneos/lib3DAR.a"; sourceTree = SOURCE_ROOT; };
+		A65B6020136E235200D5C93C /* lib3DAR.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = lib3DAR.a; path = "../../../Library/iOS/build/Debug-iphoneos/lib3DAR.a"; sourceTree = SOURCE_ROOT; };
 		A6645376135E01D700E93CF4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A69F252E135919D80091A696 /* 3dar.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 3dar.plist; sourceTree = "<group>"; };
 		A69F252F135919D80091A696 /* 3dar_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3dar_logo.png; sourceTree = "<group>"; };
@@ -140,15 +131,9 @@
 		A69F2537135919D80091A696 /* compass_rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass_rose.png; sourceTree = "<group>"; };
 		A69F2539135919D90091A696 /* Pushpin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pushpin.h; sourceTree = "<group>"; };
 		A69F253A135919D90091A696 /* pushpin_1.0.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pushpin_1.0.obj; sourceTree = "<group>"; };
-		A69F253B135919D90091A696 /* PushpinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushpinView.h; sourceTree = "<group>"; };
-		A69F253C135919D90091A696 /* PushpinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushpinView.m; sourceTree = "<group>"; };
 		A69F253D135919D90091A696 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		A69F253E135919D90091A696 /* SM3DAR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SM3DAR.h; sourceTree = "<group>"; };
 		A69F253F135919D90091A696 /* SM3DAR_keys.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SM3DAR_keys.txt; sourceTree = "<group>"; };
-		A69F2540135919D90091A696 /* SM3DARMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SM3DARMapView.h; sourceTree = "<group>"; };
-		A69F2541135919D90091A696 /* SM3DARMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SM3DARMapView.m; sourceTree = "<group>"; };
-		A69F256913591ACD0091A696 /* TexturedGeometryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexturedGeometryView.h; sourceTree = "<group>"; };
-		A69F256A13591ACD0091A696 /* TexturedGeometryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TexturedGeometryView.m; sourceTree = "<group>"; };
 		A69F259713591BF10091A696 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A69F259D13591C000091A696 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A69F25A313591C0B0091A696 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -168,7 +153,7 @@
 				A69F259813591BF10091A696 /* OpenGLES.framework in Frameworks */,
 				A69F259E13591C000091A696 /* QuartzCore.framework in Frameworks */,
 				A69F25A413591C0B0091A696 /* CoreMotion.framework in Frameworks */,
-				A6645364135E017D00E93CF4 /* lib3DAR.a in Frameworks */,
+				A65B6021136E235200D5C93C /* lib3DAR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +294,8 @@
 		A69F252D135919D80091A696 /* 3DAR */ = {
 			isa = PBXGroup;
 			children = (
-				A6645363135E017D00E93CF4 /* lib3DAR.a */,
+				A69F253E135919D90091A696 /* SM3DAR.h */,
+				A65B6020136E235200D5C93C /* lib3DAR.a */,
 				A69F252E135919D80091A696 /* 3dar.plist */,
 				A69F252F135919D80091A696 /* 3dar_logo.png */,
 				A69F2530135919D80091A696 /* 3dar_marker_icon1.png */,
@@ -327,21 +313,10 @@
 				A648D386135E401100BC529E /* pano_bg.png */,
 				A69F2539135919D90091A696 /* Pushpin.h */,
 				A69F253A135919D90091A696 /* pushpin_1.0.obj */,
-				A69F253B135919D90091A696 /* PushpinView.h */,
-				A69F253C135919D90091A696 /* PushpinView.m */,
 				A69F253D135919D90091A696 /* red.png */,
 				A648D30E135E32AC00BC529E /* sky.png */,
-				A69F253E135919D90091A696 /* SM3DAR.h */,
 				A69F253F135919D90091A696 /* SM3DAR_keys.txt */,
-				A69F2540135919D90091A696 /* SM3DARMapView.h */,
-				A69F2541135919D90091A696 /* SM3DARMapView.m */,
 				A648D330135E33F400BC529E /* sphere.obj */,
-				A648D328135E33B900BC529E /* SphereBackgroundView.h */,
-				A648D327135E33B900BC529E /* SphereBackgroundView.m */,
-				A69F256913591ACD0091A696 /* TexturedGeometryView.h */,
-				A69F256A13591ACD0091A696 /* TexturedGeometryView.m */,
-				A648D6F11360211200BC529E /* MarkerCalloutView.h */,
-				A648D6F21360211200BC529E /* MarkerCalloutView.m */,
 			);
 			path = 3DAR;
 			sourceTree = "<group>";
@@ -452,11 +427,6 @@
 				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
 				8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */,
 				4D8721F31139308000B3CB20 /* MapMarker.m in Sources */,
-				A69F254E135919D90091A696 /* PushpinView.m in Sources */,
-				A69F2551135919D90091A696 /* SM3DARMapView.m in Sources */,
-				A69F256B13591ACD0091A696 /* TexturedGeometryView.m in Sources */,
-				A648D329135E33B900BC529E /* SphereBackgroundView.m in Sources */,
-				A648D6F31360211200BC529E /* MarkerCalloutView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
