@@ -424,6 +424,7 @@ typedef struct
 
 - (id) initWithTextureNamed:(NSString*)name;
 - (id) initWithTextureURL:(NSURL*)url;
+- (id) initWithOBJ:(NSString*)objName textureNamed:(NSString*)textureName;
 - (void) drawInGLContext;
 - (void) updateTexture:(UIImage*)textureImage;
 - (void) updateImage:(UIImage*)newImage;

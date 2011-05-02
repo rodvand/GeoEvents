@@ -32,6 +32,8 @@
 		8C4FD41D111B9F3700A332CA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FD41C111B9F3700A332CA /* AboutViewController.m */; };
 		8CC1A9C211236DEA00BA6497 /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C111236DEA00BA6497 /* FacebookViewController.m */; };
 		8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC1A9C411236E0100BA6497 /* LastfmViewController.m */; };
+		A6018C5F136E2FA6002F1561 /* MapAttackPlace3D.m in Sources */ = {isa = PBXBuildFile; fileRef = A6018C5E136E2FA6002F1561 /* MapAttackPlace3D.m */; };
+		A6018C61136E2FB2002F1561 /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = A6018C60136E2FB2002F1561 /* cube.obj */; };
 		A648D30F135E32AC00BC529E /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D30E135E32AC00BC529E /* sky.png */; };
 		A648D331135E33F400BC529E /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = A648D330135E33F400BC529E /* sphere.obj */; };
 		A648D387135E401100BC529E /* pano_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = A648D386135E401100BC529E /* pano_bg.png */; };
@@ -107,6 +109,9 @@
 		8CC1A9C311236E0100BA6497 /* LastfmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastfmViewController.h; sourceTree = "<group>"; };
 		8CC1A9C411236E0100BA6497 /* LastfmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmViewController.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* GeoEvents-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GeoEvents-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A6018C5D136E2FA6002F1561 /* MapAttackPlace3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAttackPlace3D.h; sourceTree = "<group>"; };
+		A6018C5E136E2FA6002F1561 /* MapAttackPlace3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAttackPlace3D.m; sourceTree = "<group>"; };
+		A6018C60136E2FB2002F1561 /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		A648D30E135E32AC00BC529E /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
 		A648D330135E33F400BC529E /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		A648D386135E401100BC529E /* pano_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pano_bg.png; sourceTree = "<group>"; };
@@ -317,6 +322,9 @@
 				A648D30E135E32AC00BC529E /* sky.png */,
 				A69F253F135919D90091A696 /* SM3DAR_keys.txt */,
 				A648D330135E33F400BC529E /* sphere.obj */,
+				A6018C60136E2FB2002F1561 /* cube.obj */,
+				A6018C5D136E2FA6002F1561 /* MapAttackPlace3D.h */,
+				A6018C5E136E2FA6002F1561 /* MapAttackPlace3D.m */,
 			);
 			path = 3DAR;
 			sourceTree = "<group>";
@@ -401,6 +409,7 @@
 				A648D8BE136136EB00BC529E /* Icon.png in Resources */,
 				A648D8C013615A1000BC529E /* Default@2x.png in Resources */,
 				A648D8C213615B8A00BC529E /* Icon@2x.png in Resources */,
+				A6018C61136E2FB2002F1561 /* cube.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +436,7 @@
 				8CC1A9C511236E0100BA6497 /* LastfmViewController.m in Sources */,
 				8C2A61A21135BA180039EC54 /* MapViewController.m in Sources */,
 				4D8721F31139308000B3CB20 /* MapMarker.m in Sources */,
+				A6018C5F136E2FA6002F1561 /* MapAttackPlace3D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

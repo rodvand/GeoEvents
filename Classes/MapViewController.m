@@ -10,6 +10,7 @@
 #import "MapMarker.h"
 #import "GeoEvents_finalAppDelegate.h"
 #import "DetailedViewViewController.h"
+#import "MapAttackPlace3D.h"
 
 @implementation MapViewController
 
@@ -92,13 +93,21 @@
         if (latitude == 0 && longitude == 0) 
             continue;
 
-        CLLocation *markerLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];        
+//        CLLocation *markerLocation = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];        
         
-        MapMarker *marker = [[MapMarker alloc] initWithLocation:markerLocation];
-        marker.title = event.artist;
-        marker.subtitle = [NSString stringWithFormat:@"At %@ on %@", event.venue, event.startDate];
-        marker.imageName = @"music_icon.png";
-        marker.event = event;
+//        MapMarker *marker = [[MapMarker alloc] initWithLocation:markerLocation];
+//        marker.title = event.artist;
+//        marker.subtitle = [NSString stringWithFormat:@"At %@ on %@", event.venue, event.startDate];
+//        marker.imageName = @"music_icon.png";
+//        marker.event = event;
+        
+        MapAttackPlace3D *marker = [[MapAttackPlace3D alloc] initWithProperties:
+                                    [NSDictionary dictionaryWithObjectsAndKeys:
+                                     [NSString stringWithFormat:@"%f", latitude], @"latitude",
+                                     [NSString stringWithFormat:@"%f", longitude], @"longitude",
+                                     @"10", @"points",
+                                     @"blue", @"team",
+                                     nil]];
         
         [mapView addAnnotation:marker]; 
         
@@ -111,6 +120,8 @@
 - (void) sm3darLoadPoints:(SM3DAR_Controller *)sm3dar
 {
     [self loadEvents];
+    
+    sm3dar.focusView = nil;
 }
 
 -(void)mapViewDidFinishLoadingMap:(SM3DARMapView *)mapView {
